@@ -2,10 +2,8 @@ import React from 'react';
 import QueueContext from '../../context/QueueContext'
 
 export default function BeingHelpedList() {
-
   const students = () => {
     return (
-
       <QueueContext.Consumer>
         { value => {
           console.log(value)

@@ -1,11 +1,9 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import "./LandingRoute.css";
-import ApiService from "../../services/api-service";
+
 
 export class LandingRoute extends Component {
-  handleQueue = () => {
-    ApiService.getQueue().then(res => console.log(res));
-  }
   render() {
     return (
       <div className="landingPageContainer">
@@ -22,7 +20,9 @@ export class LandingRoute extends Component {
         <p className="descriptionSignupLogin">
           To get started, sign up or log in!
         </p>
-        <input type='button' name='queue-btn' onClick={this.handleQueue} value='queue up'/>
+        <Link to="/waiting-room">
+          <input type='button' name='queue-btn' value='queue up'/>
+        </Link>
       </div>
     );
   }
