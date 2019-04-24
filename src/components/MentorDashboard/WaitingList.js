@@ -1,20 +1,20 @@
 import React from 'react';
-import StudentMentorContext from '../../context/StudentMentorContext'; 
+import QueueContext from '../../context/QueueContext'; 
 
 export default function StudentDescriptionList() {
   const students = () => {
     return (
-      <StudentMentorContext.Consumer>
+      <QueueContext.Consumer>
         { value => {
-          const students = value.users.filter(u => u.title === 'student')
-          console.log(students)
+          console.log(value)
+          const students = value.queueList.filter(q => q.title === 'student')
           return (
             students.map((s, i) => {
               return <li key={ i }>{ s.name }<span className="description">{ s.desc }</span></li>
             })
           )
         }}
-      </StudentMentorContext.Consumer>
+      </QueueContext.Consumer>
     )
   }
 
