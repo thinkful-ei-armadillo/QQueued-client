@@ -5,7 +5,7 @@ import Login from '../../Routes/LoginRoute/LoginRoute'
 import Registration from '../../Routes/RegistrationRoute/RegistrationRoute'
 import Header from '../Header/Header'
 import NotFoundRoute from '../../Routes/NotFoundRoute/NotFoundRoute'
-import WaitingRoom from '../../Routes/WaitingRoomRoute/'
+import WaitingRoom from '../../Routes/WaitingRoomRoute/WaitingRoom'
 import './App.css';
 
 class App extends Component {
@@ -15,10 +15,10 @@ class App extends Component {
         <Header />
         <main role='main'>
           <Switch>
-            <Route exact path={'/'} component={Landing} />
-            <Route path={'/login'} component={Login} />
+            <Route exact path={ '/' } component={ Landing } />
+            <Route path={ '/login' } component={ Login } />
             <Route path={ '/register' } component={ Registration } />
-            <Route path={'/waiting-room'} component={ WaitingRoom } />
+            <Route path={ '/waiting-room' } component={ WaitingRoom } />
             <Route
               component={NotFoundRoute}
             />

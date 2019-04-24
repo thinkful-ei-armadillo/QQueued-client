@@ -25,7 +25,9 @@ export class StudentMentorProvider extends Component {
   componentDidMount() {
     apiService
       .getUsers()
-      .then(users => this.updateUsers(users));
+      .then(users => {
+        this.updateUsers(users)
+      });
   }
 
   updateUsers = users => {
