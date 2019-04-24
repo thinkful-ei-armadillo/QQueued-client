@@ -5,7 +5,7 @@
 .loginInput {
   display: inline-block;
   border: 2px solid #5e0a0a;
-  width: 350px;
+  width: 40%;
   background: #c8e6f5;
 }
 
@@ -28,5 +28,11 @@
   border: none;
   background: #5e0a0a;
   font-weight: bold;
-  width: 350px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .loginInput {
+    width: 100%;
+  }
 }
