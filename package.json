@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8"
+    "classnames": "^2.2.6",
+    "jwt-decode": "^2.2.0",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^2.1.8"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -25,5 +27,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "jsonwebtoken": "^8.5.0",
+    "unfetch": "^4.1.0"
+  }
 }
