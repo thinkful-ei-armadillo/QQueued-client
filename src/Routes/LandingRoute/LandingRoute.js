@@ -8,7 +8,7 @@ export class LandingRoute extends Component {
         <h2 className="welcome">Welcome to Git-Rekt</h2>
         <p className="description">
           This is your new tool to help deal with communication between students
-          and mentors. This page is a visul queue, allowing mentors to be even
+          and mentors. This page is a visual queue, allowing mentors to be even
           more transparent with the students in the sense that the students will
           now know where the mentors are. If you're busy dealing with a student
           and aren't sure when you'll be able to get to the next one, this tool
