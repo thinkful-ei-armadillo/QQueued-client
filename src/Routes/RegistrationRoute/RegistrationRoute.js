@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import RegistrationForm from '../components/RegistrationForm/Registration'
+import RegistrationForm from '../../components/RegistrationForm/Registration'
 
 export default class RegistrationPage extends Component {
-  static defaultProps ={
+  static defaultProps = {
     history: {
-        push: () => {}
+      push: () => { }
     }
   }
 
@@ -15,11 +15,11 @@ export default class RegistrationPage extends Component {
   render() {
     return (
       <section className="registrationPage row">
-       <RegistrationForm 
-         onRegistrationSuccess={
-           this.handleRegistrationSuccuess
-         }
-       />
+        <RegistrationForm
+          onRegistrationSuccess={
+            this.handleRegistrationSuccuess
+          }
+        />
       </section>
     )
   }
