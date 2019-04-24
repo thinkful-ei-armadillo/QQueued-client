@@ -19,10 +19,15 @@ export default class Message extends Component {
   };
   onSubmit = e => {
     e.preventDefault();
-    slackApiService.openDm('UJ3CMD8UV')
-      .then(data => console.log(data))
+    slackApiService.openDmAndMessage('UJ3CMD8UV', this.state.text)
+    .then(res =>{
+      if(!res.ok){
+        throw new Error(res.message)
+      }
+      return;
+    })
+    .catch(err => console.log(err.message))
     
-    console.log("hello");
   };
 
   render() {
