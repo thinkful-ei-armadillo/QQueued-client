@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import StudentsDescriptionList from '../../components/MentorDashboard/StudentsDescriptionList';
-import { StudentMentorProvider } from '../../context/StudentMentorContext';
+import WaitingList from '../../components/MentorDashboard/WaitingList';
+import BeingHelpedList from '../../components/MentorDashboard/BeingHelpedList';
+import { QueueProvider } from '../../context/QueueContext';
 
 export default class WaitingRoom extends Component {
 
   render() {
     return (
       <div>
-        <StudentMentorProvider>
-          <StudentsDescriptionList />
-        </StudentMentorProvider>
+        <QueueProvider>
+          <WaitingList />
+          <BeingHelpedList />
+        </QueueProvider>
       </div>
     )
   }
