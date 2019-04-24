@@ -7,7 +7,7 @@ export default function StudentDescriptionList() {
       <QueueContext.Consumer>
         { value => {
           console.log(value)
-          const students = value.queueList.filter(q => q.title === 'student')
+          const students = value.queueList
           return (
             students.map((s, i) => {
               return <li key={ i }>{ s.name }<span className="description">{ s.desc }</span></li>
