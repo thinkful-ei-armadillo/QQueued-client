@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Input, Label } from "../Form/Form";
 import AuthApiService from "../../services/auth-api-service";
 import UserContext from "../../context/UserContext";
-import Button from "../Button/Button";
 import "./LoginForm.css";
 
 class LoginForm extends Component {
@@ -68,7 +67,9 @@ class LoginForm extends Component {
                 required
               />
             </div>
-            <Button type="submit">Login</Button>
+            <button className="loginButton" type="submit">
+              Login
+            </button>
           </div>
         </div>
       </form>

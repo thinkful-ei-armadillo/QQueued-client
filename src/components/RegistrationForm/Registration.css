@@ -4,7 +4,8 @@
 
 .registrationInput {
   display: inline-block;
-  border: 3px solid #5e0a0a;
+  text-align: center;
+  border: 2px solid #5e0a0a;
   width: 350px;
   background: #c8e6f5;
 }
@@ -24,11 +25,15 @@ label,
 }
 
 .registrationSubmit {
-  color: #5e0a0a;
-  margin: 20px;
-  background: #f2eee0;
-  border: 1px solid navy;
-  border-radius: 35em;
+  display: inline-block;
+  color: white;
+  padding: 8px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border: none;
+  background: #5e0a0a;
+  font-weight: bold;
+  width: 350px;
 }
 
 .registerTitle {

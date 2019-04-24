@@ -27,12 +27,12 @@ class Header extends Component {
   renderLoginLink() {
     return (
       <nav className="logged-out-header">
-        <Link className="login" to="/login">
-          Login
-        </Link>{" "}
         <Link className="register" to="/register">
           Sign up
         </Link>
+        <Link className="login" to="/login">
+          Login
+        </Link>{" "}
       </nav>
     );
   }
