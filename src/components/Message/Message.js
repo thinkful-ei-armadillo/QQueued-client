@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import slackApiService from '../../services/slack-api-service';
 
 // DJ4F8DUMB
 //user_id : for me is UJ3CMD8UV
@@ -18,7 +19,9 @@ export default class Message extends Component {
   };
   onSubmit = e => {
     e.preventDefault();
-
+    slackApiService.openDm('UJ3CMD8UV')
+      .then(data => console.log(data))
+    
     console.log("hello");
   };
 
