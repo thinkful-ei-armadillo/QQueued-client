@@ -5,6 +5,7 @@ import Login from '../../Routes/LoginRoute/LoginRoute'
 import Registration from '../../Routes/RegistrationRoute/RegistrationRoute'
 import Header from '../Header/Header'
 import NotFoundRoute from '../../Routes/NotFoundRoute/NotFoundRoute'
+import MessageRoute from '../../Routes/MessageRoute/MessageRoute'
 import './App.css';
 
 class App extends Component {
@@ -17,6 +18,8 @@ class App extends Component {
             <Route exact path={'/'} component={Landing} />
             <Route path={'/login'} component={Login} />
             <Route path={'/register'} component={Registration} />
+            <Route exact path={'/message'} component={MessageRoute}/>
+
             <Route
               component={NotFoundRoute}
             />
