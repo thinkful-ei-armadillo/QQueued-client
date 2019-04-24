@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AuthApiService from "../../services/auth-api-service";
+import { Link } from "react-router-dom";
 import "./Registration.css";
 
 export default class Registration extends Component {
@@ -86,8 +87,13 @@ export default class Registration extends Component {
             <label htmlFor="nickname">Nickname : </label>
             <input type="text" name="nickname" className="nickname" />
             <br />
-            <label htmlFor="password">password : </label>
-            <input type="text" name="password" className="password" required />
+            <label htmlFor="password">Password : </label>
+            <input
+              type="password"
+              name="password"
+              className="password"
+              required
+            />
             <br />
             <input
               className="registrationSubmit"
@@ -95,6 +101,14 @@ export default class Registration extends Component {
               name="submit"
               value="Register"
             />
+            <section className="alreadyHaveAccount">
+              Already have an account?{" "}
+              {
+                <Link className="loginLink" to="/login">
+                  Login Here
+                </Link>
+              }
+            </section>
           </div>
         </div>
       </form>

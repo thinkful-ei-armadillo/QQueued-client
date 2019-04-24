@@ -39,3 +39,14 @@ label,
 .registerTitle {
   color: #5e0a0a;
 }
+
+.alreadyHaveAccount {
+  color: black;
+  background: #c8e6f5;
+  margin-bottom: 5px;
+}
+
+.loginLink {
+  color: #5e0a0a;
+  background: #c8e6f5;
+}
