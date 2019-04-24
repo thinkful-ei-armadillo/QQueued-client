@@ -9,7 +9,7 @@ export default function BeingHelpedList() {
       <QueueContext.Consumer>
         { value => {
           console.log(value)
-          const students = value.queueList.filter(q => q.title === 'student')
+          const students = value.currentlyBeingHelped
           return (
             students.map((s, i) => {
               return <li key={ i }>{ s.name }<span className="description">{ s.desc }</span></li>
@@ -21,8 +21,8 @@ export default function BeingHelpedList() {
   }
 
   return (
-    <div>
-      helped list
-    </div>
+    <ul>
+      {students()}
+    </ul>
   )
 }
