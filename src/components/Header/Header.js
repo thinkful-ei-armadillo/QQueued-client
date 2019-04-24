@@ -5,52 +5,52 @@ import UserContext from "../../context/UserContext";
 import "./Header.css";
 
 class Header extends Component {
-    static contextType = UserContext;
+  static contextType = UserContext;
 
-    handleLogoutClick = () => {
-        this.context.processLogout();
-    };
+  handleLogoutClick = () => {
+    this.context.processLogout();
+  };
 
-    renderLogoutLink() {
-        return (
-            <div className='logged-in-header'>
-                <span className="userName">Hello {this.context.user.name}!</span>
-                <nav>
-                    <Link className="logout" onClick={this.handleLogoutClick} to="/login">
-                        Logout
+  renderLogoutLink() {
+    return (
+      <div className="logged-in-header">
+        <span className="userName">Hello {this.context.user.name}!</span>
+        <nav>
+          <Link className="logout" onClick={this.handleLogoutClick} to="/login">
+            Logout
           </Link>
-                </nav>
-            </div>
-        );
-    }
+        </nav>
+      </div>
+    );
+  }
 
-    renderLoginLink() {
-        return (
-            <nav className='logged-out-header'>
-                <Link className="login" to="/login">
-                    Login
+  renderLoginLink() {
+    return (
+      <nav className="logged-out-header">
+        <Link className="login" to="/login">
+          Login
         </Link>{" "}
-                <Link className="register" to="/register">
-                    Sign up
+        <Link className="register" to="/register">
+          Sign up
         </Link>
-            </nav>
-        );
-    }
+      </nav>
+    );
+  }
 
-    render() {
-        return (
-            <header>
-                <h1>
-                    <Link className="spacedRepetition" to="/">
-                        Git-Rekt
+  render() {
+    return (
+      <header>
+        <h1 className="header">
+          <Link className="gitRekt" to="/">
+            Git-Rekt
           </Link>
-                </h1>
-                {TokenService.hasAuthToken()
-                    ? this.renderLogoutLink()
-                    : this.renderLoginLink()}
-            </header>
-        );
-    }
+        </h1>
+        {TokenService.hasAuthToken()
+          ? this.renderLogoutLink()
+          : this.renderLoginLink()}
+      </header>
+    );
+  }
 }
 
 export default Header;

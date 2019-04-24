@@ -1,0 +1,20 @@
+.loginContainer {
+  text-align: center;
+}
+
+.loginInput {
+  display: inline-block;
+  border: 3px solid #5e0a0a;
+  width: 350px;
+  background: #c8e6f5;
+}
+
+.passwordInput,
+.usernameInput {
+  background: #c8e6f5;
+  margin: 15px;
+}
+
+.loginTitle {
+  color: #5e0a0a;
+}

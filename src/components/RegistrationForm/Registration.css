@@ -1,3 +1,36 @@
-.title-selection{
-    display: inline-block;
+.registrationContainer {
+  text-align: center;
+}
+
+.registrationInput {
+  display: inline-block;
+  border: 3px solid #5e0a0a;
+  width: 350px;
+  background: #c8e6f5;
+}
+
+input {
+  background: white;
+  border: 1px solid navy;
+}
+
+label,
+.title-selection {
+  background: #c8e6f5;
+}
+
+.title-selection {
+  display: inline-block;
+}
+
+.registrationSubmit {
+  color: #5e0a0a;
+  margin: 20px;
+  background: #f2eee0;
+  border: 1px solid navy;
+  border-radius: 35em;
+}
+
+.registerTitle {
+  color: #5e0a0a;
 }

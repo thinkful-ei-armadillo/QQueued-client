@@ -1,0 +1,35 @@
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #5e0a0a;
+}
+
+.login,
+.register,
+.logout {
+  color: #5e0a0a;
+  margin: 5px;
+  border: 2px solid #5ca0d3;
+  padding: 10px;
+  background: #c8e6f5;
+  border-radius: 10%;
+  float: right;
+}
+
+.gitRekt {
+  color: #c8e6f5;
+  width: 100%;
+  margin: 20px;
+  padding: 5px;
+  background: #5e0a0a;
+}
+
+.header {
+  background: #5e0a0a;
+}
+
+.logged-out-header,
+.logged-in-header {
+  background: #5e0a0a;
+}
