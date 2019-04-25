@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import WaitingList from "../../components/MentorDashboard/WaitingList";
-import BeingHelpedList from "../../components/MentorDashboard/BeingHelpedList";
-import { QueueProvider } from "../../context/QueueContext";
-import "./WaitingRoom.css";
+import React, { Component } from 'react';
+import WaitingList from '../../components/MentorDashboard/WaitingList';
+import BeingHelpedList from '../../components/MentorDashboard/BeingHelpedList';
+import { QueueProvider } from '../../context/QueueContext';
+import HelpForm from '../../components/HelpForm/HelpForm';
+import './WaitingRoom.css';
 
 export default class WaitingRoom extends Component {
   render() {
@@ -21,6 +22,8 @@ export default class WaitingRoom extends Component {
               <BeingHelpedList />
             </ul>
           </section>
+          
+          <HelpForm />
         </QueueProvider>
       </section>
     );
