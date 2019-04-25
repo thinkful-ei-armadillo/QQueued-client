@@ -11,7 +11,33 @@
   align-items: center;
 }
 
-.Mentor-List-Section span, .Mentor-List-Section ul {
+.Mentor-List-Section ul {
+  margin: 10px;
+  padding: 10px;
+  background: #e0cece;
+}
+
+.ulContainer {
+  border-right: 5px solid #7e3b3b;
+  border-bottom: 5px solid #7e3b3b;
+  border-top: 2px solid #966565;
+  border-left: 2px solid #966565;
+  color: black;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Waitin-List-Section {
+  text-align: center;
+}
+
+.Waiting-List-Section,
+.Being-Helped-List-Section {
+  display: inline;
+}
+
+li {
   margin: 10px;
   text-align: left;
 }
@@ -22,8 +48,12 @@
   
 }
 
-
-
 .hidden {
   display: none;
 }
+
+  padding: 10px;
+  border-radius: 55%;
+  align-content: center;
+}
+

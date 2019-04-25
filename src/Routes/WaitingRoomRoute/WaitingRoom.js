@@ -6,16 +6,21 @@ import HelpForm from '../../components/HelpForm/HelpForm';
 import './WaitingRoom.css';
 
 export default class WaitingRoom extends Component {
-
   render() {
     return (
-      <section className='Mentor-List-Section'>
+      <section className="Mentor-List-Section">
         <QueueProvider>
-          <section className='Waiting-List-Section'>
-            <WaitingList />
+          <section className="Waiting-List-Section">
+            <ul className="ulContainer">
+              Waiting List
+              <WaitingList />
+            </ul>
           </section>
-          <section className='Being-Helped-List-Section'>
-            <BeingHelpedList />
+          <section className="Being-Helped-List-Section">
+            <ul className="ulContainer">
+              Being Helped List
+              <BeingHelpedList />
+            </ul>
           </section>
           
           <HelpForm />

@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
 import "./LandingRoute.css";
-
 
 export class LandingRoute extends Component {
   render() {
     return (
       <div className="landingPageContainer">
         <h2 className="welcome">Welcome to Git-Rekt</h2>
-        <p className="description">
+        <p className="landingDescription">
           This is your new tool to help deal with communication between students
           and mentors. This page is a visual queue, allowing mentors to be even
           more transparent with the students in the sense that the students will
@@ -20,9 +18,6 @@ export class LandingRoute extends Component {
         <p className="descriptionSignupLogin">
           To get started, sign up or log in!
         </p>
-        <Link to="/waiting-room">
-          <input type='button' name='queue-btn' value='queue up'/>
-        </Link>
       </div>
     );
   }
