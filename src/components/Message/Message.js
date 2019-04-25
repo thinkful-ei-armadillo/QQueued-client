@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import slackApiService from "../../services/slack-api-service";
-import QueueContext from "../../context/QueueContext";
+import QueueContext from "../../context/QueueContext"
 
 // DJ4F8DUMB
 //user_id : for me is UJ3CMD8UV
