@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import WaitingList from '../../components/MentorDashboard/WaitingList';
 import BeingHelpedList from '../../components/MentorDashboard/BeingHelpedList';
 import { QueueProvider } from '../../context/QueueContext';
+import HelpStudentButton from '../../components/HelpStudentButton/HelpStudentButton';
 import './WaitingRoom.css';
 
 export default class WaitingRoom extends Component {
@@ -12,6 +13,7 @@ export default class WaitingRoom extends Component {
           <section className="Waiting-List-Section">
             <ul className="ulContainer">
               Waiting List
+              <HelpStudentButton />
               <WaitingList />
             </ul>
           </section>

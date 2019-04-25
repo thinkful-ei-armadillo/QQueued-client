@@ -19,6 +19,7 @@ const ApiService = {
     return fetch(`${config.API_ENDPOINT}/queue`, {
       method: 'PATCH',
       headers: {
+        'content-type': 'application/json',
         'authorization': `Bearer ${TokenService.getAuthToken()}`
       }
     })
