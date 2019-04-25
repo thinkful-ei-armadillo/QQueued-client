@@ -36,7 +36,6 @@ export default class Message extends Component {
   };
 
   render() {
-    console.log(this.context);
     let dropDown = ""; // queueList
     if (this.context.queueList.length > 0) {
       dropDown = this.context.queueList.map(i => {
