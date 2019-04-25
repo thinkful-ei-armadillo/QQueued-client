@@ -20,7 +20,7 @@ class App extends Component {
             <Route path={"/login"} component={Login} />
             <Route path={"/register"} component={Registration} />
             <Route path={"/waiting-room"} component={WaitingRoom} />
-            <Route path={"/dash"} component={StudentQueue} />
+            <Route path={"/waiting-list"} component={StudentQueue} />
             <Route component={NotFoundRoute} />
           </Switch>
         </main>
