@@ -67,6 +67,7 @@ export class UserProvider extends Component {
       id: jwtPayload.user_id,
       name: jwtPayload.name,
       username: jwtPayload.sub,
+      title: jwtPayload.title
     })
     IdleService.regiserIdleTimerResets()
     TokenService.queueCallbackBeforeExpiry(() => {
@@ -111,6 +112,7 @@ export class UserProvider extends Component {
       processLogin: this.processLogin,
       processLogout: this.processLogout,
     }
+    console.log(this.state.user)
     return (
       <UserContext.Provider value={value}>
         {this.props.children}
