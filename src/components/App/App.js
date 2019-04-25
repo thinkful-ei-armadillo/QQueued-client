@@ -21,7 +21,6 @@ class App extends Component {
             <Route path={ '/register' } component={ Registration } />
             <Route path={ '/waiting-room' } component={ WaitingRoom } />
             <Route exact path={'/message'} component={MessageRoute}/>
-
             <Route
               component={ NotFoundRoute }
             />

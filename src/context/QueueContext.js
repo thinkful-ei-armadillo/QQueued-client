@@ -7,7 +7,9 @@ const QueueContext = createContext({
   error: null,
   setError: () => { },
   clearError: () => { },
-  updateQueue: () => { }
+  updateQueue: () => { },
+  helpStudent: () => { },
+  addStudent: () => { }
 });
 
 export default QueueContext;
@@ -38,10 +40,29 @@ export class QueueProvider extends Component {
     if (queueList.length !== 0) {
       this.setState({ queueList });
     }
-    if (currentlyBeingHelped.lenth !== 0) {
+    if (currentlyBeingHelped.length !== 0) {
       this.setState({ currentlyBeingHelped });
     }
   }
+
+  helpStudent = () => {
+    apiService
+      .moveStudent()
+      .then(() => {
+        const { queueList, currentlyBeingHelped } = this.state;
+        currentlyBeingHelped.push(queueList.shift());
+        this.setState({
+          queueList,
+          currentlyBeingHelped
+        });
+      });
+  }
+
+  addStudent = (description) => {
+    apiService
+      .addStudent(description)
+  }
+  
 
   setError = error => {
     this.setState({ error });
@@ -58,7 +79,9 @@ export class QueueProvider extends Component {
       error: this.state.error,
       updateQueue: this.updateUsers,
       setError: this.setError,
-      clearError: this.clearError
+      clearError: this.clearError,
+      helpStudent: this.helpStudent,
+      addStudent: this.addStudent
     }
 
     return (

@@ -10,7 +10,7 @@ const UserContext = React.createContext({
   clearError: () => {},
   setUser: () => {},
   processLogin: () => {},
-  processLogout: () => {},
+  processLogout: () => {}
 })
 
 export default UserContext
@@ -26,7 +26,7 @@ export class UserProvider extends Component {
       state.user = {
         id: jwtPayload.user_id,
         name: jwtPayload.name,
-        username: jwtPayload.sub,
+        user_name: jwtPayload.sub,
       }
 
     this.state = state;
