@@ -7,7 +7,6 @@ export default function BeingHelpedList() {
     return (
       <QueueContext.Consumer>
         {value => {
-          console.log(value);
           const students = value.currentlyBeingHelped;
           return students.map((s, i) => {
             return (

@@ -1,13 +1,13 @@
-import React from "react";
-import QueueContext from "../../context/QueueContext";
+import React from 'react';
+import QueueContext from '../../context/QueueContext'; 
 import "./MentorDashboard.css";
+import Button from '../Button/Button';
 
 export default function StudentDescriptionList() {
   const students = () => {
     return (
       <QueueContext.Consumer>
         {value => {
-          console.log(value);
           const students = value.queueList;
           return students.map((s, i) => {
             return (
@@ -17,10 +17,16 @@ export default function StudentDescriptionList() {
               </li>
             );
           });
+
         }}
       </QueueContext.Consumer>
     );
   };
 
-  return <ul>{students()}</ul>;
+  return (
+    <ul>
+      <Button>get next student</Button>
+      { students() }
+    </ul>
+  )
 }

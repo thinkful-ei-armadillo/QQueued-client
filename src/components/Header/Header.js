@@ -16,6 +16,9 @@ class Header extends Component {
       <div className="logged-in-header">
         <span className="userName">Hello {this.context.user.name}!</span>
         <nav>
+          <Link className="logout" to="/message">
+            Send Message via Slack
+          </Link>
           <Link className="logout" onClick={this.handleLogoutClick} to="/login">
             Logout
           </Link>
