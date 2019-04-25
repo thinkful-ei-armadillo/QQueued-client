@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Label, Required } from '../Form/Form';
+import { Input } from '../Form/Form';
 import QueueContext from '../../context/QueueContext';
 
 import './HelpForm.css';

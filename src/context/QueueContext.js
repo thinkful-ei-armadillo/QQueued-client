@@ -32,7 +32,6 @@ export class QueueProvider extends Component {
       .then(queue => {
         const { queueList, currentlyBeingHelped } = queue;
         this.updateQueue(queueList, currentlyBeingHelped)
-        // console.log(queue)
       });
   }
 
@@ -61,6 +60,9 @@ export class QueueProvider extends Component {
   addStudent = (description) => {
     apiService
       .addStudent(description)
+      .then(user => {
+        this.setState({queueList: [...this.state.queueList, user]})
+      })
   }
   
 

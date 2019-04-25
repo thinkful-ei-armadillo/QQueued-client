@@ -39,6 +39,7 @@
 
 li {
   margin: 10px;
+  border-radius: 50%;
   text-align: left;
 }
 
@@ -54,7 +55,6 @@ li {
 
 .Mentor-List-Section span {
   padding: 10px;
-  border-radius: 55%;
   align-content: center;
 }
 
