@@ -5,6 +5,11 @@ header {
   background: #5e0a0a;
 }
 
+.userName {
+  background: none;
+  color: #c8e6f5;
+}
+
 .register,
 .logout {
   color: #5e0a0a;

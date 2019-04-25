@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
 import "./LandingRoute.css";
-
 
 export class LandingRoute extends Component {
   render() {
@@ -20,9 +18,6 @@ export class LandingRoute extends Component {
         <p className="descriptionSignupLogin">
           To get started, sign up or log in!
         </p>
-        <Link to="/waiting-room">
-          <input type='button' name='queue-btn' value='queue up'/>
-        </Link>
       </div>
     );
   }
