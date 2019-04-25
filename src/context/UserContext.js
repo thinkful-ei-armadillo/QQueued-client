@@ -112,7 +112,7 @@ export class UserProvider extends Component {
       processLogin: this.processLogin,
       processLogout: this.processLogout,
     }
-    console.log(this.state.user)
+    // console.log(this.state.user)
     return (
       <UserContext.Provider value={value}>
         {this.props.children}
