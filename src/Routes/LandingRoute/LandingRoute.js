@@ -6,7 +6,7 @@ export class LandingRoute extends Component {
     return (
       <div className="landingPageContainer">
         <h2 className="welcome">Welcome to Git-Rekt</h2>
-        <p className="description">
+        <p className="landingDescription">
           This is your new tool to help deal with communication between students
           and mentors. This page is a visual queue, allowing mentors to be even
           more transparent with the students in the sense that the students will
