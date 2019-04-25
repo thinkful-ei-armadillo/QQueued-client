@@ -17,7 +17,6 @@ export default function StudentDescriptionList() {
               </li>
             );
           });
-
         }}
       </QueueContext.Consumer>
     );

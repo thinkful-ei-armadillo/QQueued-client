@@ -7,7 +7,9 @@ import Header from "../Header/Header";
 import NotFoundRoute from "../../Routes/NotFoundRoute/NotFoundRoute";
 import WaitingRoom from "../../Routes/WaitingRoomRoute/WaitingRoom";
 import MessageRoute from "../../Routes/MessageRoute/MessageRoute";
-import StudentQueue from "../../Routes/StudentDashboard/StudentQueue";
+import MentorRoute from '../../Routes/MentorRoute/MentorRoute';
+import StudentRoute from '../../Routes/StudentRoute/StudentRoute';
+import StudentListRoute from '../../Routes/StudentListRoute/StudentListRoute';
 import "./App.css";
 
 class App extends Component {
@@ -20,9 +22,9 @@ class App extends Component {
             <Route exact path={"/"} component={Landing} />
             <Route path={"/login"} component={Login} />
             <Route path={"/register"} component={Registration} />
-            <Route path={"/waiting-room"} component={WaitingRoom} />
+            <MentorRoute path={"/waiting-room"} component={WaitingRoom} />
+            <StudentRoute exact path={"/waiting-list"} component={StudentListRoute} />
             <Route exact path={"/message"} component={MessageRoute} />
-            <Route exact path={"/waiting-list"} component={StudentQueue} />
             <Route component={NotFoundRoute} />
           </Switch>
         </main>
