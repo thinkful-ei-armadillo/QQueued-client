@@ -1,0 +1,17 @@
+.Mentor-List-Section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.Mentor-List-Section {
+  display: flex;
+  height: 90vh;
+  text-align: center;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.Mentor-List-Section span, .Mentor-List-Section ul {
+  margin: 10px;
+  text-align: left;
+}

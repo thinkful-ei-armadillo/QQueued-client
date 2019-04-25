@@ -10,7 +10,7 @@ export default function BeingHelpedList() {
           const students = value.currentlyBeingHelped
           return (
             students.map((s, i) => {
-              return <li key={ i }>{ s.studentName } <span className="description">  | { s.description }</span></li>
+              return <li key={ i }><span className="studentName">{ s.studentName }</span> <span className="mentor"> { s.mentorName }</span></li>
             })
           )
         } }
@@ -20,7 +20,7 @@ export default function BeingHelpedList() {
 
   return (
     <ul>
-      {students()}
+      { students() }
     </ul>
   )
 }

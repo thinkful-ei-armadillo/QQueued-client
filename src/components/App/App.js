@@ -20,7 +20,7 @@ class App extends Component {
             <Route path={ '/register' } component={ Registration } />
             <Route path={ '/waiting-room' } component={ WaitingRoom } />
             <Route
-              component={NotFoundRoute}
+              component={ NotFoundRoute }
             />
           </Switch>
         </main>

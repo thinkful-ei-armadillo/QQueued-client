@@ -30,7 +30,7 @@ export class QueueProvider extends Component {
       .then(queue => {
         const { queueList, currentlyBeingHelped } = queue;
         this.updateQueue(queueList, currentlyBeingHelped)
-        console.log(this.state.queueList)
+        console.log(queue)
       });
   }
 
