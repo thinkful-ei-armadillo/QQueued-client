@@ -11,9 +11,7 @@ export default class Message extends Component {
       text: ""
     };
   }
-  // maybe in context need to get the user you want to talk to
-  // make a call to im.open to on a DM bewteen bot and user
-  // then make post call to https://slack.com/api/chat.postMessage
+  // need to get the user_id 
   onChange = message => {
     this.setState({ text: message });
   };
