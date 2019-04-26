@@ -32,12 +32,6 @@
   position: relative;
 }
 
-li {
-  margin: 10px;
-  border-radius: 50%;
-  text-align: left;
-}
-
 .hidden {
   display: none;
 }
