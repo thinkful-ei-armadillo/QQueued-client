@@ -14,7 +14,7 @@ class Header extends Component {
   renderLogoutLink() {
     return (
       <div className="logged-in-header">
-        <span className="userName">Hello {this.context.user.name}!</span>
+        <span className="userName">Hello {this.context.user.full_name}!</span>
         <nav>
           {this.context.user && this.context.user.title === "mentor" ? (
             <Link className="logout" to="/message">
