@@ -47,10 +47,7 @@ export default class Message extends Component {
           noDup.push(this.context.queueList[i])
         }
       }
-<<<<<<< HEAD
-      console.log(noDup)
-=======
->>>>>>> sockets-client
+      
       dropDown = noDup.map(i => {
         return (
             <option key={i.id} value={i.slack_user_id}>{i.studentName}</option>
