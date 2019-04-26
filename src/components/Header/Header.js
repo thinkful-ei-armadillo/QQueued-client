@@ -44,7 +44,7 @@ class Header extends Component {
     return (
       <header>
         <h1 className="header">
-          <Link className="gitRekt" to="/">
+          <Link className="gitRekt" to="/waiting-room">
             Git-Rekt
           </Link>
         </h1>
