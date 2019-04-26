@@ -42,14 +42,6 @@ class Header extends Component {
     );
   }
 
-  generateLandingRoute() {
-    return (
-      <Link className="gitRekt" to="/">
-        Git-Rekt
-      </Link>
-    );
-  }
-
   render() {
     return (
       <header>
@@ -63,7 +55,9 @@ class Header extends Component {
               Git-Rekt
             </Link>
           ) : (
-            this.generateLandingRoute()
+            <Link className="gitRekt" to="/">
+              Git-Rekt
+            </Link>
           )}
         </h1>
         {TokenService.hasAuthToken()
