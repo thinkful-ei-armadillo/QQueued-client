@@ -10,11 +10,26 @@ export default function StudentQueue() {
         {value => {
           const queue = value.queueList;
           return queue.map((q, i) => {
-            return (
-              <li key={i} className="eachStudentInQueue">
-                <span className="studentName">{q.studentName}</span>{" "}
-              </li>
-            );
+            if (q.studentName) {
+              console.log(q);
+              return (
+                <li key={i} className="eachStudentInQueue">
+                  <div className="studentName">
+                    {q.studentName}
+                    <span className="tooltiptext">{q.description}</span>
+                  </div>
+                </li>
+              );
+            } else {
+              return (
+                <li key={i} className="eachStudentInQueue">
+                  <div className="studentName">
+                    Loading...
+                    <span className="tooltiptext">Loading...</span>
+                  </div>
+                </li>
+              );
+            }
           });
         }}
       </QueueContext.Consumer>

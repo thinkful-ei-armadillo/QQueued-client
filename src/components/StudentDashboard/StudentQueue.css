@@ -22,3 +22,20 @@
 .eachStudentInQueue {
   margin: 30px;
 }
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #5e0a0a;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 75%;
+}
+
+.studentName:hover .tooltiptext {
+  visibility: visible;
+}
