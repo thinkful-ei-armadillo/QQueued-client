@@ -3,10 +3,7 @@
   display: grid;
   margin: 10px;
   padding: 8px;
-  border-right: 3px solid #816060;
-  border-bottom: 3px solid #816060;
-  border-top: 1px solid #816060;
-  border-left: 1px solid #816060;
+  box-shadow: 2px 4px #816060;
   font-weight: normal;
 }
 
@@ -16,12 +13,8 @@
   padding: 8px;
   color: black;
   width: 200px;
-  float: left;
   background: rgb(201, 233, 245);
-  border-right: 3px solid #816060;
-  border-bottom: 3px solid #816060;
-  border-top: 1px solid #816060;
-  border-left: 1px solid #816060;
+  box-shadow: 2px 4px #816060;
   font-weight: normal;
 }
 

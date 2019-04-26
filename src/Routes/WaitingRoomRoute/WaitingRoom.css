@@ -17,22 +17,18 @@
   background: #e0cece;
 }
 
-.ulContainer {
-  border-right: 5px solid #7e3b3b;
-  border-bottom: 5px solid #7e3b3b;
-  border-top: 2px solid #966565;
-  border-left: 2px solid #966565;
-  color: black;
-  font-weight: bold;
-}
-
 .Waiting-List-Section {
   text-align: center;
 }
 
 .Waiting-List-Section,
 .Being-Helped-List-Section {
-  display: inline;
+  background: #e0cece;
+  box-shadow: 5px 10px #7e3b3b;
+  color: black;
+  font-weight: bold;
+  position: relative;
+  top: 150px;
 }
 
 li {
@@ -49,4 +45,3 @@ li {
   padding: 10px;
   align-content: center;
 }
-
