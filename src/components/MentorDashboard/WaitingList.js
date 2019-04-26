@@ -7,6 +7,7 @@ export default function StudentDescriptionList() {
     return (
       <QueueContext.Consumer>
         { value => {
+          value.webSocket();
           const students = value.queueList;
           return students.map((s, i) => {
             return (
