@@ -9,7 +9,7 @@ export default class RegistrationPage extends Component {
   };
 
   handleRegistrationSuccuess = user => {
-    this.props.history.push("/login");
+    this.props.history.push("/waiting-room");
   };
 
   render() {
