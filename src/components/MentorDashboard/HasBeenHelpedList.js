@@ -6,7 +6,7 @@ export default function HasBeenHelpedList() {
     return (
       <QueueContext.Consumer>
         { value => {
-          const queue = value.HasBeenHelpedList;
+          const queue = value.hasBeenHelpedList;
           return queue ? queue.map((q, i) => {
             return (
               <li key={ i } className="eachStudentInQueue">

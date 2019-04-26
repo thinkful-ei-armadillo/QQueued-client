@@ -9,7 +9,6 @@ export default function BeingHelpedList() {
         {value => {
           const students = value.currentlyBeingHelped;
           return students.map((s, i) => {
-            console.log(s);
             return (
               <li key={i} className="hasBeenHelped">
                 <span

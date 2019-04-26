@@ -5,7 +5,7 @@ import { connect, disconnect } from '../websockets/test';
 const QueueContext = createContext({
   queueList: [],
   currentlyBeingHelped: [],
-  hasBeenHelped: [],
+  hasBeenHelpedList: [],
   error: null,
   setError: () => { },
   clearError: () => { },
@@ -25,7 +25,7 @@ export class QueueProvider extends Component {
     const state = {
       queueList: [],
       currentlyBeingHelped: [],
-      hasBeenHelped: [],
+      hasBeenHelpedList: [],
       error: null
     };
     this.state = state;
@@ -36,8 +36,18 @@ export class QueueProvider extends Component {
       .getQueue()
       .then(queue => {
         console.log(queue)
-        const { queueList, currentlyBeingHelped } = queue;
-        this.updateQueue(queueList, currentlyBeingHelped)
+
+        const {
+          queueList,
+          currentlyBeingHelped,
+          hasBeenHelpedList
+        } = queue;
+        
+        this.updateQueue(
+          queueList,
+          currentlyBeingHelped,
+          hasBeenHelpedList
+        )
       });
   }
 
@@ -45,12 +55,15 @@ export class QueueProvider extends Component {
     this.closeWebSocket()
   }
 
-  updateQueue = (queueList=[], currentlyBeingHelped=[]) => {
-    if (queueList.length !== 0) {
+  updateQueue = (queueList, currentlyBeingHelped, hasBeenHelpedList) => {
+    if (!!queueList) {
       this.setState({ queueList });
     }
-    if (currentlyBeingHelped.length !== 0) {
+    if (!!currentlyBeingHelped) {
       this.setState({ currentlyBeingHelped });
+    }
+    if (!!hasBeenHelpedList) {
+      this.setState({ hasBeenHelpedList })
     }
   }
 
@@ -79,10 +92,10 @@ export class QueueProvider extends Component {
     apiService
       .removeStudent(id)
       .then(() => {
-        const { currentlyBeingHelped, hasBeenHelped } = this.state;
-        hasBeenHelped.push(currentlyBeingHelped.shift());
+        const { currentlyBeingHelped, hasBeenHelpedList } = this.state;
+        hasBeenHelpedList.push(currentlyBeingHelped.shift());
         this.setState({
-          hasBeenHelped,
+          hasBeenHelpedList,
           currentlyBeingHelped
         });
       })
@@ -114,7 +127,7 @@ export class QueueProvider extends Component {
     const value = {
       queueList: this.state.queueList,
       currentlyBeingHelped: this.state.currentlyBeingHelped,
-      hasBeenHelped: this.state.hasBeenHelped,
+      hasBeenHelpedList: this.state.hasBeenHelpedList,
       error: this.state.error,
       updateQueue: this.updateUsers,
       setError: this.setError,
