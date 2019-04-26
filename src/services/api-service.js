@@ -37,9 +37,7 @@ const ApiService = {
         'content-type': 'application/json',
         'authorization': `Bearer ${TokenService.getAuthToken()}`
       },
-      
       body: JSON.stringify({ description })
-
     })
       .then(res =>
       !res.ok
@@ -49,7 +47,6 @@ const ApiService = {
   },
 
   removeStudent(id) {
-    console.log(id)
     return fetch(`${config.API_ENDPOINT}/queue/${id}`, {
       method: 'PATCH',
       headers: {

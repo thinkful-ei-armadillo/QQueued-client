@@ -6,20 +6,21 @@ export default function HasBeenHelpedList() {
     return (
       <QueueContext.Consumer>
         { value => {
-          const queue = value.queueList;
-          return queue.map((q, i) => {
+          const queue = value.HasBeenHelpedList;
+          return queue ? queue.map((q, i) => {
             return (
               <li key={ i } className="eachStudentInQueue">
                 <span className="studentName">{ q.studentName }</span>{ " " }
               </li>
             );
-          });
+          }) : null;
         } }
       </QueueContext.Consumer>
     )
   }
 
   return (
+
     <ul>
       {makeHelpedList()}
     </ul>

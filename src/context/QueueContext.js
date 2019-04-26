@@ -76,7 +76,6 @@ export class QueueProvider extends Component {
   }
 
   studentHelped = (id) => {
-    console.log(id)
     apiService
       .removeStudent(id)
       .then(() => {
