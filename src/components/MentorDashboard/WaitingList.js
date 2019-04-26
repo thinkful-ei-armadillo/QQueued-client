@@ -4,35 +4,31 @@ import "./MentorDashboard.css";
 export default class StudentDescriptionList extends Component {
   static contextType = QueueContext;
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {};
   }
 
   componentDidMount() {
-    this.context.webSocket()
+    this.context.webSocket();
   }
 
   componentWillUnmount() {
-    this.context.closeWebSocket()
+    this.context.closeWebSocket();
   }
 
   render() {
-    let student = '';
+    let student = "";
     if (this.context.queueList.length > 0) {
-       student = this.context.queueList.map((i, j) => {
+      student = this.context.queueList.map((i, j) => {
         return (
-          <li key={j}>
+          <li key={j} className="waitingListLiConatiner">
             <span className="studentName">{i.studentName}</span>{" "}
             <span className="description"> {i.description}</span>
           </li>
         );
       });
     }
-    return (
-      <ul>
-        {student}
-      </ul>
-    );
+    return <ul>{student}</ul>;
   }
 }
