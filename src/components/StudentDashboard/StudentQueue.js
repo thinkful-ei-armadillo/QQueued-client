@@ -25,10 +25,7 @@ export default function StudentQueue() {
     <>
       <div className="studentsMainPage">
         <h2 className="studentListTitle">Waiting List</h2>
-        <HelpForm
-          className="getHelpButton"
-          onAddToQueue={this.handleLoginSuccess}
-        />
+        <HelpForm className="getHelpButton" />
         <ul className="studentWaitingQueue">{makeQueue()}</ul>
       </div>
     </>

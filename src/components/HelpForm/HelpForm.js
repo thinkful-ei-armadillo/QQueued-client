@@ -11,8 +11,7 @@ export default class HelpForm extends Component {
     this.state = {
       input: "",
       hideInput: true,
-      buttonTitle: "Get Help!",
-      onLoginSuccess: () => {}
+      buttonTitle: "Get Help!"
     };
   }
 
