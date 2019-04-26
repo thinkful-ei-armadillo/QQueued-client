@@ -31,7 +31,6 @@ const ApiService = {
   },
 
   addStudent(description) {
-    console.log(description)
     return fetch(`${config.API_ENDPOINT}/queue`, {
       method: "POST",
       headers: {
@@ -47,6 +46,22 @@ const ApiService = {
         ? res.json().then(e => Promise.reject(e))
         : res.json()
     );
+  },
+
+  removeStudent(id) {
+    console.log(id)
+    return fetch(`${config.API_ENDPOINT}/queue/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
+      }
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      ) 
   }
 } 
 

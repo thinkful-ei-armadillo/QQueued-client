@@ -5,6 +5,7 @@ import { connect, disconnect } from '../websockets/test';
 const QueueContext = createContext({
   queueList: [],
   currentlyBeingHelped: [],
+  hasBeenHelped: [],
   error: null,
   setError: () => { },
   clearError: () => { },
@@ -12,7 +13,8 @@ const QueueContext = createContext({
   helpStudent: () => { },
   addStudent: () => { },
   webSocket: () => { },
-  closeWebSocket: () => { }
+  closeWebSocket: () => { },
+  studentHelped: () => { }
 });
 
 export default QueueContext;
@@ -23,8 +25,9 @@ export class QueueProvider extends Component {
     const state = {
       queueList: [],
       currentlyBeingHelped: [],
+      hasBeenHelped: [],
       error: null
-    }
+    };
     this.state = state;
   }
 
@@ -32,6 +35,7 @@ export class QueueProvider extends Component {
     apiService
       .getQueue()
       .then(queue => {
+        console.log(queue)
         const { queueList, currentlyBeingHelped } = queue;
         this.updateQueue(queueList, currentlyBeingHelped)
       });
@@ -70,7 +74,20 @@ export class QueueProvider extends Component {
         this.setState({queueList: [...this.state.queueList, user]})
       })
   }
-  
+
+  studentHelped = (id) => {
+    console.log(id)
+    apiService
+      .removeStudent(id)
+      .then(() => {
+        const { currentlyBeingHelped, hasBeenHelped } = this.state;
+        hasBeenHelped.push(currentlyBeingHelped.shift());
+        this.setState({
+          hasBeenHelped,
+          currentlyBeingHelped
+        });
+      })
+  }
 
   setError = error => {
     this.setState({ error });
@@ -82,7 +99,7 @@ export class QueueProvider extends Component {
 
   webSocket = () => {
     connect(res => {
-      const { queueList, currentlyBeingHelped} = res;
+      const { queueList, currentlyBeingHelped } = res;
       this.setState({
         queueList,
         currentlyBeingHelped
@@ -98,6 +115,7 @@ export class QueueProvider extends Component {
     const value = {
       queueList: this.state.queueList,
       currentlyBeingHelped: this.state.currentlyBeingHelped,
+      hasBeenHelped: this.state.hasBeenHelped,
       error: this.state.error,
       updateQueue: this.updateUsers,
       setError: this.setError,
@@ -105,8 +123,9 @@ export class QueueProvider extends Component {
       helpStudent: this.helpStudent,
       addStudent: this.addStudent,
       webSocket: this.webSocket,
-      closeWebSocket: this.closeWebSocket
-    }
+      closeWebSocket: this.closeWebSocket,
+      studentHelped: this.studentHelped
+    };
 
     return (
       <QueueContext.Provider value={value}>
