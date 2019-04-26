@@ -23,6 +23,11 @@ const ApiService = {
         'authorization': `Bearer ${TokenService.getAuthToken()}`
       }
     })
+      .then(res => {
+      return res.text()
+      })
+      // We are trying to use json parse HTML
+      .then(text => console.log(text))
         /* (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json() */
