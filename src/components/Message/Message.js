@@ -37,8 +37,17 @@ export default class Message extends Component {
 
   render() {
     let dropDown = ""; // queueList
+    
     if (this.context.queueList.length > 0) {
-      dropDown = this.context.queueList.map(i => {
+      let noDup = [];
+      let hash = Object.create(null)
+      for(let i = 0 ; i < this.context.queueList.length ; i++ ){
+        if(!hash[this.context.queueList[i].studentName]){
+          hash[this.context.queueList[i].studentName] = true;
+          noDup.push(this.context.queueList[i])
+        }
+      }
+      dropDown = noDup.map(i => {
         return (
             <option key={i.id} value={i.slack_user_id}>{i.studentName}</option>
         );
