@@ -17,14 +17,14 @@ export default class WaitingRoom extends Component {
       <section className="Mentor-List-Section">
         <QueueProvider>
           <section className="Waiting-List-Section">
-            <ul className="ulContainer">
+            <ul>
               Waiting List
               <HelpStudentButton />
               <WaitingList />
             </ul>
           </section>
           <section className="Being-Helped-List-Section">
-            <ul className="ulContainer">
+            <ul>
               Being Helped List
               <BeingHelpedList />
             </ul>
