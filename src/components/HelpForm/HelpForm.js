@@ -33,6 +33,7 @@ export default class HelpForm extends Component {
   handleSubmit = e => {
     const { addStudent } = this.context;
     e.preventDefault();
+    e.target.reset();
     addStudent(this.state.input);
     this.setState({
       hideInput: !this.state.hideInput,
