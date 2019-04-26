@@ -9,9 +9,10 @@ export default function BeingHelpedList() {
         {value => {
           const students = value.currentlyBeingHelped;
           return students.map((s, i) => {
+            console.log(s)
             return (
               <li key={i}>
-                <span className="studentName">{s.studentName}</span>{" "}
+                <span onClick={() => value.studentHelped(s.id)} className="studentName">{s.studentName}</span>{" "}
                 <span className="mentor"> {s.mentorName}</span>
               </li>
             );
