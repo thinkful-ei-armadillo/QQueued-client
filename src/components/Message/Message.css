@@ -1,0 +1,17 @@
+.messageContainer {
+  display: inline;
+}
+
+#sendMessage {
+  margin: 20px;
+  background: white;
+}
+
+.studentDropdown {
+  height: 30px;
+  width: 150px;
+  margin: 20px;
+  font-weight: bold;
+  color: rgb(201, 233, 245);
+  background: #5e0a0a;
+}

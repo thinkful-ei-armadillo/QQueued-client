@@ -11,7 +11,8 @@ header {
 }
 
 .register,
-.logout {
+.logout,
+.messageViaSlack {
   color: #5e0a0a;
   margin: 10px;
   padding: 10px;

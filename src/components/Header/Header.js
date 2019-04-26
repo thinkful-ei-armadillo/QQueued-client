@@ -17,7 +17,7 @@ class Header extends Component {
         <span className="userName">Hello {this.context.user.full_name}!</span>
         <nav>
           {this.context.user && this.context.user.title === "mentor" ? (
-            <Link className="logout" to="/message">
+            <Link className="messageViaSlack" to="/message">
               Send Message via Slack
             </Link>
           ) : null}

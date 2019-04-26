@@ -11,7 +11,6 @@ export default function StudentQueue() {
           const queue = value.queueList;
           return queue.map((q, i) => {
             if (q.studentName) {
-              console.log(q);
               return (
                 <li key={i} className="eachStudentInQueue">
                   <div className="studentName">
