@@ -12,4 +12,10 @@ function connect(cb) {
   });
 }
 
-export { connect };
+function disconnect() {
+  socket.on('disconnect', () =>{
+    socket.disconnect()
+  })
+}
+
+export { connect, disconnect };

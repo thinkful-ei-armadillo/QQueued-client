@@ -8,7 +8,6 @@ export default function StudentQueue() {
     return (
       <QueueContext.Consumer>
         {value => {
-         value.webSocket();
           const queue = value.queueList;
           return queue.map((q, i) => {
             return (
