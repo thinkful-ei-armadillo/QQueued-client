@@ -1,5 +1,6 @@
 import React, { Component, createContext } from 'react';
 import apiService from '../services/api-service';
+import { connect } from '../websockets/test';
 
 const QueueContext = createContext({
   queueList: [],
@@ -74,6 +75,16 @@ export class QueueProvider extends Component {
     this.setState({ error: null });
   }
 
+  webSocket = () => {
+    connect(res => {
+      const { queueList, currentlyBeingHelped} = res;
+      this.setState({
+        queueList,
+        currentlyBeingHelped
+      })
+    })
+  }
+
   render() {
     const value = {
       queueList: this.state.queueList,
@@ -83,7 +94,8 @@ export class QueueProvider extends Component {
       setError: this.setError,
       clearError: this.clearError,
       helpStudent: this.helpStudent,
-      addStudent: this.addStudent
+      addStudent: this.addStudent,
+      webSocket: this.webSocket
     }
 
     return (
