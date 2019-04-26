@@ -23,12 +23,13 @@
 
 .Waiting-List-Section,
 .Being-Helped-List-Section {
+  height: 500px;
+  overflow: auto;
   background: #e0cece;
   box-shadow: 5px 10px #7e3b3b;
   color: black;
   font-weight: bold;
   position: relative;
-  top: 150px;
 }
 
 li {
