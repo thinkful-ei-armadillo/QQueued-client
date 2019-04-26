@@ -1,6 +1,6 @@
 import React, { Component, createContext } from 'react';
 import apiService from '../services/api-service';
-import { connect } from '../websockets/test';
+import { connect, disconnect } from '../websockets/test';
 
 const QueueContext = createContext({
   queueList: [],
@@ -10,7 +10,9 @@ const QueueContext = createContext({
   clearError: () => { },
   updateQueue: () => { },
   helpStudent: () => { },
-  addStudent: () => { }
+  addStudent: () => { },
+  webSocket: () => { },
+  closeWebSocket: () => { }
 });
 
 export default QueueContext;
@@ -34,6 +36,10 @@ export class QueueProvider extends Component {
         const { queueList, currentlyBeingHelped } = queue;
         this.updateQueue(queueList, currentlyBeingHelped)
       });
+  }
+
+  componentWillUnmount() {
+    this.closeWebSocket()
   }
 
   updateQueue = (queueList=[], currentlyBeingHelped=[]) => {
@@ -85,6 +91,10 @@ export class QueueProvider extends Component {
     })
   }
 
+  closeWebSocket = () => {
+    disconnect()
+  }
+
   render() {
     const value = {
       queueList: this.state.queueList,
@@ -95,7 +105,8 @@ export class QueueProvider extends Component {
       clearError: this.clearError,
       helpStudent: this.helpStudent,
       addStudent: this.addStudent,
-      webSocket: this.webSocket
+      webSocket: this.webSocket,
+      closeWebSocket: this.closeWebSocket
     }
 
     return (
