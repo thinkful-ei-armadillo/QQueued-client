@@ -24,11 +24,9 @@
   border-left: 2px solid #966565;
   color: black;
   font-weight: bold;
-  display: flex;
-  justify-content: space-evenly;
 }
 
-.Waitin-List-Section {
+.Waiting-List-Section {
   text-align: center;
 }
 
@@ -41,12 +39,6 @@ li {
   margin: 10px;
   border-radius: 50%;
   text-align: left;
-}
-
-.Mentor-List-Section .Button {
-  display: flex;
-  flex-direction: inherit;
-  
 }
 
 .hidden {

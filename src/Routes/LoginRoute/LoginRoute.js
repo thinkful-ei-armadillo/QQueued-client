@@ -13,13 +13,8 @@ class LoginRoute extends Component {
 
   handleLoginSuccess = () => {
     const { location, history } = this.props;
-    const { user } = this.context;
     let destination = null;
-    if (user.title === "student") {
-      destination = (location.state || {}).from || "/waiting-list";
-    } else if (user.title === "mentor") {
-      destination = (location.state || {}).from || "/waiting-room";
-    }
+    destination = (location.state || {}).from || "/waiting-room";
     history.push(destination);
   };
 
