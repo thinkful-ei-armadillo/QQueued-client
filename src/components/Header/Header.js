@@ -16,9 +16,11 @@ class Header extends Component {
       <div className="logged-in-header">
         <span className="userName">Hello {this.context.user.name}!</span>
         <nav>
-          <Link className="logout" to="/message">
-            Send Message via Slack
-          </Link>
+          {this.context.user && this.context.user.title === "mentor" ? (
+            <Link className="logout" to="/message">
+              Send Message via Slack
+            </Link>
+          ) : null}
           <Link className="logout" onClick={this.handleLogoutClick} to="/login">
             Logout
           </Link>
@@ -40,13 +42,29 @@ class Header extends Component {
     );
   }
 
+  generateLandingRoute() {
+    return (
+      <Link className="gitRekt" to="/">
+        Git-Rekt
+      </Link>
+    );
+  }
+
   render() {
     return (
       <header>
         <h1 className="header">
-          <Link className="gitRekt" to="/">
-            Git-Rekt
-          </Link>
+          {this.context.user && this.context.user.title === "mentor" ? (
+            <Link className="gitRekt" to="/waiting-room">
+              Git-Rekt
+            </Link>
+          ) : this.context.user && this.context.user.title === "student" ? (
+            <Link className="gitRekt" to="/waiting-list">
+              Git-Rekt
+            </Link>
+          ) : (
+            this.generateLandingRoute()
+          )}
         </h1>
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
