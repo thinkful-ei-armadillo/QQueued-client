@@ -29,7 +29,6 @@ class LoginForm extends Component {
         user_name.value = "";
         password.value = "";
         this.context.processLogin(res.authToken);
-
         this.props.onLoginSuccess();
       })
       .catch(res => {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AuthApiService from "../../services/auth-api-service";
 import { Link } from "react-router-dom";
+import UserContext from '../../context/UserContext';
 import "./Registration.css";
 
 export default class Registration extends Component {
@@ -8,6 +9,8 @@ export default class Registration extends Component {
     onRegistrationSuccess: () => {}
   };
   state = { error: null };
+
+  static contextType = UserContext;
 
   handleRegistrationSubmit = ev => {
     ev.preventDefault();
@@ -24,11 +27,12 @@ export default class Registration extends Component {
       title: title.value,
       password: password.value
     })
-      .then(user => {
+      .then(res => {
         full_name.value = "";
         title.value = "";
         user_name.value = "";
         password.value = "";
+        this.context.processLogin(res.authToken);
         this.props.onRegistrationSuccess();
       })
       .catch(res => {
@@ -88,7 +92,7 @@ export default class Registration extends Component {
               type="submit"
               name="submit"
               value="Register"
-            />
+              />
             <section className="alreadyHaveAccount">
               Already have an account?{ " " }
               {

@@ -25,7 +25,6 @@ export class QueueProvider extends Component {
       currentlyBeingHelped: [],
       error: null
     }
-
     this.state = state;
   }
 

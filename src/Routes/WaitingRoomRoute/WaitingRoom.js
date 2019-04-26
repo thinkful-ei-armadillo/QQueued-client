@@ -4,14 +4,8 @@ import BeingHelpedList from '../../components/MentorDashboard/BeingHelpedList';
 import { QueueProvider } from '../../context/QueueContext';
 import HelpStudentButton from '../../components/HelpStudentButton/HelpStudentButton';
 import './WaitingRoom.css';
-import { connect } from '../../websockets/test';
 export default class WaitingRoom extends Component {
-  constructor(props) {
-    super(props);
-
-    connect(res => {console.log(res)})
-  }
-
+  
   render() {
     return (
       <section className="Mentor-List-Section">
