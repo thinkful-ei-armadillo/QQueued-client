@@ -22,4 +22,12 @@ function disconnect() {
   });
 }
 
-export { connect, disconnect, newTicket };
+function dequeueTicket(cb) {
+  socket.on('dequeue', data => {
+    if(data === 1) {
+      cb(data)
+    }
+  })
+}
+
+export { connect, disconnect, newTicket, dequeueTicket };
