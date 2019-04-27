@@ -83,9 +83,6 @@ export class QueueProvider extends Component {
   addStudent = (description) => {
     apiService
       .addStudent(description)
-      .then(user => {
-        this.setState({queueList: [...this.state.queueList, user]})
-      })
   }
 
   studentHelped = (id) => {
