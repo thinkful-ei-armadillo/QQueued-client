@@ -61,8 +61,10 @@ export default class StudentQueue extends Component {
 
   componentDidMount() {
     this.context.webSocket();
+    // this.context.dequeueWait();
   }
   render() {
+    console.log(this.context)
     let makeQueue = [];
     if (this.context.queueList.length > 0) {
       makeQueue = this.context.queueList.map((i, j) => {

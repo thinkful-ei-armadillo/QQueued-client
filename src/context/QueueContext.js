@@ -1,6 +1,6 @@
 import React, { Component, createContext } from 'react';
 import apiService from '../services/api-service';
-import { disconnect, newTicket } from '../websockets/test';
+import { disconnect, newTicket, dequeueTicket } from '../websockets/test';
 
 const QueueContext = createContext({
   queueList: [],
@@ -14,7 +14,8 @@ const QueueContext = createContext({
   addStudent: () => { },
   webSocket: () => { },
   closeWebSocket: () => { },
-  studentHelped: () => { }
+  studentHelped: () => { },
+  dequeueWait: () => { }
 });
 
 export default QueueContext;
@@ -122,6 +123,13 @@ export class QueueProvider extends Component {
     disconnect()
   }
 
+  dequeueWait = () => {
+    dequeueTicket(res => {
+      this.state.queueList.shift()
+      this.setState({queueList: this.state.queueList})
+    })
+  }
+
   render() {
     const value = {
       queueList: this.state.queueList,
@@ -135,7 +143,8 @@ export class QueueProvider extends Component {
       addStudent: this.addStudent,
       webSocket: this.webSocket,
       closeWebSocket: this.closeWebSocket,
-      studentHelped: this.studentHelped
+      studentHelped: this.studentHelped,
+      dequeueWait: this.dequeueWait
     };
 
     return (
