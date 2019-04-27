@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import QueueContext from "../../context/QueueContext";
 import "./MentorDashboard.css";
+import { newTicket } from '../../websockets/test'
 export default class StudentDescriptionList extends Component {
   static contextType = QueueContext;
 
   constructor(props) {
     super(props);
     this.state = {};
+    newTicket(res => {console.log(res)})
   }
 
   componentDidMount() {

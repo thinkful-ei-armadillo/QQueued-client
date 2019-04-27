@@ -11,11 +11,15 @@ function connect(cb) {
     cb(message);
   });
 }
-
+function newTicket(cb) {
+  socket.on('new-ticket', data =>{
+    cb(data)
+  })
+}
 function disconnect() {
   socket.on("disconnect", () => {
     socket.disconnect();
   });
 }
 
-export { connect, disconnect };
+export { connect, disconnect, newTicket };
