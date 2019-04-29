@@ -24,14 +24,16 @@
 .Waiting-List-Section,
 .Being-Helped-List-Section,
 .Has-Been-Helped-List-Section {
-  top: 10%;
-  height: 500px;
+  /* top: 10%; */
+  /* height: 500px; */
+  height:70vh;
   overflow: auto;
   background: #e0cece;
   box-shadow: 5px 10px #7e3b3b;
   color: black;
   font-weight: bold;
-  position: relative;
+  /* position: relative; */
+  margin-bottom: 14px;
 }
 
 .hidden {
@@ -45,11 +47,18 @@
 
 .keyForMentors {
   display: flex;
-  position: absolute;
+  /* position: absolute; */
   top: 15%;
 }
 
 /* add .selectable class at some point */
 .Being-Helped-List-Section .studentName:hover {
   cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+  .Waiting-List-Section,
+  .Being-Helped-List-Section,
+  .Has-Been-Helped-List-Section {
+    height: 100%;
+  }
 }

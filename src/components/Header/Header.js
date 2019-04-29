@@ -45,7 +45,7 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <h1 className="header">
+        {/* <h1 className="header"> */}
           {this.context.user && this.context.user.title === "mentor" ? (
             <Link className="gitRekt" to="/waiting-room">
               Git-Rekt
@@ -59,7 +59,7 @@ class Header extends Component {
               Git-Rekt
             </Link>
           )}
-        </h1>
+        {/* </h1> */}
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
