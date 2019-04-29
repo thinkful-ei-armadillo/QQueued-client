@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import UserContext from '../../context/UserContext';
+import TokenService from '../../services/token-service';
 
 export default function MentorRoute({ component, ...props }) {
   const Component = component;
@@ -9,8 +10,10 @@ export default function MentorRoute({ component, ...props }) {
     <Route
       {...props}
       render={componentProps =>
-        context.user.title !== "mentor" ? (
-          <Redirect to={"/waiting-list"} />
+        !TokenService.getAuthToken() ? (
+          <Redirect to={"/login"} />
+          ) : context.user.title !== "mentor" ? (
+            <Redirect to={"/waiting-list"} />
         ) : (
           <Component {...componentProps} />
         )
