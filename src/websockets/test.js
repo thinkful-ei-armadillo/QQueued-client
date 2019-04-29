@@ -1,5 +1,6 @@
 import openSocket from "socket.io-client";
-const socket = openSocket("http://localhost:8000");
+import config from '../config';
+const socket = openSocket(/* config.API_ENDPOINT || */ "http://localhost:8000");
 
 function connect(cb) {
   // listen for any messages coming through

@@ -9,7 +9,7 @@ import "./WaitingRoom.css";
 export default class WaitingRoom extends Component {
   static contextType = UserContext;
   render() {
-    console.log(this.context)
+    const { full_name } = this.context.user;
     return (
       <section className="Mentor-List-Section">
         <section className="keyForMentors">
@@ -20,7 +20,7 @@ export default class WaitingRoom extends Component {
         <QueueProvider>
           <section className="Waiting-List-Section">
             Waiting List
-            <HelpStudentButton mentorName={ this.context.user.full_name }/>
+            <HelpStudentButton mentorName={ full_name }/>
             <WaitingList />
           </section>
           <section className="Being-Helped-List-Section">

@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "alias": "capstone-III-app",
-  "name": "capstone-III-app",
+  "alias": "get-rekt-capstone",
+  "name": "get-rekt-capstone",
   "routes": [
     {
       "src": "^/static/(.*)",

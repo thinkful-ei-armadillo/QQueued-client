@@ -48,3 +48,8 @@
   position: absolute;
   top: 15%;
 }
+
+/* add .selectable class at some point */
+.Being-Helped-List-Section .studentName:hover {
+  cursor: pointer;
+}
