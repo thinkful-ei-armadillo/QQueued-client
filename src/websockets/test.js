@@ -17,9 +17,7 @@ function newTicket(cb) {
   })
 }
 function disconnect() {
-  socket.on("disconnect", () => {
-    socket.disconnect();
-  });
+  socket.close()
 }
 
 function dequeueTicket(cb) {
