@@ -1,7 +1,6 @@
 import React, { Component, createContext } from "react";
 import apiService from "../services/api-service";
 import openSocket from "socket.io-client";
-import config from "../config";
 
 
 const QueueContext = createContext({
@@ -38,8 +37,10 @@ export class QueueProvider extends Component {
     )
   }
 
-   componentDidMount() {
-       apiService.getQueue().then(async queue => {
+  componentDidMount() {
+    apiService
+      .getQueue()
+      .then(async queue => {
         const {
           queueList,
           currentlyBeingHelped,
@@ -52,10 +53,9 @@ export class QueueProvider extends Component {
           hasBeenHelpedList
         );
       });
-    
   }
 
-   componentWillUnmount() {
+  componentWillUnmount() {
     this.socket.close()
   }
 
