@@ -1,6 +1,6 @@
 import openSocket from "socket.io-client";
 import config from '../config';
-const socket = openSocket(/* config.API_ENDPOINT || */ "http://localhost:8000");
+const socket = openSocket("https://dry-depths-54014.herokuapp.com");
 
 function connect(cb) {
   // listen for any messages coming through
