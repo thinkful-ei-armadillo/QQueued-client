@@ -1,10 +1,7 @@
-import React, { Component, createContext } from 'react';
-import apiService from '../services/api-service';
+import React, { Component, createContext } from "react";
+import apiService from "../services/api-service";
 import openSocket from "socket.io-client";
-import config from '../config';
-// import { newTicket, disconnect ,dequeueTicket } from '../websockets/test';
-
-const socket = openSocket(/* config.API_ENDPOINT ||  */"http://localhost:8000");
+import config from "../config";
 
 
 const QueueContext = createContext({
@@ -12,22 +9,23 @@ const QueueContext = createContext({
   currentlyBeingHelped: [],
   hasBeenHelpedList: [],
   error: null,
-  setError: () => { },
-  clearError: () => { },
-  updateQueue: () => { },
-  helpStudent: () => { },
-  addStudent: () => { },
-  webSocket: () => { },
-  closeWebSocket: () => { },
-  studentHelped: () => { },
-  dequeueWait: () => { }
+  setError: () => {},
+  clearError: () => {},
+  updateQueue: () => {},
+  helpStudent: () => {},
+  addStudent: () => {},
+  webSocket: () => {},
+  closeWebSocket: () => {},
+  studentHelped: () => {},
+  dequeueWait: () => {},
+  
 });
 
 export default QueueContext;
 
 export class QueueProvider extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     const state = {
       queueList: [],
       currentlyBeingHelped: [],
@@ -35,36 +33,30 @@ export class QueueProvider extends Component {
       error: null
     };
     this.state = state;
-    this._isMounted = false;
+    this.socket = openSocket(
+      /* config.API_ENDPOINT ||  */ "http://localhost:8000"
+    )
   }
 
-  async componentDidMount() {
-    // socket.connect()
-    this._isMounted = await true;
-    if(this._isMounted){
-    await apiService
-      .getQueue()
-      .then( async queue => {
-
+   componentDidMount() {
+       apiService.getQueue().then(async queue => {
         const {
           queueList,
           currentlyBeingHelped,
           hasBeenHelpedList
         } = await queue;
-        
+
         await this.updateQueue(
           queueList,
           currentlyBeingHelped,
           hasBeenHelpedList
-        )
+        );
       });
-    }
     
   }
 
-  async componentWillUnmount() {
-    this._isMounted = await false;
-    // this.closeWebSocket()
+   componentWillUnmount() {
+    this.socket.close()
   }
 
   updateQueue = (queueList, currentlyBeingHelped, hasBeenHelpedList) => {
@@ -75,79 +67,74 @@ export class QueueProvider extends Component {
       this.setState({ currentlyBeingHelped });
     }
     if (!!hasBeenHelpedList) {
-      this.setState({ hasBeenHelpedList })
+      this.setState({ hasBeenHelpedList });
     }
-  }
+  };
 
-  helpStudent = (mentorName) => {
-    apiService
-      .moveStudent()
-      .then(() => {
-        const { queueList, currentlyBeingHelped } = this.state;
-        let student = queueList.shift();
-        student.mentorName = mentorName;
-        currentlyBeingHelped.push(student);
+  helpStudent = mentorName => {
+    apiService.moveStudent().then(() => {
+      const { queueList, currentlyBeingHelped } = this.state;
+      let student = queueList.shift();
+      student.mentorName = mentorName;
+      currentlyBeingHelped.push(student);
 
-        this.setState({
-          queueList,
-          currentlyBeingHelped
-        });
+      this.setState({
+        queueList,
+        currentlyBeingHelped
       });
-  }
+    });
+  };
 
-  addStudent = (description) => {
-    apiService
-      .addStudent(description)
-  }
+  addStudent = description => {
+    apiService.addStudent(description);
+  };
 
-  studentHelped = (id) => {
-    apiService
-      .removeStudent(id)
-      .then(res => {
-        const { currentlyBeingHelped, hasBeenHelpedList } = this.state;
+  studentHelped = id => {
+    apiService.removeStudent(id).then(res => {
+      const { currentlyBeingHelped, hasBeenHelpedList } = this.state;
 
-        const student = currentlyBeingHelped.filter(s => s.id === id)
-        const newList = currentlyBeingHelped.filter(s => s.id !== id)
+      const student = currentlyBeingHelped.filter(s => s.id === id);
+      const newList = currentlyBeingHelped.filter(s => s.id !== id);
 
-        this.setState({
-          hasBeenHelpedList: [...hasBeenHelpedList, ...student],
-          currentlyBeingHelped: newList
-        });
-      })
-  }
+      this.setState({
+        hasBeenHelpedList: [...hasBeenHelpedList, ...student],
+        currentlyBeingHelped: newList
+      });
+    });
+  };
 
   setError = error => {
     this.setState({ error });
-  }
+  };
 
   clearError = () => {
     this.setState({ error: null });
-  }
+  };
 
   webSocket = () => {
-    socket.on('new-ticket', data =>{
-      this.state.queueList.push(data)
-      this.setState({
-        queueList: this.state.queueList
-      })
-    })
-  }
-  
+      this.socket.on("new-ticket", data => {
+        this.state.queueList.push(data);
+        this.setState({
+          queueList: this.state.queueList
+        });
+      });
+   
+  };
+
   closeWebSocket = () => {
-    socket.close()
-  }
+    this.socket.close();
+  };
 
   dequeueWait = () => {
-    socket.on('dequeue', data => {
-      if(data === 1) {
-        this.state.queueList.shift()
-        this.setState({queueList: this.state.queueList})
+    this.socket.on("dequeue", data => {
+      if (data === 1) {
+        this.state.queueList.shift();
+        this.setState({ queueList: this.state.queueList });
       }
-    })
-  }
+    });
+  };
 
   render() {
-    //console.log(this._isMounted)
     const value = {
       queueList: this.state.queueList,
       currentlyBeingHelped: this.state.currentlyBeingHelped,
@@ -168,7 +155,6 @@ export class QueueProvider extends Component {
       <QueueContext.Provider value={value}>
         {this.props.children}
       </QueueContext.Provider>
-    )
+    );
   }
-
 }

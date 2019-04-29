@@ -8,19 +8,11 @@ export default class StudentDescriptionList extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this._isMounted = false;
   }
 
   componentDidMount() {
-    this._isMounted = true;
-    if(this._isMounted) {
       this.context.webSocket();
-    }
-  }
-
-  componentWillUnmount() {
-    // this.context.closeWebSocket();
-    this._isMounted = false;
+    
   }
 
   makeStudentList = () => {
