@@ -15,8 +15,8 @@ const ApiService = {
         )  
   },
 
-  moveStudent() {
-    return fetch(`${config.API_ENDPOINT}/queue`, {
+  async moveStudent() {
+    return await fetch(`${config.API_ENDPOINT}/queue`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
@@ -58,11 +58,11 @@ const ApiService = {
         'authorization': `Bearer ${TokenService.getAuthToken()}`
       }
     })
-      .then(res =>
+     .then(res =>
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
-      ) 
+      )
   }
 } 
 

@@ -36,7 +36,6 @@ export class QueueProvider extends Component {
     apiService
       .getQueue()
       .then(queue => {
-        console.log(queue)
 
         const {
           queueList,
@@ -74,10 +73,9 @@ export class QueueProvider extends Component {
       .then(() => {
         const { queueList, currentlyBeingHelped } = this.state;
         let student = queueList.shift();
-
         student.mentorName = mentorName;
-        
         currentlyBeingHelped.push(student);
+
         this.setState({
           queueList,
           currentlyBeingHelped
@@ -93,12 +91,15 @@ export class QueueProvider extends Component {
   studentHelped = (id) => {
     apiService
       .removeStudent(id)
-      .then(() => {
+      .then(res => {
         const { currentlyBeingHelped, hasBeenHelpedList } = this.state;
-        hasBeenHelpedList.push(currentlyBeingHelped.shift());
+
+        const student = currentlyBeingHelped.filter(s => s.id === id)
+        const newList = currentlyBeingHelped.filter(s => s.id !== id)
+
         this.setState({
-          hasBeenHelpedList,
-          currentlyBeingHelped
+          hasBeenHelpedList: [...hasBeenHelpedList, ...student],
+          currentlyBeingHelped: newList
         });
       })
   }
