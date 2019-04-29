@@ -18,9 +18,9 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .description {
+  /* .description {
     width: 100%;
-  }
+  } */
   .landingPageContainer {
     padding-left: 1em;
     padding-right: 1em;

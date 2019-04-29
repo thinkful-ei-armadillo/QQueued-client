@@ -52,7 +52,7 @@
 }
 
  .col-4, .col-6, .col-12 {
-  width: 100%;
+  /* width: 100%; */
   min-height: 100%;
 }
 .col-3{

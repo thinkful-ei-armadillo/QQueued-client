@@ -11,28 +11,32 @@ export default class WaitingRoom extends Component {
   render() {
     console.log(this.context)
     return (
+    <QueueProvider>
       <section className="Mentor-List-Section row">
-        <section className="keyForMentors col-12">
+        <div className="keyForMentors col-3">
           <div className="studentName">Students</div>
-          <div className="description">Student Issues</div>
-          <div className="mentor">Mentors</div>
-        </section>
-        <QueueProvider>
           <section className="Waiting-List-Section">
             Waiting List
             <HelpStudentButton mentorName={ this.context.user.full_name }/>
             <WaitingList />
           </section>
+        </div>
+        <div className="col-3">
+          <div className="description">Student Issues</div>
           <section className="Being-Helped-List-Section">
             Being Helped List
             <BeingHelpedList />
           </section>
+        </div>
+        <div className='col-3'>
+          <div className="mentor">Mentors</div>
           <section className="Has-Been-Helped-List-Section">
             Has Been Helped
             <HasBeenHelpedList />
           </section>
-        </QueueProvider>
+        </div>
       </section>
+    </QueueProvider>
     );
   }
 }
