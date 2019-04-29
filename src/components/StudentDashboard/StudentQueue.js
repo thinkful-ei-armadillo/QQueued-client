@@ -57,11 +57,19 @@ export default class StudentQueue extends Component {
     super(props);
 
     this.state = {};
+    this._isMounted = false;
   }
 
   componentDidMount() {
-    this.context.webSocket();
-    this.context.dequeueWait();
+    this._isMounted = true;
+    if (this._isMounted) {
+      this.context.webSocket();
+      this.context.dequeueWait();
+    }
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
   render() {
     let makeQueue = [];

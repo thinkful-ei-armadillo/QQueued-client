@@ -2,22 +2,25 @@ import React, { Component } from "react";
 import QueueContext from "../../context/QueueContext";
 import UserContext from '../../context/UserContext';
 import "./MentorDashboard.css";
-import { newTicket } from '../../websockets/test'
 export default class StudentDescriptionList extends Component {
   static contextType = QueueContext;
 
   constructor(props) {
     super(props);
     this.state = {};
-    newTicket(res => {console.log(res)})
+    this._isMounted = false;
   }
 
   componentDidMount() {
-    this.context.webSocket();
+    this._isMounted = true;
+    if(this._isMounted) {
+      this.context.webSocket();
+    }
   }
 
   componentWillUnmount() {
-    this.context.closeWebSocket();
+    // this.context.closeWebSocket();
+    this._isMounted = false;
   }
 
   makeStudentList = () => {
