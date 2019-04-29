@@ -68,12 +68,16 @@ export class QueueProvider extends Component {
     }
   }
 
-  helpStudent = () => {
+  helpStudent = (mentorName) => {
     apiService
       .moveStudent()
       .then(() => {
         const { queueList, currentlyBeingHelped } = this.state;
-        currentlyBeingHelped.push(queueList.shift());
+        let student = queueList.shift();
+
+        student.mentorName = mentorName;
+        
+        currentlyBeingHelped.push(student);
         this.setState({
           queueList,
           currentlyBeingHelped
