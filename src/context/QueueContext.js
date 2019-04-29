@@ -4,7 +4,7 @@ import openSocket from "socket.io-client";
 import config from '../config';
 // import { newTicket, disconnect ,dequeueTicket } from '../websockets/test';
 
-const socket = openSocket(/* config.API_ENDPOINT || */ "http://localhost:8000");
+const socket = openSocket(/* config.API_ENDPOINT ||  */"http://localhost:8000");
 
 
 const QueueContext = createContext({
@@ -38,21 +38,21 @@ export class QueueProvider extends Component {
     this._isMounted = false;
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     // socket.connect()
-    this._isMounted = true;
+    this._isMounted = await true;
     if(this._isMounted){
-      apiService
+    await apiService
       .getQueue()
-      .then(queue => {
+      .then( async queue => {
 
         const {
           queueList,
           currentlyBeingHelped,
           hasBeenHelpedList
-        } = queue;
+        } = await queue;
         
-        this.updateQueue(
+        await this.updateQueue(
           queueList,
           currentlyBeingHelped,
           hasBeenHelpedList
@@ -62,8 +62,8 @@ export class QueueProvider extends Component {
     
   }
 
-  componentWillUnmount() {
-    this._isMounted = false;
+  async componentWillUnmount() {
+    this._isMounted = await false;
     // this.closeWebSocket()
   }
 
@@ -147,7 +147,7 @@ export class QueueProvider extends Component {
   }
 
   render() {
-    console.log(this._isMounted)
+    //console.log(this._isMounted)
     const value = {
       queueList: this.state.queueList,
       currentlyBeingHelped: this.state.currentlyBeingHelped,
