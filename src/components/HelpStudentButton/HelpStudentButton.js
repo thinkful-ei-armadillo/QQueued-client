@@ -3,10 +3,10 @@ import QueueContext from '../../context/QueueContext';
 import Button from '../../components/Button/Button';
 import './HelpStudentButton.css'
 
-export default function HelpStudentButton() {
+export default function HelpStudentButton(props) {
   const context = useContext(QueueContext);
-  
+  const { mentorName } = props;
   return (
-    <Button onClick={() => context.helpStudent()}>Help a student</Button>
+    <Button onClick={() => context.helpStudent(mentorName)}>Help a student</Button>
   )
 }

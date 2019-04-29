@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import QueueContext from "../../context/QueueContext";
+import UserContext from '../../context/UserContext';
 import "./MentorDashboard.css";
 import { newTicket } from '../../websockets/test'
 export default class StudentDescriptionList extends Component {
@@ -19,18 +20,20 @@ export default class StudentDescriptionList extends Component {
     this.context.closeWebSocket();
   }
 
+  makeStudentList = () => {
+    return (
+      this.context.queueList.map((i, j) => {
+      return (
+        <li key={ j } className="waitingListLiConatiner">
+          <span className="studentName">{ i.studentName }</span>{ " " }
+          <span className="description"> { i.description }</span>
+        </li>
+      );
+    })
+    );
+  }
+
   render() {
-    let student = "";
-    if (this.context.queueList.length > 0) {
-      student = this.context.queueList.map((i, j) => {
-        return (
-          <li key={j} className="waitingListLiConatiner">
-            <span className="studentName">{i.studentName}</span>{" "}
-            <span className="description"> {i.description}</span>
-          </li>
-        );
-      });
-    }
-    return <ul>{student}</ul>;
+    return <ul>{ this.makeStudentList() }</ul>
   }
 }
