@@ -1,6 +1,11 @@
 import React, { Component, createContext } from 'react';
 import apiService from '../services/api-service';
-import { disconnect, newTicket, dequeueTicket } from '../websockets/test';
+import openSocket from "socket.io-client";
+import config from '../config';
+// import { newTicket, disconnect ,dequeueTicket } from '../websockets/test';
+
+const socket = openSocket(/* config.API_ENDPOINT || */ "http://localhost:8000");
+
 
 const QueueContext = createContext({
   queueList: [],
@@ -30,10 +35,14 @@ export class QueueProvider extends Component {
       error: null
     };
     this.state = state;
+    this._isMounted = false;
   }
 
   componentDidMount() {
-    apiService
+    // socket.connect()
+    this._isMounted = true;
+    if(this._isMounted){
+      apiService
       .getQueue()
       .then(queue => {
 
@@ -49,10 +58,13 @@ export class QueueProvider extends Component {
           hasBeenHelpedList
         )
       });
+    }
+    
   }
 
   componentWillUnmount() {
-    this.closeWebSocket()
+    this._isMounted = false;
+    // this.closeWebSocket()
   }
 
   updateQueue = (queueList, currentlyBeingHelped, hasBeenHelpedList) => {
@@ -113,26 +125,29 @@ export class QueueProvider extends Component {
   }
 
   webSocket = () => {
-    newTicket(res => {
-      this.state.queueList.push(res)
+    socket.on('new-ticket', data =>{
+      this.state.queueList.push(data)
       this.setState({
         queueList: this.state.queueList
       })
     })
   }
-
+  
   closeWebSocket = () => {
-    disconnect()
+    socket.close()
   }
 
   dequeueWait = () => {
-    dequeueTicket(res => {
-      this.state.queueList.shift()
-      this.setState({queueList: this.state.queueList})
+    socket.on('dequeue', data => {
+      if(data === 1) {
+        this.state.queueList.shift()
+        this.setState({queueList: this.state.queueList})
+      }
     })
   }
 
   render() {
+    console.log(this._isMounted)
     const value = {
       queueList: this.state.queueList,
       currentlyBeingHelped: this.state.currentlyBeingHelped,
