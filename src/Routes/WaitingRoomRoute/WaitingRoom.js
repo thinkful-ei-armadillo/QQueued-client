@@ -11,8 +11,8 @@ export default class WaitingRoom extends Component {
   render() {
     console.log(this.context)
     return (
-      <section className="Mentor-List-Section">
-        <section className="keyForMentors">
+      <section className="Mentor-List-Section row">
+        <section className="keyForMentors col-12">
           <div className="studentName">Students</div>
           <div className="description">Student Issues</div>
           <div className="mentor">Mentors</div>

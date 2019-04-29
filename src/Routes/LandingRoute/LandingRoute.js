@@ -4,7 +4,9 @@ import "./LandingRoute.css";
 export class LandingRoute extends Component {
   render() {
     return (
-      <div className="landingPageContainer">
+      <section className="landingPageContainer row">
+        <div className='col-12'>
+
         <h2 className="welcome">Welcome to Git-Rekt</h2>
         <p className="landingDescription">
           This is your new tool to help deal with communication between students
@@ -18,7 +20,8 @@ export class LandingRoute extends Component {
         <p className="descriptionSignupLogin">
           To get started, sign up or log in!
         </p>
-      </div>
+        </div>
+      </section>
     );
   }
 }

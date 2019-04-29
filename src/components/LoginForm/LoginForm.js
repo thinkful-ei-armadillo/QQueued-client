@@ -43,13 +43,13 @@ class LoginForm extends Component {
   render() {
     const { error } = this.state;
     return (
-      <form className="LoginForm" onSubmit={this.handleSubmit}>
+      <form className="LoginForm col-6" onSubmit={this.handleSubmit}>
         <div role="alert">{error && <p>{error}</p>}</div>
         <div className="loginContainer">
           <h2 className="loginTitle">Login</h2>
           <div className="loginInput">
             <div className="usernameInput">
-              <Label htmlFor="login-username-input">Username : </Label>
+              <Label htmlFor="login-username-input">Username : </Label><br/>
               <Input
                 ref={this.firstInput}
                 id="login-username-input"

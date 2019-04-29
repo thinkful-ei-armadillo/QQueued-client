@@ -1,9 +1,10 @@
 header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background: #5e0a0a;
 }
+
 
 .userName {
   background: none;
@@ -14,37 +15,54 @@ header {
 .logout,
 .messageViaSlack {
   color: #5e0a0a;
-  margin: 10px;
-  padding: 10px;
+  /* margin: 10px; */
+  padding: 1px;
+  padding-left: 3px;
+  padding-right: 3px;
   background: #c8e6f5;
   float: right;
   text-decoration: none;
+  border-radius: 1px;
+  /* margin-right: 1em; */
+  /* margin-top: 2px; */
 }
 
 .login {
   color: #c8e6f5;
-  margin: 10px;
-  padding: 10px;
+  /* margin: 10px;
+  padding: 10px; */
   background: #5e0a0a;
   border-radius: 10%;
   float: right;
   text-decoration: none;
+  padding-right: 1em;
+  /* margin-right: 3px; */
 }
-
+.logout{
+  margin-right: 3px;
+}
 .gitRekt {
   color: #c8e6f5;
-  width: 100%;
-  margin: 20px;
-  padding: 5px;
+  /* width: 100%; */
+  /* margin: 20px; */
+  /* padding: 5px; */
+  margin-left: 2em;
   background: #5e0a0a;
   text-decoration: none;
+  font-size: 15px;
 }
 
 .header {
   background: #5e0a0a;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .logged-out-header,
 .logged-in-header {
   background: #5e0a0a;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-right: 2em;
+  font-size: 13px;
 }
