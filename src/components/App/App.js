@@ -25,7 +25,7 @@ class App extends Component {
             <Route path={ "/register" } component={ Registration } />
             <MentorRoute path={ "/waiting-room" } component={ WaitingRoom } />
             <StudentRoute path={ "/waiting-list" } component={ StudentListRoute } />
-            <Route path={ "/message" } component={ MessageRoute } />
+            <MentorRoute path={ "/message" } component={ MessageRoute } />
             <MentorRoute path={ "/data" } component={ StudentDataRoute } />
             <Route component={NotFoundRoute} />
           </Switch>
