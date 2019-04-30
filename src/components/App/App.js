@@ -7,11 +7,11 @@ import Header from "../Header/Header";
 import NotFoundRoute from "../../Routes/NotFoundRoute/NotFoundRoute";
 import WaitingRoom from "../../Routes/WaitingRoomRoute/WaitingRoom";
 import MessageRoute from "../../Routes/MessageRoute/MessageRoute";
-import MentorRoute from '../../Routes/MentorRoute/MentorRoute';
-import StudentRoute from '../../Routes/StudentRoute/StudentRoute';
-import StudentListRoute from '../../Routes/StudentListRoute/StudentListRoute';
-import StudentDataRoute from '../../Routes/StudentDataRoute/StudentDataRoute';
-import ChatRoute from '../../Routes/ChatRoute/ChatRoute'
+import MentorRoute from "../../Routes/MentorRoute/MentorRoute";
+import StudentRoute from "../../Routes/StudentRoute/StudentRoute";
+import StudentListRoute from "../../Routes/StudentListRoute/StudentListRoute";
+import StudentDataRoute from "../../Routes/StudentDataRoute/StudentDataRoute";
+import ChatRoute from "../../Routes/ChatRoute/ChatRoute";
 import "./App.css";
 
 class App extends Component {
@@ -21,14 +21,14 @@ class App extends Component {
         <Header />
         <main role="main">
           <Switch>
-            <Route exact path={ "/" } component={ Landing } />
-            <Route path={ "/login" } component={ Login } />
-            <Route path={ "/register" } component={ Registration } />
-            <MentorRoute path={ "/waiting-room" } component={ WaitingRoom } />
-            <StudentRoute path={ "/waiting-list" } component={ StudentListRoute } />
-            <MentorRoute path={ "/message" } component={ MessageRoute } />
-            <MentorRoute path={ "/data" } component={ StudentDataRoute } />
-            <Route path={"/chat"} component={ChatRoute}/>
+            <Route exact path={"/"} component={Landing} />
+            <Route path={"/login"} component={Login} />
+            <Route path={"/register"} component={Registration} />
+            <MentorRoute path={"/waiting-room"} component={WaitingRoom} />
+            <StudentRoute path={"/waiting-list"} component={StudentListRoute} />
+            <MentorRoute path={"/message"} component={MessageRoute} />
+            <MentorRoute path={"/data"} component={StudentDataRoute} />
+            <Route path={"/mentor/:mentorName"} component={ChatRoute} />
             <Route component={NotFoundRoute} />
           </Switch>
         </main>

@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import StudentDataContext from '../../context/StudentDataContext';
+import React, { Component } from "react";
+import StudentDataContext from "../../context/StudentDataContext";
 export default class StudentDataList extends Component {
-  
   static contextType = StudentDataContext;
 
   createStudentListItem = () => {
@@ -19,9 +18,11 @@ export default class StudentDataList extends Component {
 
     // create array of data pertaining to each student
     studentItems.forEach(name => {
-      studentDataList.push(studentData.filter(student => student.studentName === name))
+      studentDataList.push(
+        studentData.filter(student => student.studentName === name)
+      );
     });
-    
+
     return (
       <>
         {studentDataList.map((s, i) => (
@@ -30,13 +31,13 @@ export default class StudentDataList extends Component {
             <ul>
               Helped By:
               {s.map((s, j) => (
-                <li key={j}>{ s.mentorName }</li>
-              )) }
+                <li key={j}>{s.mentorName}</li>
+              ))}
             </ul>
             <ul>
               Questions:
               {s.map((s, k) => (
-                <li key={k}>{ s.description }</li>
+                <li key={k}>{s.description}</li>
               ))}
             </ul>
           </section>
@@ -46,10 +47,6 @@ export default class StudentDataList extends Component {
   };
 
   render() {
-  return (
-    <>
-      { this.createStudentListItem() }
-    </>
-    )
+    return <>{this.createStudentListItem()}</>;
   }
 }
