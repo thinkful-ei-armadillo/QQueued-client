@@ -1,9 +1,9 @@
+
 import React, { Component } from 'react';
 import StudentDataContext from '../../context/StudentDataContext';
 import './StudentDataList.css';
 
 export default class StudentDataList extends Component {
-  
   static contextType = StudentDataContext;
 
   createStudentListItem = () => {
@@ -11,7 +11,7 @@ export default class StudentDataList extends Component {
 
     let studentNames = [];
     let studentDataList = [];
-    let studentItem = []
+    let studentItem = [];
 
     // create array with only one student name per student
     studentData.forEach(s => {
@@ -22,22 +22,21 @@ export default class StudentDataList extends Component {
 
     // create array of data pertaining to each student
     studentNames.forEach(name => {
-      studentDataList.push(studentData.filter(student => student.studentName === name))
+      studentDataList.push(
+        studentData.filter(student => student.studentName === name)
+      );
     });
 
     // compile all data related to a single student in an object
     // while removing unnecessary duplicates
     for (let i = 0; i < studentDataList.length; i++) {
-      studentItem.push(
-        {
-          studentName: studentDataList[i][0]['studentName'],
-          mentors: studentDataList[i]
-            .map(s => s['mentorName'])
-            .filter((e, i, s) => i === s.indexOf(e)),  
-          questions: studentDataList[i]
-            .map(q => q['description'])   
-        }     
-      ) 
+      studentItem.push({
+        studentName: studentDataList[i][0]["studentName"],
+        mentors: studentDataList[i]
+          .map(s => s["mentorName"])
+          .filter((e, i, s) => i === s.indexOf(e)),
+        questions: studentDataList[i].map(q => q["description"])
+      });
     }
 
     return (
@@ -64,6 +63,7 @@ export default class StudentDataList extends Component {
   };
 
   render() {
+
   return (
     <section className="display-data-section">
       { this.createStudentListItem() }

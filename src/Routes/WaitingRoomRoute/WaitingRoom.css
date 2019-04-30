@@ -11,6 +11,10 @@
   align-items: center;
 }
 
+.linkToChatRoom {
+  background: none;
+}
+
 .Mentor-List-Section ul {
   margin: 10px;
   padding: 10px;
@@ -26,7 +30,7 @@
 .Has-Been-Helped-List-Section {
   /* top: 10%; */
   /* height: 500px; */
-  height:70vh;
+  height: 70vh;
   overflow: auto;
   background: #e0cece;
   box-shadow: 5px 10px #7e3b3b;
