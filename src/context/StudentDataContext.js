@@ -32,13 +32,13 @@ export class StudentDataProvider extends Component {
 
   updateStudentData = (studentData) => {
     this.setState({ studentData });
-  }
+  };
 
   componentDidMount() {
     apiService
       .getAllData()
       .then(async data => await this.updateStudentData(data))
-  }
+  };
 
   render() {
     const {
@@ -55,7 +55,7 @@ export class StudentDataProvider extends Component {
       setError,
       clearError,
       getAllStudentData
-    }
+    };
 
     console.log(value.studentData)
 
