@@ -6,8 +6,10 @@
   display: inline-block;
   text-align: center;
   border: 2px solid #5e0a0a;
-  width: 40%;
+  border-radius: 2px;
+  width: 100%;
   background: #c8e6f5;
+  /* margin: 15px; */
 }
 
 input {
@@ -22,6 +24,7 @@ label,
 
 .title-selection {
   display: inline-block;
+  margin-bottom: 1px;
 }
 
 .registrationSubmit {
@@ -38,6 +41,8 @@ label,
 
 .registerTitle {
   color: #5e0a0a;
+  text-align: center;
+
 }
 
 .alreadyHaveAccount {
@@ -52,7 +57,7 @@ label,
 }
 
 @media only screen and (max-width: 600px) {
-  .registrationInput {
+  /* .registrationInput {
     width: 100%;
-  }
+  } */
 }

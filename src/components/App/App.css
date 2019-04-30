@@ -7,6 +7,9 @@
 .App {
   text-align: center;
 }
+/* main{
+  margin-top: 10em;
+} */
 
 @keyframes App-logo-spin {
   from {
@@ -14,5 +17,62 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.row {
+  max-width: 1000px;
+  /* margin-top: 100px; */
+  /* width: 100%; */
+  padding-left: auto;
+  padding-right: auto;
+  margin: 0px auto 10px auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.row::before,
+.row::after {
+  display: table;
+  content: '';
+}
+
+.row::after {
+  clear: both;
+}
+
+.col-3, .col-4, .col-6, .col-12 {
+ 
+  padding-left: 1.04166666%;
+  padding-right: 1.04166666%;
+  display: inline;
+}
+
+ .col-4, .col-6, .col-12 {
+  /* width: 100%; */
+  min-height: 100%;
+}
+.col-3{
+    width: 65%;
+}
+
+@media only screen and (min-width: 640px) {
+  .col-3 {
+    width: 25%;
+  }
+
+  .col-4 {
+    width: 33.333333%;
+  }
+
+  .col-6 {
+    width: 50%;
+  }
+
+  .col-12 {
+    width: 100%;
   }
 }

@@ -20,7 +20,7 @@ class LoginRoute extends Component {
 
   render() {
     return (
-      <section className="login-container col-3">
+      <section className="login-container row">
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
       </section>
     );

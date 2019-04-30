@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import QueueContext from "../../context/QueueContext";
-import UserContext from '../../context/UserContext';
 import "./MentorDashboard.css";
 export default class StudentDescriptionList extends Component {
   static contextType = QueueContext;
