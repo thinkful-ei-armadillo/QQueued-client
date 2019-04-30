@@ -35,7 +35,7 @@ export default class StudentDataList extends Component {
             </ul>
             <ul>
               Questions:
-              { s.map((s, k) => (
+              {s.map((s, k) => (
                 <li key={k}>{ s.question }</li>
               ))}
             </ul>
