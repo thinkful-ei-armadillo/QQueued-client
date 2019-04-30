@@ -10,7 +10,7 @@ export default class StudentDescriptionList extends Component {
   }
 
   componentDidMount() {
-      this.context.webSocket();
+    this.context.webSocket();
   }
 
   makeStudentList = () => {

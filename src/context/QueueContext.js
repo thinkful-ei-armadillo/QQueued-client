@@ -36,8 +36,10 @@ export class QueueProvider extends Component {
     )
   }
 
-   componentDidMount() {
-       apiService.getQueue().then(async queue => {
+  componentDidMount() {
+    apiService
+      .getQueue()
+      .then(async queue => {
         const {
           queueList,
           currentlyBeingHelped,
@@ -50,10 +52,9 @@ export class QueueProvider extends Component {
           hasBeenHelpedList
         );
       });
-    
   }
 
-   componentWillUnmount() {
+  componentWillUnmount() {
     this.socket.close()
   }
 
