@@ -11,6 +11,7 @@ import MentorRoute from '../../Routes/MentorRoute/MentorRoute';
 import StudentRoute from '../../Routes/StudentRoute/StudentRoute';
 import StudentListRoute from '../../Routes/StudentListRoute/StudentListRoute';
 import StudentDataRoute from '../../Routes/StudentDataRoute/StudentDataRoute';
+import ChatRoute from '../../Routes/ChatRoute/ChatRoute'
 import "./App.css";
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
             <StudentRoute path={ "/waiting-list" } component={ StudentListRoute } />
             <MentorRoute path={ "/message" } component={ MessageRoute } />
             <MentorRoute path={ "/data" } component={ StudentDataRoute } />
+            <Route path={"/chat"} component={ChatRoute}/>
             <Route component={NotFoundRoute} />
           </Switch>
         </main>
