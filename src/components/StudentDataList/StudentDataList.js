@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import StudentDataContext from '../../context/StudentDataContext';
+import './StudentDataList.css';
+
 export default class StudentDataList extends Component {
   
   static contextType = StudentDataContext;
@@ -40,19 +42,19 @@ export default class StudentDataList extends Component {
 
     return (
       <>
-        { studentItem.map((s, i) => (
-          <section key={i}>
-            <h3>{ s.studentName }</h3>
-            <ul>
-              Helped By:
-              { s.mentors.map((m, i) => (
-                <li key={ i }>{ m }</li>
+        {studentItem.map((s, i) => (
+          <section className='data-list-section' key={i}>
+            <h3>{s.studentName}</h3>
+            <h4>Helped By</h4>
+            <ul className='data-list'>
+              {s.mentors.map((m, i) => (
+                <li key={i}>{m}</li>
               ))}
             </ul>
-            <ul>
-              Questions:
-              { s.questions.map((q, i) => (
-                <li key={ i }>{ q }</li>
+            <h4>Questions</h4>
+            <ul className='data-list'>
+              {s.questions.map((q, i) => (
+                <li key={i}>{q}</li>
               ))}
             </ul>
           </section>
@@ -63,9 +65,9 @@ export default class StudentDataList extends Component {
 
   render() {
   return (
-    <>
+    <section className="display-data-section">
       { this.createStudentListItem() }
-    </>
+    </section>
     )
   }
 }
