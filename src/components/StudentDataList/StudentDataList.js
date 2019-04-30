@@ -6,38 +6,51 @@ export default class StudentDataList extends Component {
   createStudentListItem = () => {
     const { studentData } = this.context;
 
-    let studentItems = [];
+    let studentNames = [];
     let studentDataList = [];
+    let studentItem = [];
 
-    // remove duplicates
+    // create array with only one student name per student
     studentData.forEach(s => {
-      if (studentItems.indexOf(s.studentName) === -1) {
-        studentItems.push(s.studentName);
+      if (studentNames.indexOf(s.studentName) === -1) {
+        studentNames.push(s.studentName);
       }
     });
 
     // create array of data pertaining to each student
-    studentItems.forEach(name => {
+    studentNames.forEach(name => {
       studentDataList.push(
         studentData.filter(student => student.studentName === name)
       );
     });
 
+    // compile all data related to a single student in an object
+    // while removing unnecessary duplicates
+    for (let i = 0; i < studentDataList.length; i++) {
+      studentItem.push({
+        studentName: studentDataList[i][0]["studentName"],
+        mentors: studentDataList[i]
+          .map(s => s["mentorName"])
+          .filter((e, i, s) => i === s.indexOf(e)),
+        questions: studentDataList[i].map(q => q["description"])
+      });
+    }
+
     return (
       <>
-        {studentDataList.map((s, i) => (
+        {studentItem.map((s, i) => (
           <section key={i}>
-            <h3>{s[0].studentName}</h3>
+            <h3>{s.studentName}</h3>
             <ul>
               Helped By:
-              {s.map((s, j) => (
-                <li key={j}>{s.mentorName}</li>
+              {s.mentors.map((m, i) => (
+                <li key={i}>{m}</li>
               ))}
             </ul>
             <ul>
               Questions:
-              {s.map((s, k) => (
-                <li key={k}>{s.description}</li>
+              {s.questions.map((q, i) => (
+                <li key={i}>{q}</li>
               ))}
             </ul>
           </section>
