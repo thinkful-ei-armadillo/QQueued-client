@@ -9,7 +9,7 @@ export default class Chat extends Component {
 
     this.state = {
       input: "",
-      users: "",
+      users: [],
       messages: []
     };
     this.socket = openSocket(
@@ -22,11 +22,10 @@ export default class Chat extends Component {
       userName: this.props.user.user.user_name
     });
     this.socket.on("entered", data => {
-      this.setState({ users: data });
+      this.setState({ users: [...this.state.users, data] });
     });
     this.socket.on("message", data => {
-      this.state.messages.push(data);
-      this.setState({ messages: this.state.messages });
+      this.setState({ messages: [...this.state.messages, data] });
     });
   }
   componentWillUnmount() {
@@ -39,19 +38,31 @@ export default class Chat extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.socket.emit("message", this.state.input);
-    console.log(this.state.input);
+    this.socket.emit("message", {
+      user: this.state.users[0],
+      text: this.state.input
+    });
   };
   render() {
     let thread;
     if (this.state.messages.length > 0) {
       thread = this.state.messages.map((i, j) => {
-        return <p key={j}>{i}</p>;
+        return (
+          <p key={j}>
+            {i.user}: {i.text}
+          </p>
+        );
+      });
+    }
+    let activeUsers;
+    if (this.state.users.length > 0) {
+      activeUsers = this.state.users.map((i, j) => {
+        return <p key={j}>{i} has joined</p>;
       });
     }
     return (
-      <div className="chatRoomInput">
-        {this.state.users && <p>{this.state.users} has entered.</p>}
+      <div>
+        {activeUsers}
         {thread}
         <form onSubmit={e => this.handleSubmit(e)}>
           <input
