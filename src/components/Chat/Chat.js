@@ -42,37 +42,53 @@ export default class Chat extends Component {
       user: this.state.users[0],
       text: this.state.input
     });
+    e.target.reset();
   };
   render() {
     let thread;
     if (this.state.messages.length > 0) {
       thread = this.state.messages.map((i, j) => {
         return (
-          <p key={j}>
-            {i.user}: {i.text}
-          </p>
+          <div className="chatMessage">
+            <span title={i.user} className="currentUser">
+              {i.user.charAt(0).toUpperCase()}
+            </span>
+            <p className="currentMessage" key={j}>
+              {i.text}
+            </p>
+          </div>
         );
       });
     }
     let activeUsers;
     if (this.state.users.length > 0) {
       activeUsers = this.state.users.map((i, j) => {
-        return <p key={j}>{i} has joined</p>;
+        return (
+          <p className="userHasJoined" key={j}>
+            {i} has joined
+          </p>
+        );
       });
     }
     return (
-      <div>
-        {activeUsers}
-        {thread}
-        <form onSubmit={e => this.handleSubmit(e)}>
-          <input
-            type="text"
-            name="input-field"
-            id=""
-            onChange={e => this.handleChange(e.target.value)}
-          />
-          <Button type="submit">Send</Button>
-        </form>
+      <div className="chatRoomContainer">
+        <section className="chatRoomInput">
+          {activeUsers}
+          {thread}
+          <form className="chatRoomForm" onSubmit={e => this.handleSubmit(e)}>
+            <input
+              className="sendMessage"
+              type="text"
+              name="input-field"
+              id=""
+              placeholder="send a message"
+              onChange={e => this.handleChange(e.target.value)}
+            />
+            <Button className="chatRoomButton" type="submit">
+              Send
+            </Button>
+          </form>
+        </section>
       </div>
     );
   }

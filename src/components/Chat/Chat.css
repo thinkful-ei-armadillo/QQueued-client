@@ -1,5 +1,66 @@
+.chatRoomContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .chatRoomInput {
+  position: relative;
   text-align: center;
-  width: 50%;
   border: 2px solid black;
+  width: 50%;
+  margin: 20px;
+  border-radius: 25px;
+  background: white;
+}
+
+.userHasJoined {
+  background: #5e0a0a;
+  color: white;
+}
+
+.chatRoomForm,
+.chatMessage {
+  background: none;
+}
+
+.chatMessage {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.chatRoomButton {
+  background: white;
+}
+
+.currentMessage {
+  background: radial-gradient(5px -9px, circle, white 4%, #5ca0d3 26px);
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 12px; /* one half of ( (border * 2) + height + padding ) */
+  box-shadow: 2px 2px 2px darkgray;
+  color: white;
+  font: bold 15px/13px Helvetica, Verdana, Tahoma;
+  text-align: left;
+  width: 40%;
+  line-height: 20px;
+}
+
+.sendMessage {
+  width: 75%;
+  padding: 10px;
+  border-radius: 25px;
+  background: #c8e6f5;
+}
+
+.currentUser {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bolder;
+  font-size: 15px;
+  line-height: 200%;
+  text-align: center;
+  background: #5e0a0a;
+  margin: 5px;
 }
