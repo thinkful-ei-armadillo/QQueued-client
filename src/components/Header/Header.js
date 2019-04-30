@@ -42,23 +42,30 @@ class Header extends Component {
     );
   }
 
+  renderStudentDataLink = () => {
+    return <Link className="data-link" to='/data'>Students Data</Link>
+  }
+
   render() {
     return (
       <header>
         {/* <h1 className="header"> */}
-          {this.context.user && this.context.user.title === "mentor" ? (
-            <Link className="gitRekt" to="/waiting-room">
+        {this.context.user && this.context.user.title === "mentor" ? (
+          <nav className="left-links">
+            <Link className='gitRekt' to='/waiting-room'>
               Git-Rekt
             </Link>
-          ) : this.context.user && this.context.user.title === "student" ? (
-            <Link className="gitRekt" to="/waiting-list">
-              Git-Rekt
-            </Link>
-          ) : (
-            <Link className="gitRekt" to="/">
-              Git-Rekt
-            </Link>
-          )}
+            {this.renderStudentDataLink()}
+          </nav>
+        ) : this.context.user && this.context.user.title === "student" ? (
+          <Link className='gitRekt' to='/waiting-list'>
+            Git-Rekt
+          </Link>
+        ) : (
+          <Link className='gitRekt' to='/'>
+            Git-Rekt
+          </Link>
+        )}
         {/* </h1> */}
         {TokenService.hasAuthToken()
           ? this.renderLogoutLink()

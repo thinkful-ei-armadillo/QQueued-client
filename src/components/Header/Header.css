@@ -38,18 +38,34 @@ header {
   padding-right: 1em;
   /* margin-right: 3px; */
 }
-.logout{
+
+.logout {
   margin-right: 3px;
 }
-.gitRekt {
+
+.gitRekt, .data-link {
   color: #c8e6f5;
-  /* width: 100%; */
-  /* margin: 20px; */
-  /* padding: 5px; */
   margin-left: 2em;
   background: #5e0a0a;
   text-decoration: none;
   font-size: 15px;
+}
+
+.left-links {
+  color: #c8e6f5;
+  margin-left: 2em;
+  background: #5e0a0a;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.student-data-link a{
+  font-size: 16px;
+}
+
+.student-data-link {
+  text-align: end;
+  display: block;
 }
 
 .header {
