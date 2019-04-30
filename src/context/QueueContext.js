@@ -1,8 +1,6 @@
 import React, { Component, createContext } from "react";
 import apiService from "../services/api-service";
 import openSocket from "socket.io-client";
-import config from "../config";
-
 
 const QueueContext = createContext({
   queueList: [],

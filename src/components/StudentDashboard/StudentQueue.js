@@ -60,14 +60,19 @@ export default class StudentQueue extends Component {
   }
 
   componentDidMount() {
-      this.context.webSocket();
-      this.context.dequeueWait();
-    
+    this.context.webSocket();
+    this.context.dequeueWait();
   }
 
   render() {
     let makeQueue = [];
+    let message = [];
+    let numberInLine = null;
     if (this.context.queueList.length > 0) {
+      message = this.context.queueList.filter(
+        i => i.studentName === this.props.user.user.full_name
+      );
+      numberInLine = this.context.queueList.indexOf(message[0]);
       makeQueue = this.context.queueList.map((i, j) => {
         return (
           <li key={j} className="eachStudentInQueue">
@@ -83,6 +88,16 @@ export default class StudentQueue extends Component {
     return (
       <div>
         <div className="studentsMainPage">
+          {numberInLine ? (
+            <div>You are currently #{numberInLine + 1} in line.</div>
+          ) : (
+            ""
+          )}
+          {message.length > 0 ? (
+            <div>You have {message.length} open ticket(s).</div>
+          ) : (
+            <div>You don't have any tickets open.</div>
+          )}
           <h2 className="studentListTitle">Waiting List</h2>
           <HelpForm className="getHelpButton" />
           <ul className="studentWaitingQueue">{makeQueue}</ul>
