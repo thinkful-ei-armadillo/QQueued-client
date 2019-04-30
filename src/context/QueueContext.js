@@ -111,13 +111,11 @@ export class QueueProvider extends Component {
   };
 
   webSocket = () => {
-      this.socket.on("new-ticket", data => {
-        this.state.queueList.push(data);
+    this.socket.on("new-ticket", data => {
         this.setState({
-          queueList: this.state.queueList
-        });
+          queueList: [...this.state.queueList, data]
       });
-   
+    });
   };
 
   closeWebSocket = () => {
@@ -127,8 +125,9 @@ export class QueueProvider extends Component {
   dequeueWait = () => {
     this.socket.on("dequeue", data => {
       if (data === 1) {
-        this.state.queueList.shift();
-        this.setState({ queueList: this.state.queueList });
+        const { queueList } = this.state;
+        queueList.shift();
+        this.setState({ queueList });
       }
     });
   };

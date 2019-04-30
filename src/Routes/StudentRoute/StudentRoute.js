@@ -6,7 +6,7 @@ import TokenService from '../../services/token-service';
 export default function StudentRoute({ component, ...props }) {
   const Component = component;
   const context = useContext(UserContext);
-  console.log(!!TokenService.getAuthToken)
+
   return (
     <Route
       {...props}
