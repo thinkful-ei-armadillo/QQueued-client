@@ -57,10 +57,12 @@ export class StudentDataProvider extends Component {
       getAllStudentData
     }
 
+    console.log(value.studentData)
+
     return (
-      <StudentDataProvider value={value}>
+      <StudentDataContext.Provider value={value}>
         {this.props.children}
-      </StudentDataProvider>
+      </StudentDataContext.Provider>
     )
   }
 }

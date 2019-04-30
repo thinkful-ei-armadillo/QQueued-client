@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import StudentDataContext from '../../context/StudentDataContext';
-export default function StudentDataList() {
+export default class StudentDataList extends Component {
   
-  const createDataList = () => {
+  static contextType = StudentDataContext;
+
+  createStudentListItem = () => {
+    const { studentData } = this.context;
+    let studentItem = [];
+    const userNames = studentData.map(s => s.user_name);
+    const filteredNames = userNames.forEach((name, i) => {
+      studentItem.push(studentData.filter(student => student.user_name === name))
+      if (userNames.indexOf(!studentItem[i][0].user_name, i)) {
+        console.log(studentItem[i])
+      }
+
+    });
+    console.log({filteredNames})
+    console.log({userNames})
+    console.log({studentItem})
+  };
+
+  createDataList = () => {
     return (
       <StudentDataContext.Consumer>
         { value => {
@@ -21,7 +39,12 @@ export default function StudentDataList() {
     )
   }
 
+  render() {
   return (
-    <>{ createDataList() }</>
-  )
+    <>
+      { this.createStudentListItem() }
+      { this.createDataList() }
+    </>
+    )
+  }
 }
