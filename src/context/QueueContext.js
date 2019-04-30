@@ -113,6 +113,7 @@ export class QueueProvider extends Component {
   webSocket = () => {
       this.socket.on("new-ticket", data => {
         this.state.queueList.push(data);
+        console.log(this.state.queueList)
         this.setState({
           queueList: this.state.queueList
         });
