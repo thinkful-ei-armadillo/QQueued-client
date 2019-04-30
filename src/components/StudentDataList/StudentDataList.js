@@ -6,44 +6,49 @@ export default class StudentDataList extends Component {
 
   createStudentListItem = () => {
     const { studentData } = this.context;
-    let studentItem = [];
-    const userNames = studentData.map(s => s.user_name);
-    const filteredNames = userNames.forEach((name, i) => {
-      studentItem.push(studentData.filter(student => student.user_name === name))
-      if (userNames.indexOf(!studentItem[i][0].user_name, i)) {
-        console.log(studentItem[i])
+
+    let studentItems = [];
+    let studentDataList = [];
+
+    // remove duplicates
+    studentData.forEach(s => {
+      if (studentItems.indexOf(s.user_name) === -1) {
+        studentItems.push(s.user_name);
       }
-
     });
-    console.log({filteredNames})
-    console.log({userNames})
-    console.log({studentItem})
-  };
 
-  createDataList = () => {
+    // create array of data pertaining to each student
+    studentItems.forEach(name => {
+      studentDataList.push(studentData.filter(student => student.user_name === name))
+    });
+    
     return (
-      <StudentDataContext.Consumer>
-        { value => {
-          const { studentData } = value;
-          return studentData.map((s, i) => {
-            return (
-              <ul key={ i }>
-                <li>{ s.user_name }</li>
-                <li>{ s.question }</li>
-              </ul>
-            )
-
-          });
-        } }
-      </StudentDataContext.Consumer>
-    )
-  }
+      <>
+        {studentDataList.map((s, i) => (
+          <section key={i}>
+            <h3>{s[0].user_name}</h3>
+            <ul>
+              Helped By:
+              {s.map((s, j) => (
+                <li key={j}>{ s.helped_by }</li>
+              )) }
+            </ul>
+            <ul>
+              Questions:
+              { s.map((s, k) => (
+                <li key={k}>{ s.question }</li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </>
+    );
+  };
 
   render() {
   return (
     <>
       { this.createStudentListItem() }
-      { this.createDataList() }
     </>
     )
   }
