@@ -28,15 +28,12 @@
 .Waiting-List-Section,
 .Being-Helped-List-Section,
 .Has-Been-Helped-List-Section {
-  /* top: 10%; */
-  /* height: 500px; */
   height: 70vh;
   overflow: auto;
   background: #e0cece;
   box-shadow: 5px 10px #7e3b3b;
   color: black;
   font-weight: bold;
-  /* position: relative; */
   margin-bottom: 14px;
 }
 
@@ -51,7 +48,6 @@
 
 .keyForMentors {
   display: flex;
-  /* position: absolute; */
   top: 15%;
 }
 

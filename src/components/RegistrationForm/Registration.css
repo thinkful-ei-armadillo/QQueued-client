@@ -9,7 +9,6 @@
   border-radius: 2px;
   width: 100%;
   background: #c8e6f5;
-  /* margin: 15px; */
 }
 
 input {
@@ -42,7 +41,6 @@ label,
 .registerTitle {
   color: #5e0a0a;
   text-align: center;
-
 }
 
 .alreadyHaveAccount {
@@ -57,7 +55,4 @@ label,
 }
 
 @media only screen and (max-width: 600px) {
-  /* .registrationInput {
-    width: 100%;
-  } */
 }
