@@ -3,6 +3,7 @@ import QueueContext from "../../context/QueueContext";
 import HelpForm from "../../components/HelpForm/HelpForm";
 import "./StudentQueue.css";
 import StudentWaitingNameList from "./studentWaitingNameList/studentWatingNameList";
+import {Link} from 'react-router-dom';
 
 export default class StudentQueue extends Component {
   static contextType = QueueContext;
@@ -11,7 +12,18 @@ export default class StudentQueue extends Component {
     this.context.webSocket();
     this.context.dequeueWait();
   }
-
+  renderPlaceInLine(indexInLine){
+    return (<div>You are currently #{indexInLine + 1} in line.</div>)
+  }
+  renderOpenTickets(numOfTickets){
+    return (<div>You have {numOfTickets} open ticket(s).</div>)  
+  }
+  renderChatRoom(room){
+    return ( 
+      <p>Your mentor {room.mentorName} is waiting in this
+        <span><Link to={room.url}> Room </Link></span>
+      </p>)
+  }
   render() {
     const { showNote, queueList } = this.context;
     const { user_name } = this.props.user.user;
@@ -19,31 +31,27 @@ export default class StudentQueue extends Component {
       el => el.studentName === this.props.user.user.full_name
     );
     const numberInLine = queueList.indexOf(userTickets[0]);
-    let note = "";
-
-    if (showNote) {
-      if (showNote.user_name === user_name) {
-        note = (
-          <div>
-            Your mentor {showNote.mentorName} is waiting at{" "}
-            {showNote.url}{" "}
-          </div>
-        );
-      }
-    }
+    // let note = "";
+// console.log(showNote)
+//     if (showNote) {
+//       if (showNote.user_name === user_name) {
+//         note = (
+//           <div>
+//             Your mentor {showNote.mentorName} is waiting at{" "}
+//             {showNote.url}{" "}
+//           </div>
+//         );
+//       }
+//     }
 
     return (
       <section>
         <div className="studentsMainPage">
-          {note}
-          {numberInLine > 0 && (
-            <div>You are currently #{numberInLine + 1} in line.</div>
-          )}
-          {userTickets ? (
-            <div>You have {userTickets.length} open ticket(s).</div>
-          ) : (
+          {showNote && this.renderChatRoom(showNote)}
+          {numberInLine > 0 && this.renderPlaceInLine(numberInLine)}
+          {userTickets ? this.renderOpenTickets(userTickets.length): 
             <div>You don't have any tickets open.</div>
-          )}
+          }
           <h2 className="studentListTitle">Waiting List</h2>
           <HelpForm className="getHelpButton" />
           <ul className="studentWaitingQueue">
