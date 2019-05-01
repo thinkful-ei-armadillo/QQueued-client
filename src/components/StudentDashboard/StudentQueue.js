@@ -31,23 +31,11 @@ export default class StudentQueue extends Component {
       el => el.studentName === this.props.user.user.full_name
     );
     const numberInLine = queueList.indexOf(userTickets[0]);
-    // let note = "";
-// console.log(showNote)
-//     if (showNote) {
-//       if (showNote.user_name === user_name) {
-//         note = (
-//           <div>
-//             Your mentor {showNote.mentorName} is waiting at{" "}
-//             {showNote.url}{" "}
-//           </div>
-//         );
-//       }
-//     }
 
     return (
       <section>
         <div className="studentsMainPage">
-          {showNote && this.renderChatRoom(showNote)}
+          {showNote.user_name === user_name && this.renderChatRoom(showNote)}
           {numberInLine > 0 && this.renderPlaceInLine(numberInLine)}
           {userTickets ? this.renderOpenTickets(userTickets.length): 
             <div>You don't have any tickets open.</div>
@@ -55,13 +43,13 @@ export default class StudentQueue extends Component {
           <h2 className="studentListTitle">Waiting List</h2>
           <HelpForm className="getHelpButton" />
           <ul className="studentWaitingQueue">
-            {queueList.map((listItem, index) => (
+            {queueList.map((listItem, index) => 
               <StudentWaitingNameList
                 key={index}
                 personInLine={listItem}
                 currentUser={user_name}
               />
-            ))}
+            )}
           </ul>
         </div>
       </section>
