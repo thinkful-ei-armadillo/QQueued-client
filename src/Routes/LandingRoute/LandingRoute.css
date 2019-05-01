@@ -1,7 +1,4 @@
 .landingPageContainer {
-  /* margin: 20px;
-  padding: 20px;
-  text-align: center; */
   text-align: center;
   padding-left: 2em;
   padding-right: 2em;
@@ -14,13 +11,9 @@
 
 .landingDescription {
   display: inline-block;
-  /* width: 50%; */
 }
 
 @media only screen and (max-width: 600px) {
-  /* .description {
-    width: 100%;
-  } */
   .landingPageContainer {
     padding-left: 1em;
     padding-right: 1em;

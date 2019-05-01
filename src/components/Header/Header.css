@@ -5,7 +5,6 @@ header {
   background: #5e0a0a;
 }
 
-
 .userName {
   background: none;
   color: #c8e6f5;
@@ -15,7 +14,6 @@ header {
 .logout,
 .messageViaSlack {
   color: #5e0a0a;
-  /* margin: 10px; */
   padding: 1px;
   padding-left: 3px;
   padding-right: 3px;
@@ -23,27 +21,23 @@ header {
   float: right;
   text-decoration: none;
   border-radius: 1px;
-  /* margin-right: 1em; */
-  /* margin-top: 2px; */
 }
 
 .login {
   color: #c8e6f5;
-  /* margin: 10px;
-  padding: 10px; */
   background: #5e0a0a;
   border-radius: 10%;
   float: right;
   text-decoration: none;
   padding-right: 1em;
-  /* margin-right: 3px; */
 }
 
 .logout {
   margin-right: 3px;
 }
 
-.gitRekt, .data-link {
+.gitRekt,
+.data-link {
   color: #c8e6f5;
   margin-left: 2em;
   background: #5e0a0a;
@@ -59,7 +53,7 @@ header {
   font-size: 15px;
 }
 
-.student-data-link a{
+.student-data-link a {
   font-size: 16px;
 }
 
