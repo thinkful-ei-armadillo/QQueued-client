@@ -2,37 +2,14 @@ import React, { Component } from "react";
 import QueueContext from "../../context/QueueContext";
 import HelpForm from "../../components/HelpForm/HelpForm";
 import "./StudentQueue.css";
-import ApiService from "../../services/api-service";
 import StudentWaitingNameList from './studentWaitingNameList/studentWatingNameList'
 
 export default class StudentQueue extends Component {
   static contextType = QueueContext;
 
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   componentDidMount() {
     this.context.webSocket();
     this.context.dequeueWait();
-  }
-  studentDequeue(id) {
-   
-    ApiService.removeStudentFromQueue(id)
-  }
-  renderWaitingListQueue(personInLine, index){
-    return ( 
-    <li key={index} className="eachStudentInQueue">
-      <span
-        onClick={() => this.studentDequeue(personInLine.id)}
-        className="studentName">
-        {personInLine.studentName}
-      </span>
-      <span className="tooltiptext">{personInLine.description}</span>
-    </li>
-    )
   }
 
   render() {
@@ -41,7 +18,7 @@ export default class StudentQueue extends Component {
       el => el.studentName === this.props.user.user.full_name
     );
     const numberInLine = queueList.indexOf(userTickets[0]);
-    console.log(this.props.user)
+  
     return (
       <section>
         <div className="studentsMainPage">

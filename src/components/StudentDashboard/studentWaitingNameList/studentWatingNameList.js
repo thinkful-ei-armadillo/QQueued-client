@@ -1,23 +1,31 @@
 import React, { Component } from 'react'
+import ApiService from '../../../services/api-service';
+import QueueContext from '../../../context/QueueContext';
 
 export class studentWatingNameList extends Component {
+  static contextType = QueueContext;
   state={
     showDeleteButton: null
   }
+
   showDeleteButton = () => {
     this.setState({showDeleteButton: true}, () => {
       document.addEventListener('click', this.closeDeleteButton)
     });
   }
+
   closeDeleteButton = e => {
     e.stopPropagation();
     this.setState({showDeleteButton: false}, () => {
       document.removeEventListener('click', this.closeDeleteButton)
     })
   }
+
   handleDeleteClick (id) {
-    console.log(id)
+    ApiService.removeStudentFromQueue(id)
+     .then(() => this.context.removeStudentFromQueue(id))
   }
+
   handleNameClick(queueUser) {
     const {currentUser} = this.props;
 
@@ -28,7 +36,6 @@ export class studentWatingNameList extends Component {
   
   render() {
     const {personInLine} = this.props;
- 
     return (
       <li key={personInLine.id} className="eachStudentInQueue">
         <p

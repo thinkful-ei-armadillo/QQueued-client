@@ -16,7 +16,7 @@ const QueueContext = createContext({
   closeWebSocket: () => {},
   studentHelped: () => {},
   dequeueWait: () => {},
-  
+  removeStudentFromQueue: () => {}
 });
 
 export default QueueContext;
@@ -133,6 +133,12 @@ export class QueueProvider extends Component {
       }
     });
   };
+  removeStudentFromQueue = id => {
+    const removedStudent = this.state.queueList.filter(queue => queue.id !== id);
+    this.setState({
+      queueList: removedStudent
+    })
+  }
 
   render() {
     const value = {
@@ -148,7 +154,8 @@ export class QueueProvider extends Component {
       webSocket: this.webSocket,
       closeWebSocket: this.closeWebSocket,
       studentHelped: this.studentHelped,
-      dequeueWait: this.dequeueWait
+      dequeueWait: this.dequeueWait,
+      removeStudentFromQueue: this.removeStudentFromQueue
     };
 
     return (
