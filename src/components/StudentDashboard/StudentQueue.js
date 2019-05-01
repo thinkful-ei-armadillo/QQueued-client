@@ -20,7 +20,7 @@ export default class StudentQueue extends Component {
     );
     const numberInLine = queueList.indexOf(userTickets[0]);
     let note = "";
-    console.log(showNote)
+
     if (showNote) {
       if (showNote.user_name === user_name) {
         note = (
