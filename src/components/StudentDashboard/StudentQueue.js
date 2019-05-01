@@ -13,13 +13,8 @@ export default class StudentQueue extends Component {
   }
 
   render() {
-    // let note= ''
-    // if(this.context.showNote) {
-    //   if(this.context.showNote.user_name === this.props.user.user.user_name){
-    //     note = (<div>Your mentor {this.context.showNote.mentorName} is waiting</div>)
-    //   }
-    // }
     const {showNote, queueList} = this.context;
+    const{ user_name} = this.props.user.user;
     const userTickets = queueList.filter(
       el => el.studentName === this.props.user.user.full_name
     );
@@ -28,7 +23,7 @@ export default class StudentQueue extends Component {
     return (
       <section>
         <div className="studentsMainPage">
-          {showNote.user_name === this.props.user.user.user_name 
+          {showNote
             && <div>Your mentor {this.context.showNote.mentorName} is waiting</div>}
           {numberInLine > 0 && <div>You are currently #{numberInLine + 1} in line.</div>}
           {userTickets ? 
@@ -38,7 +33,7 @@ export default class StudentQueue extends Component {
           <HelpForm className="getHelpButton" />
           <ul className="studentWaitingQueue">
             {queueList.map((listItem, index) => 
-              <StudentWaitingNameList key={index} personInLine={listItem} currentUser={this.props.user.user.user_name}/>
+              <StudentWaitingNameList key={index} personInLine={listItem} currentUser={user_name}/>
             )}
           </ul>
         </div>
