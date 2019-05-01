@@ -70,7 +70,7 @@ export class QueueProvider extends Component {
     }
   };
 
-  helpStudent = mentorName => {
+  helpStudent = async (mentorName, history) => {
     apiService.moveStudent().then(() => {
       const { queueList, currentlyBeingHelped } = this.state;
       let student = queueList.shift();
@@ -80,7 +80,7 @@ export class QueueProvider extends Component {
       this.setState({
         queueList,
         currentlyBeingHelped
-      });
+      }, () => history.push(`/mentor/${mentorName}`));
     });
   };
 
