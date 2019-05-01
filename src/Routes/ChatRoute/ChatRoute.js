@@ -4,6 +4,7 @@ import { QueueProvider } from "../../context/QueueContext";
 import UserContext from "../../context/UserContext";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
+import NotesForm from '../../components/NotesForm/NotesForm';
 import "./ChatRoute.css";
 
 export default function ChatRoute() {
@@ -15,6 +16,7 @@ export default function ChatRoute() {
           <span>Back</span>
         </Button>
       </Link>
+      <NotesForm context={context} />
       <Chat user={context} />
     </QueueProvider>
   );

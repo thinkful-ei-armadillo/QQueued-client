@@ -55,6 +55,22 @@ const ApiService = {
     );
   },
 
+  postNote(note, user_name) {
+    return fetch(`${config.API_ENDPOINT}/queue/note/${user_name}`, {
+      method: "POST",
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify({ note })
+    })
+      .then(res =>
+        !res.ok
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      );
+  },
+
   getAllData() {
     return fetch(`${config.API_ENDPOINT}/data`, {
       method: "GET",
