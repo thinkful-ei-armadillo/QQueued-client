@@ -16,7 +16,7 @@ export default function BeingHelpedList() {
                   onClick={() => value.studentHelped(s.id)}
                   className="studentName"
                 >
-                  {s.studentName}
+                  <span>{s.studentName}</span>
                 </span>{" "}
                 <span className="mentor"> {s.mentorName}</span>
               </li>

@@ -32,3 +32,29 @@
   background: rgb(157, 238, 231);
   /* width: 200px; */
 }
+
+.studentName span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.studentName span:after {
+  content: "\00bb";
+  position: absolute;
+  font-size: 22pt;
+  opacity: 0;
+  top: 0;
+  right: -10px;
+  transition: 0.5s;
+}
+
+.studentName:hover span {
+  padding-right: 15px;
+}
+
+.studentName:hover span:after {
+  opacity: 1;
+  right: 0;
+}
