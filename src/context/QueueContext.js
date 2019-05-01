@@ -17,7 +17,8 @@ const QueueContext = createContext({
   studentHelped: () => {},
   dequeueWait: () => {},
   tellUser: () => {},
-  showNote: () => {}
+  showNote: () => {},
+  removeStudentFromQueue: () => {}
 });
 
 export default QueueContext;
@@ -136,6 +137,12 @@ export class QueueProvider extends Component {
       }
     });
   };
+  removeStudentFromQueue = id => {
+    const removedStudent = this.state.queueList.filter(queue => queue.id !== id);
+    this.setState({
+      queueList: removedStudent
+    })
+  };
 
   tellUser = (data) => {
     this.socket.emit('notifiy', data)
@@ -162,7 +169,8 @@ export class QueueProvider extends Component {
       studentHelped: this.studentHelped,
       dequeueWait: this.dequeueWait,
       tellUser: this.tellUser,
-      showNote: this.state.note
+      // showNote: this.state.note,
+      removeStudentFromQueue: this.removeStudentFromQueue
     };
 
     return (

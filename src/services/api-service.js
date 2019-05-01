@@ -78,6 +78,15 @@ const ApiService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
+  },
+  removeStudentFromQueue(id){
+    return fetch(`${config.API_ENDPOINT}/queue/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
+      }
+    })
   }
 } 
 
