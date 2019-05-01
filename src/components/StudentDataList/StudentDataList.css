@@ -7,6 +7,15 @@
   margin-top: 40px;
 }
 
+.display-data-section a {
+  text-decoration: none;
+  color: black;
+}
+
+.display-data-section a:hover {
+  color: rgba(0, 0, 0, 0.65);
+}
+
 .display-data-section h3 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.6);
   display: inline-flex;

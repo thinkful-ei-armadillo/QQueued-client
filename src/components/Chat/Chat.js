@@ -46,10 +46,11 @@ export default class Chat extends Component {
   };
   render() {
     let thread;
+    console.log(this.state.users)
     if (this.state.messages.length > 0) {
       thread = this.state.messages.map((i, j) => {
         return (
-          <div className="chatMessage">
+          <div key={i} className="chatMessage">
             <span title={i.user} className="currentUser">
               {i.user.charAt(0).toUpperCase()}
             </span>
@@ -84,7 +85,7 @@ export default class Chat extends Component {
               placeholder="send a message"
               onChange={e => this.handleChange(e.target.value)}
             />
-            <Button className="chatRoomButton" type="submit">
+            <Button type="submit">
               Send
             </Button>
           </form>
