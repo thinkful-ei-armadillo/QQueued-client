@@ -28,8 +28,13 @@
   flex-direction: row-reverse;
 }
 
-.chatRoomButton {
+.chatRoomForm .Button {
   background: white;
+}
+
+.chatRoomContainer .Button {
+  background: white;
+  height: 35px;
 }
 
 .currentMessage {

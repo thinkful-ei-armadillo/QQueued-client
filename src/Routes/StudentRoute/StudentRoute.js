@@ -10,13 +10,13 @@ export default function StudentRoute({ component, ...props }) {
   return (
     <Route
       {...props}
-      render={componentProps =>
+      render={ ({ history, match }, componentProps) =>
         !TokenService.getAuthToken() ? (
           <Redirect to={"/login"} />
           ) : context.user.title !== "student" ? (
             <Redirect to={"/waiting-room"} />
         ) : (
-          <Component {...componentProps} />
+          <Component history={history} match={match} {...componentProps} />
         )
       }
     />

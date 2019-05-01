@@ -12,7 +12,7 @@ export default function ChatRoute() {
     <QueueProvider>
       <Link className="linkBack" to={`/waiting-room`}>
         <Button className="button">
-          <span>Back </span>
+          <span>Back</span>
         </Button>
       </Link>
       <Chat user={context} />

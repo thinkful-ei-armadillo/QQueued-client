@@ -7,17 +7,18 @@ export default function MentorRoute({ component, ...props }) {
   const Component = component;
   const context = useContext(UserContext);
   return (
+    
     <Route
       {...props}
-      render={componentProps =>
+      render={ ({ history, match }, componentProps) =>
         !TokenService.getAuthToken() ? (
           <Redirect to={"/login"} />
           ) : context.user.title !== "mentor" ? (
             <Redirect to={"/waiting-list"} />
         ) : (
-          <Component {...componentProps} />
+          <Component history={history} match={match} {...componentProps} />
         )
       }
-    />
+      />
   );
 }

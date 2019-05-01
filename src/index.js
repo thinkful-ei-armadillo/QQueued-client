@@ -11,7 +11,7 @@ ReactDOM.render(
     <UserProvider>
       <ErrorBoundary>
         <App />
-      </ErrorBoundary>
+      </ErrorBoundary>  
     </UserProvider>
   </BrowserRouter>,
   document.getElementById("root")
