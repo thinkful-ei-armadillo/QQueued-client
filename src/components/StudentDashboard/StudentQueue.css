@@ -12,6 +12,14 @@
   list-style: none;
   height: 350px;
   border: 2px solid #5e0a0a;
+  width: 30vh;
+  text-align: center;
+}
+
+.noOneInQueue {
+  display: inline-block;
+  margin: auto, auto, auto, auto;
+  top: 50%;
 }
 
 .studentListTitle {
