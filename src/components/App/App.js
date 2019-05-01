@@ -13,6 +13,7 @@ import StudentListRoute from "../../Routes/StudentListRoute/StudentListRoute";
 import StudentDataRoute from "../../Routes/StudentDataRoute/StudentDataRoute";
 import ChatRoute from "../../Routes/ChatRoute/ChatRoute";
 import StudentInfoRoute from "../../Routes/StudentInfoRoute/StudentInfoRoute";
+import PrivateRoute from '../../Routes/PrivateRoute/PrivateRoute';
 import "./App.css";
 
 class App extends Component {
@@ -30,7 +31,7 @@ class App extends Component {
             <MentorRoute path={ "/message" } component={ MessageRoute } />
             <MentorRoute path={ "/data/:studentName" } component={ StudentInfoRoute }/>
             <MentorRoute path={"/data"} component={StudentDataRoute} />
-            <Route path={ "/mentor/:mentorName" } component={ ChatRoute } />
+            <PrivateRoute path={ "/mentor/:mentorName" } component={ ChatRoute } />
             <Route component={NotFoundRoute} />
           </Switch>
         </main>
