@@ -5,11 +5,16 @@ import "./HelpStudentButton.css";
 
 export default function HelpStudentButton(props) {
   const context = useContext(QueueContext);
-
   const { mentorName } = props;
-  return (
-    <Button onClick={() => context.helpStudent(mentorName)}>
-      Help a student
-    </Button>
-  );
+
+  const handleOnClick = () => {
+    let history = {
+      push: () => {}
+    };
+
+    context.helpStudent(mentorName);
+    history.push(`/mentor/${mentorName}`);
+  };
+
+  return <Button onClick={() => handleOnClick()}>Help a student</Button>;
 }

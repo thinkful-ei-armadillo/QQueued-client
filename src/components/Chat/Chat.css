@@ -8,7 +8,9 @@
   text-align: center;
   border: 2px solid black;
   width: 50%;
-  margin: 20px;
+  height: 70vh;
+  overflow: auto;
+  margin: 15px;
   border-radius: 25px;
   background: white;
 }
@@ -23,6 +25,13 @@
   background: none;
 }
 
+.chatRoomForm {
+  position: absolute;
+  flex-direction: row;
+  bottom: 0;
+  width: 100%;
+}
+
 .chatMessage {
   display: flex;
   flex-direction: row-reverse;
@@ -32,27 +41,51 @@
   background: white;
 }
 
-.currentMessage {
-  background: radial-gradient(5px -9px, circle, white 4%, #5ca0d3 26px);
+.foreignChatMessage {
+  display: flex;
+  flex-direction: row;
+  background: none;
+}
+
+.currentMessage,
+.foreignMessage {
   padding: 5px;
+  padding-left: 10px;
   border: 1px solid black;
   border-radius: 12px; /* one half of ( (border * 2) + height + padding ) */
   box-shadow: 2px 2px 2px darkgray;
-  color: white;
-  font: bold 15px/13px Helvetica, Verdana, Tahoma;
+  font: 12px Helvetica, Verdana, Tahoma;
   text-align: left;
   width: 40%;
   line-height: 20px;
+  margin: 5px;
+}
+
+.currentMessage {
+  background: -webkit-radial-gradient(5px -9px, circle, white 4%, #5ca0d3 26px);
+  color: white;
+}
+
+.foreignMessage {
+  background: -webkit-radial-gradient(
+    5px -9px,
+    circle,
+    white 4%,
+    lightgrey 26px
+  );
+  color: black;
 }
 
 .sendMessage {
-  width: 75%;
+  margin: 5px;
   padding: 10px;
   border-radius: 25px;
   background: #c8e6f5;
+  width: 55%;
 }
 
-.currentUser {
+.currentUser,
+.foreignUser {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -63,4 +96,10 @@
   text-align: center;
   background: #5e0a0a;
   margin: 5px;
+}
+
+.messages {
+  background: none;
+  height: 60vh;
+  overflow: auto;
 }

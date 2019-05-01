@@ -9,8 +9,11 @@
     "react-dom": "^16.8.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.8",
+    "react-stay-scrolled": "^6.0.0",
+    "semantic-ui-react": "^0.86.0",
     "socket.io": "^2.2.0",
-    "socket.io-client": "^2.2.0"
+    "socket.io-client": "^2.2.0",
+    "use-interval": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

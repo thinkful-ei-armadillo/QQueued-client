@@ -5,7 +5,6 @@ import { QueueProvider } from "../../context/QueueContext";
 import UserContext from "../../context/UserContext";
 import HelpStudentButton from "../../components/HelpStudentButton/HelpStudentButton";
 import HasBeenHelpedList from "../../components/MentorDashboard/HasBeenHelpedList";
-import { Link } from "react-router-dom";
 import "./WaitingRoom.css";
 export default class WaitingRoom extends Component {
   static contextType = UserContext;
@@ -18,12 +17,7 @@ export default class WaitingRoom extends Component {
             <div className="studentName">Students</div>
             <section className="Waiting-List-Section">
               Waiting List
-              <Link
-                className="linkToChatRoom"
-                to={`/mentor/${this.context.user.full_name}`}
-              >
-                <HelpStudentButton mentorName={full_name} />
-              </Link>
+              <HelpStudentButton mentorName={full_name} />
               <WaitingList />
             </section>
           </div>

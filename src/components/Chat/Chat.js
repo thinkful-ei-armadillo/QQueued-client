@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import openSocket from "socket.io-client";
 import "./Chat.css";
 import Button from "../Button/Button";
+import UserContext from "../../context/UserContext";
 
 export default class Chat extends Component {
+  static contextType = UserContext;
   constructor(props) {
     super(props);
 
@@ -17,6 +19,14 @@ export default class Chat extends Component {
     );
   }
 
+  scrollToBottom() {
+    this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+  }
+
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
+
   componentDidMount() {
     this.socket.emit("change-username", {
       userName: this.props.user.user.user_name
@@ -27,6 +37,7 @@ export default class Chat extends Component {
     this.socket.on("message", data => {
       this.setState({ messages: [...this.state.messages, data] });
     });
+    this.scrollToBottom();
   }
   componentWillUnmount() {
     this.socket.close();
@@ -48,6 +59,18 @@ export default class Chat extends Component {
     let thread;
     if (this.state.messages.length > 0) {
       thread = this.state.messages.map((i, j) => {
+        if (this.context.user.user_name !== i.user) {
+          return (
+            <div className="foreignChatMessage">
+              <span title={i.user} className="foreignUser">
+                {i.user.charAt(0).toUpperCase()}
+              </span>
+              <p className="foreignMessage" key={j}>
+                {i.text}
+              </p>
+            </div>
+          );
+        }
         return (
           <div className="chatMessage">
             <span title={i.user} className="currentUser">
@@ -73,8 +96,16 @@ export default class Chat extends Component {
     return (
       <div className="chatRoomContainer">
         <section className="chatRoomInput">
-          {activeUsers}
-          {thread}
+          <section className="messages">
+            {activeUsers}
+            {thread}
+            <div
+              style={{ float: "left", clear: "both" }}
+              ref={el => {
+                this.messagesEnd = el;
+              }}
+            />
+          </section>
           <form className="chatRoomForm" onSubmit={e => this.handleSubmit(e)}>
             <input
               className="sendMessage"

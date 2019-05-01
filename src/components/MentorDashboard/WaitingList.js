@@ -14,19 +14,17 @@ export default class StudentDescriptionList extends Component {
   }
 
   makeStudentList = () => {
-    return (
-      this.context.queueList.map((i, j) => {
+    return this.context.queueList.map((i, j) => {
       return (
-        <li key={ j } className="waitingListLiConatiner">
-          <span className="studentName">{ i.studentName }</span>{ " " }
-          <span className="description"> { i.description }</span>
+        <li key={j} className="waitingListLiConatiner">
+          <span className="studentName">{i.studentName}</span>{" "}
+          <span className="description"> {i.description}</span>
         </li>
       );
-    })
-    );
-  }
+    });
+  };
 
   render() {
-    return <ul>{ this.makeStudentList() }</ul>
+    return <ul>{this.makeStudentList()}</ul>;
   }
 }
