@@ -60,7 +60,6 @@ export default class Chat extends Component {
     e.target.reset();
   };
 
-
   render() {
     let thread;
     if (this.state.messages.length > 0) {
@@ -68,29 +67,23 @@ export default class Chat extends Component {
         if (this.context.user.user_name !== i.user) {
           return (
             <div className="foreignChatMessage" key={j}>
-              <span key={j} title={i.user} className="foreignUser">
+              <span title={i.user} className="foreignUser">
                 {i.user.charAt(0).toUpperCase()}
               </span>
-              <p className="foreignMessage" key={j}>
-                {i.text}
-              </p>
+              <p className="foreignMessage">{i.text}</p>
               <p className="time">{i.time}</p>
             </div>
           );
         }
 
         return (
-          <>
-            <div key={j} className="chatMessage">
-              <span key={i} title={i.user} className="currentUser">
-                {i.user.charAt(0).toUpperCase()}
-              </span>
-              <p className="currentMessage" key={j}>
-                {i.text}
-              </p>
-              <p className="time">{i.time}</p>
-            </div>
-          </>
+          <div key={j} className="chatMessage">
+            <span title={i.user} className="currentUser">
+              {i.user.charAt(0).toUpperCase()}
+            </span>
+            <p className="currentMessage">{i.text}</p>
+            <p className="time">{i.time}</p>
+          </div>
         );
       });
     }

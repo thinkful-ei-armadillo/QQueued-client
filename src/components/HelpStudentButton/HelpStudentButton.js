@@ -7,15 +7,11 @@ export default function HelpStudentButton(props) {
   const { mentorName } = props;
   const { history } = props;
 
-  // const queueLength = context.queueList.length;
-
   const route = `/mentor/${mentorName}`;
 
   const handleOnClick = () => {
     context.helpStudent(mentorName);
-    // if(context.queueList.length === queueLength -1 ) {
     history.push(route);
-    // }
   };
 
   return <Button onClick={() => handleOnClick()}>Help a student</Button>;
