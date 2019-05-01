@@ -43,6 +43,9 @@ export class QueueProvider extends Component {
     this.socket.on('notifiy', data => {
       this.setState({note: data})
     })
+    this.socket.on('delete-ticket', data => {
+      this.setState({queueList: data})
+    })
     apiService
       .getQueue()
       .then(async queue => {
@@ -139,9 +142,7 @@ export class QueueProvider extends Component {
   };
   removeStudentFromQueue = id => {
     const removedStudent = this.state.queueList.filter(queue => queue.id !== id);
-    this.setState({
-      queueList: removedStudent
-    })
+    this.socket.emit('delete-ticket', removedStudent)
   };
 
   tellUser = (data) => {
