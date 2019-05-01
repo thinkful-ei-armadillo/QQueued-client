@@ -148,11 +148,6 @@ export class QueueProvider extends Component {
     this.socket.emit('notifiy', data)
   }
 
-  showNote = () => {
-    // this.socket.on('notifiy', data => {
-    //   this.setState({note: data})
-    // })
-  }
   render() {
     const value = {
       queueList: this.state.queueList,
@@ -169,7 +164,7 @@ export class QueueProvider extends Component {
       studentHelped: this.studentHelped,
       dequeueWait: this.dequeueWait,
       tellUser: this.tellUser,
-      // showNote: this.state.note,
+      showNote: this.state.note,
       removeStudentFromQueue: this.removeStudentFromQueue
     };
 

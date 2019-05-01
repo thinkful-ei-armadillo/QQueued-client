@@ -9,6 +9,7 @@ export default function HelpStudentButton(props) {
 
   const handleOnClick = () => {
     context.queueList[0].mentorName = mentorName
+    context.queueList[0].url = `/mentor/${encodeURI(mentorName)}`
     context.tellUser(context.queueList[0])
     context.helpStudent(mentorName, history);
   };
