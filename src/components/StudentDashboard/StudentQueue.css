@@ -32,7 +32,7 @@
   left: 75%;
 }
 
-.studentNameForQueue:hover .tooltiptext {
+.studentNameForQueue:hover ~ .tooltiptext {
   visibility: visible;
 }
 

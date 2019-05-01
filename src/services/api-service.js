@@ -62,27 +62,18 @@ const ApiService = {
         "content-type": "application/json",
         authorization: `Bearer ${TokenService.getAuthToken()}`
       }
-<<<<<<< HEAD
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
-=======
-    })
-      .then(res =>
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      )
   },
-  removeStudentFromQueue(id){
+  removeStudentFromQueue(id) {
     return fetch(`${config.API_ENDPOINT}/queue/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'content-type': 'application/json',
-        'authorization': `Bearer ${TokenService.getAuthToken()}`
+        "content-type": "application/json",
+        authorization: `Bearer ${TokenService.getAuthToken()}`
       }
-    })
->>>>>>> 7b2811a9b6a528f8e497d609026e4eec34cd04cb
+    });
   }
 };
 
