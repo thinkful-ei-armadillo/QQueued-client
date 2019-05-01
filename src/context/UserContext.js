@@ -3,6 +3,7 @@ import AuthApiService from '../services/auth-api-service'
 import TokenService from '../services/token-service'
 import IdleService from '../services/idle-service'
 
+
 const UserContext = React.createContext({
   user: {},
   error: null,
@@ -29,12 +30,13 @@ export class UserProvider extends Component {
         user_name: jwtPayload.sub,
         title: jwtPayload.title
       }
-
+    
     this.state = state;
     IdleService.setIdleCallback(this.logoutBecauseIdle)
   }
 
   componentDidMount() {
+
     if (TokenService.hasAuthToken()) {
       IdleService.regiserIdleTimerResets()
       TokenService.queueCallbackBeforeExpiry(() => {
@@ -104,6 +106,7 @@ export class UserProvider extends Component {
   }
 
   render() {
+
     const value = {
       user: this.state.user,
       error: this.state.error,
@@ -111,7 +114,7 @@ export class UserProvider extends Component {
       clearError: this.clearError,
       setUser: this.setUser,
       processLogin: this.processLogin,
-      processLogout: this.processLogout,
+      processLogout: this.processLogout
     }
 
     return (

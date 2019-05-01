@@ -72,7 +72,7 @@ export default class Chat extends Component {
           );
         }
         return (
-          <div className="chatMessage">
+          <div key={i} className="chatMessage">
             <span title={i.user} className="currentUser">
               {i.user.charAt(0).toUpperCase()}
             </span>
@@ -115,9 +115,7 @@ export default class Chat extends Component {
               placeholder="send a message"
               onChange={e => this.handleChange(e.target.value)}
             />
-            <Button className="chatRoomButton" type="submit">
-              Send
-            </Button>
+            <Button type="submit">Send</Button>
           </form>
         </section>
       </div>

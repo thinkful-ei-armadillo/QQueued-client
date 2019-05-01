@@ -7,8 +7,15 @@ import HelpStudentButton from "../../components/HelpStudentButton/HelpStudentBut
 import HasBeenHelpedList from "../../components/MentorDashboard/HasBeenHelpedList";
 import "./WaitingRoom.css";
 export default class WaitingRoom extends Component {
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => {}
+    }
+  };
   static contextType = UserContext;
   render() {
+    console.log(this.props);
     const { full_name } = this.context.user;
     return (
       <QueueProvider>
@@ -17,7 +24,10 @@ export default class WaitingRoom extends Component {
             <div className="studentName">Students</div>
             <section className="Waiting-List-Section">
               Waiting List
-              <HelpStudentButton mentorName={full_name} />
+              <HelpStudentButton
+                mentorName={full_name}
+                history={this.props.history}
+              />
               <WaitingList />
             </section>
           </div>

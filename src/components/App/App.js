@@ -12,6 +12,7 @@ import StudentRoute from "../../Routes/StudentRoute/StudentRoute";
 import StudentListRoute from "../../Routes/StudentListRoute/StudentListRoute";
 import StudentDataRoute from "../../Routes/StudentDataRoute/StudentDataRoute";
 import ChatRoute from "../../Routes/ChatRoute/ChatRoute";
+import StudentInfoRoute from "../../Routes/StudentInfoRoute/StudentInfoRoute";
 import "./App.css";
 
 class App extends Component {
@@ -26,9 +27,10 @@ class App extends Component {
             <Route path={"/register"} component={Registration} />
             <MentorRoute path={"/waiting-room"} component={WaitingRoom} />
             <StudentRoute path={"/waiting-list"} component={StudentListRoute} />
-            <MentorRoute path={"/message"} component={MessageRoute} />
+            <MentorRoute path={ "/message" } component={ MessageRoute } />
+            <MentorRoute path={ "/data/:studentName" } component={ StudentInfoRoute }/>
             <MentorRoute path={"/data"} component={StudentDataRoute} />
-            <Route path={"/mentor/:mentorName"} component={ChatRoute} />
+            <Route path={ "/mentor/:mentorName" } component={ ChatRoute } />
             <Route component={NotFoundRoute} />
           </Switch>
         </main>
