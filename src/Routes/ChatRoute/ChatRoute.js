@@ -16,7 +16,7 @@ export default function ChatRoute() {
           <span>Back</span>
         </Button>
       </Link>
-      <NotesForm />
+      <NotesForm context={context} />
       <Chat user={context} />
     </QueueProvider>
   );
