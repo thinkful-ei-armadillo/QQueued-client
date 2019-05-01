@@ -31,7 +31,6 @@ export default class StudentQueue extends Component {
       el => el.studentName === this.props.user.user.full_name
     );
     const numberInLine = queueList.indexOf(userTickets[0]);
-<<<<<<< HEAD
     // let note = "";
 // console.log(showNote)
 //     if (showNote) {
@@ -44,19 +43,6 @@ export default class StudentQueue extends Component {
 //         );
 //       }
 //     }
-=======
-    let note = "";
-
-    if (showNote) {
-      if (showNote.user_name === user_name) {
-        note = (
-          <div>
-            Your mentor {showNote.mentorName} is waiting at {showNote.url}{" "}
-          </div>
-        );
-      }
-    }
->>>>>>> fe26c2849be59ba5a68cc72c5c9fb983a0d393b6
 
     return (
       <section>
