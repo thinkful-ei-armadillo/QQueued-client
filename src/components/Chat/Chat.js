@@ -52,18 +52,14 @@ export default class Chat extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.makeCurrentTime();
     this.socket.emit("message", {
       user: this.state.users[0],
-      text: this.state.input
+      text: this.state.input,
+      time: new Date().toLocaleTimeString()
     });
     e.target.reset();
   };
 
-  makeCurrentTime() {
-    console.log(this.state.messages);
-    this.context.updateTime(new Date().toLocaleTimeString());
-  }
 
   render() {
     let thread;
@@ -71,28 +67,29 @@ export default class Chat extends Component {
       thread = this.state.messages.map((i, j) => {
         if (this.context.user.user_name !== i.user) {
           return (
-            <div className="foreignChatMessage">
-              <span title={i.user} className="foreignUser">
+            <div className="foreignChatMessage" key={j}>
+              <span key={j} title={i.user} className="foreignUser">
                 {i.user.charAt(0).toUpperCase()}
               </span>
               <p className="foreignMessage" key={j}>
                 {i.text}
               </p>
+              <p className="time">{i.time}</p>
             </div>
           );
         }
 
         return (
           <>
-            <div key={i} className="chatMessage">
-              <span title={i.user} className="currentUser">
+            <div key={j} className="chatMessage">
+              <span key={i} title={i.user} className="currentUser">
                 {i.user.charAt(0).toUpperCase()}
               </span>
               <p className="currentMessage" key={j}>
                 {i.text}
               </p>
+              <p className="time">{i.time}</p>
             </div>
-            <p className="time">{this.context.time}</p>
           </>
         );
       });
