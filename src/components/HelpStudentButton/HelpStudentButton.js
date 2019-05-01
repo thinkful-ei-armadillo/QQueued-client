@@ -9,6 +9,7 @@ export default function HelpStudentButton(props) {
   const { history } = props;
 
   const handleOnClick = () => {
+    if(context.queueList.length > 0){
     context.queueList[0].mentorName = mentorName
     context.queueList[0].url = `/mentor/${encodeURI(mentorName)}`
     if(context.queueList[0].slack_user_id) {
@@ -17,6 +18,7 @@ export default function HelpStudentButton(props) {
     }
     context.tellUser(context.queueList[0])
     context.helpStudent(mentorName, history);
+  }
   };
 
   return <Button onClick={() => handleOnClick()}>Help a student</Button>;
