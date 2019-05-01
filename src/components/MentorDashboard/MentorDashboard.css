@@ -42,6 +42,7 @@
 
 .studentName span:after {
   content: "\00bb";
+  color: green;
   position: absolute;
   font-size: 22pt;
   opacity: 0;

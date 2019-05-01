@@ -76,7 +76,7 @@ export default class StudentQueue extends Component {
       makeQueue = this.context.queueList.map((i, j) => {
         return (
           <li key={j} className="eachStudentInQueue">
-            <div className="studentName">
+            <div className="studentNameForQueue">
               {i.studentName}
               <span className="tooltiptext">{i.description}</span>
             </div>
