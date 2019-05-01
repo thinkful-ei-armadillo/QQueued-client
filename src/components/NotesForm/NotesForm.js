@@ -20,6 +20,9 @@ export default class NotesForm extends Component {
     } else {
       apiService
         .postNote(this.state.note, user.user_name)
+        .then(() =>
+          this.setState({ note: '', error: null, hasError: null })
+        )
     }
 
   }
