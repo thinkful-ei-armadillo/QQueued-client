@@ -16,6 +16,9 @@ export default class Chat extends Component {
     };
     this.socket = openSocket(
       /* config.API_ENDPOINT ||  */ "http://localhost:8000"
+      // {
+      //   path: `/mentor/${this.context.user.user_name}`
+      // }
     );
   }
 
@@ -49,12 +52,19 @@ export default class Chat extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    this.makeCurrentTime();
     this.socket.emit("message", {
       user: this.state.users[0],
       text: this.state.input
     });
     e.target.reset();
   };
+
+  makeCurrentTime() {
+    console.log(this.state.messages);
+    this.context.updateTime(new Date().toLocaleTimeString());
+  }
+
   render() {
     let thread;
     if (this.state.messages.length > 0) {
@@ -71,15 +81,19 @@ export default class Chat extends Component {
             </div>
           );
         }
+
         return (
-          <div key={i} className="chatMessage">
-            <span title={i.user} className="currentUser">
-              {i.user.charAt(0).toUpperCase()}
-            </span>
-            <p className="currentMessage" key={j}>
-              {i.text}
-            </p>
-          </div>
+          <>
+            <div key={i} className="chatMessage">
+              <span title={i.user} className="currentUser">
+                {i.user.charAt(0).toUpperCase()}
+              </span>
+              <p className="currentMessage" key={j}>
+                {i.text}
+              </p>
+            </div>
+            <p className="time">{this.context.time}</p>
+          </>
         );
       });
     }

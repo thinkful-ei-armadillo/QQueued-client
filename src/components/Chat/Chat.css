@@ -3,6 +3,12 @@
   justify-content: center;
 }
 
+.time {
+  color: lightgray;
+  font-size: 8pt;
+  margin: 2px;
+}
+
 .chatRoomInput {
   position: relative;
   text-align: center;
