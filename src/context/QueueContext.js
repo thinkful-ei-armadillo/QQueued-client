@@ -16,7 +16,8 @@ const QueueContext = createContext({
   closeWebSocket: () => {},
   studentHelped: () => {},
   dequeueWait: () => {},
-  
+  tellUser: () => {},
+  showNote: () => {}
 });
 
 export default QueueContext;
@@ -28,7 +29,8 @@ export class QueueProvider extends Component {
       queueList: [],
       currentlyBeingHelped: [],
       hasBeenHelpedList: [],
-      error: null
+      error: null,
+      note: ''
     };
     this.state = state;
     this.socket = openSocket(
@@ -37,6 +39,9 @@ export class QueueProvider extends Component {
   }
 
   componentDidMount() {
+    this.socket.on('notifiy', data => {
+      this.setState({note: data})
+    })
     apiService
       .getQueue()
       .then(async queue => {
@@ -132,6 +137,15 @@ export class QueueProvider extends Component {
     });
   };
 
+  tellUser = (data) => {
+    this.socket.emit('notifiy', data)
+  }
+
+  showNote = () => {
+    // this.socket.on('notifiy', data => {
+    //   this.setState({note: data})
+    // })
+  }
   render() {
     const value = {
       queueList: this.state.queueList,
@@ -146,7 +160,9 @@ export class QueueProvider extends Component {
       webSocket: this.webSocket,
       closeWebSocket: this.closeWebSocket,
       studentHelped: this.studentHelped,
-      dequeueWait: this.dequeueWait
+      dequeueWait: this.dequeueWait,
+      tellUser: this.tellUser,
+      showNote: this.state.note
     };
 
     return (

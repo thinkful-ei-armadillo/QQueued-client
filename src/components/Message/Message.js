@@ -26,6 +26,7 @@ export default class Message extends Component {
   };
   onSubmit = e => {
     e.preventDefault();
+    console.log(this.state.slack_id)
     slackApiService
       .openDmAndMessage(this.state.slack_id, this.state.text)
       .then(res => {
@@ -44,12 +45,11 @@ export default class Message extends Component {
       let noDup = [];
       let hash = Object.create(null);
       for (let i = 0; i < this.context.queueList.length; i++) {
-        if (!hash[this.context.queueList[i].studentName]) {
+        if (!hash[this.context.queueList[i].studentName] && this.context.queueList[i].slack_user_id) {
           hash[this.context.queueList[i].studentName] = true;
           noDup.push(this.context.queueList[i]);
         }
       }
-
       dropDown = noDup.map(i => {
         return (
           <option key={i.id} value={i.slack_user_id}>
