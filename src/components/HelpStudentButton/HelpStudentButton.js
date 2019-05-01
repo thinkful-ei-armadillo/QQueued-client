@@ -8,6 +8,8 @@ export default function HelpStudentButton(props) {
   const { history } = props;
 
   const handleOnClick = () => {
+    context.queueList[0].mentorName = mentorName
+    context.tellUser(context.queueList[0])
     context.helpStudent(mentorName, history);
   };
 

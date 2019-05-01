@@ -85,9 +85,16 @@ export default class StudentQueue extends Component {
       });
     }
 
+    let note= ''
+    if(this.context.showNote) {
+      if(this.context.showNote.user_name === this.props.user.user.user_name){
+        note = (<div>Your mentor {this.context.showNote.mentorName} is waiting</div>)
+      }
+    }
     return (
       <div>
         <div className="studentsMainPage">
+          {note}
           {numberInLine ? (
             <div>You are currently #{numberInLine + 1} in line.</div>
           ) : (
