@@ -7,11 +7,8 @@ export default function HelpStudentButton(props) {
   const { mentorName } = props;
   const { history } = props;
 
-  const route = `/mentor/${mentorName}`;
-
   const handleOnClick = () => {
-    context.helpStudent(mentorName);
-    history.push(route);
+    context.helpStudent(mentorName, history);
   };
 
   return <Button onClick={() => handleOnClick()}>Help a student</Button>;
