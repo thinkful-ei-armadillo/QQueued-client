@@ -43,10 +43,6 @@
   flex-direction: row-reverse;
 }
 
-.chatRoomForm .Button {
-  background: white;
-}
-
 .foreignChatMessage {
   display: flex;
   flex-direction: row;

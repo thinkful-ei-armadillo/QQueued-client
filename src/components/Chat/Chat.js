@@ -16,9 +16,6 @@ export default class Chat extends Component {
     };
     this.socket = openSocket(
       /* config.API_ENDPOINT ||  */ "http://localhost:8000"
-      // {
-      //   path: `/mentor/${this.context.user.user_name}`
-      // }
     );
   }
 
@@ -37,9 +34,24 @@ export default class Chat extends Component {
     this.socket.on("entered", data => {
       this.setState({ users: [...this.state.users, data] });
     });
-    this.socket.on("message", data => {
-      this.setState({ messages: [...this.state.messages, data] });
+    this.socket.emit("message", {
+      student: this.props.user.user.user_name,
+      private: true,
+      mentor: this.props.user.user.user_name
     });
+    this.socket.on("message", data => {
+      if (data.private) {
+        if (
+          data.student === this.props.user.user_name ||
+          data.mentor === this.props.user.user_name
+        ) {
+          this.setState({ messages: [...this.state.messages, data] });
+        }
+      } else {
+        this.setState({ messages: [...this.state.messages, data] });
+      }
+    });
+    // need to refactor
     this.scrollToBottom();
   }
   componentWillUnmount() {
