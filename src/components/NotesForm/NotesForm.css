@@ -1,0 +1,12 @@
+#note-form {
+  float: left;
+}
+
+#note-form-section {
+  margin-left: 20px;
+}
+
+#note-form .Button, #note-form .Label {
+  display: flex;
+  justify-content: center;
+}

@@ -65,6 +65,22 @@ const ApiService = {
       )
   },
 
+  postComment(comment) {
+    return fetch(`${config.API_ENDPOINT}/queue/comment`, {
+      method: "POST",
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `Bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify({ comment })
+    })
+      .then(res =>
+        !res.ok
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      );
+  },
+
   getAllData() {
     return fetch(`${config.API_ENDPOINT}/data`, {
       method: 'GET',
