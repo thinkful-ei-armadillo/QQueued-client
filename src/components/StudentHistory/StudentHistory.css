@@ -1,0 +1,42 @@
+.buttonUp,
+.buttonDropDown {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid navy;
+  background: navy;
+  color: white;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.buttonUp img {
+  width: 7px;
+  height: 7px;
+  transform: rotate(-90deg);
+}
+
+.buttonDropDown img {
+  width: 7px;
+  height: 7px;
+}
+
+.noMentorHistory,
+.noTicketHistory {
+  display: none;
+}
+
+.mentorHistory,
+.ticketHistory {
+  padding: 0;
+  list-style: none;
+}
+
+.mentorHistory li,
+.ticketHistory li {
+  border: 1px solid navy;
+  width: 100%;
+  font-size: 10pt;
+  margin-bottom: 2px;
+  padding: 4px;
+  background: rgb(201, 233, 245);
+}
