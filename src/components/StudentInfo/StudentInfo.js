@@ -3,7 +3,7 @@ import StudentDataContext from '../../context/StudentDataContext';
 
 export default function StudentInfo(props) {
   const dataContext = useContext(StudentDataContext);
-  const { studentData } = dataContext;
+  const { studentData, notes } = dataContext;
   const { studentName } = props.match.params;
   
   const filterStudentInfo = () => {
@@ -24,7 +24,23 @@ export default function StudentInfo(props) {
               <li key={i}>{q}</li>
             ))}
           </ul>
+          {filterNotes()}
         </section>
+      ))
+  }
+
+  const filterNotes = () => {
+    return notes
+      .filter(n => n.studentName === studentName)
+      .map((n, i) => (
+        <div key={i}>
+          <h3>Mentor Notes</h3>
+          <ul>
+            {n.notes.map((n, i) => (
+              <li key={i}>{n}</li>
+            ))}
+          </ul>
+        </div>
       ))
   }
 

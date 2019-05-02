@@ -55,8 +55,8 @@ const ApiService = {
     );
   },
 
-  postNote(note, user_name) {
-    return fetch(`${config.API_ENDPOINT}/queue/note/${user_name}`, {
+  postNote(note, queue_id) {
+    return fetch(`${config.API_ENDPOINT}/data/note/${queue_id}`, {
       method: "POST",
       headers: {
         'content-type': 'application/json',
@@ -71,6 +71,18 @@ const ApiService = {
       );
   },
 
+  getNotes() {
+    return fetch(`${config.API_ENDPOINT}/data/note`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${TokenService.getAuthToken()}`
+      }
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
+  },
+
   getAllData() {
     return fetch(`${config.API_ENDPOINT}/data`, {
       method: "GET",
@@ -82,6 +94,7 @@ const ApiService = {
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
+
   removeStudentFromQueue(id) {
     return fetch(`${config.API_ENDPOINT}/queue/${id}`, {
       method: "DELETE",
