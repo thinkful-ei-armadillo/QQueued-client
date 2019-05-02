@@ -46,6 +46,8 @@ export default class Chat extends Component {
     this.scrollToBottom();
   }
   componentWillUnmount() {
+    const helpedArray = this.context.currentlyBeingHelped;
+    this.socket.emit('left', {user: this.state.users[0], room: this.rooms, to: helpedArray[helpedArray.length - 1]})
     this.socket.close();
   }
 
