@@ -31,52 +31,48 @@ export class StudentDataProvider extends Component {
     this.setState({ error: null });
   };
 
-  updateStudentData = (data) => {
+  createStudentData = (data) => {
     return this._createStudentDataItems(data)
   };
 
-  updateNotes = (note) => {
+  createNotes = (note) => {
     const notes = this._createNoteItems(note);
-    console.log(notes);
     return notes;
   }
 
   async componentDidMount() {
     try {
-      const studentData = await apiService.getAllData().then(async data => await this.updateStudentData(data));
-      const notes = await apiService.getNotes().then(async data => await this.updateNotes(data));
+      const studentData = await apiService.getAllData().then(data => this.createStudentData(data));
+      const notes = await apiService.getNotes().then(data => this.createNotes(data));
 
-      this.setState({ studentData });
+      this.setState({ studentData, notes });
     }
-    catch {
-      console.log({error: 'error fetching initial data'})
+    catch (error){
+      console.log(error);
     }
   };
 
   _createNoteItems = (note) => {
     let studentNames = [];
     let noteList = [];
- 
-    note.forEach(s => {
-      if (studentNames.indexOf(s.studentName) === -1) {
-        studentNames.push(s.studentName);
+    let noteItem = [];
+
+    note.forEach(n => {
+      if (studentNames.indexOf(n.studentName) === -1) {
+        studentNames.push(n.studentName);
       }
     });
 
-    studentNames.forEach(name => {
-      noteList.push(
-        note.filter(student => student.studentName === name)
-      );
-    });
+    studentNames.forEach(name => noteList.push(note.filter(n => n.studentName === name)));
 
-    
-    return noteList;
-
-/* 0: {user_name: "student2", note: null}
-1: {user_name: "student3", note: null}
-2: {user_name: "student4", note: "test"}
-3: {user_name: "matth3wn", note: "test note!"}
-4: {user_name: "student2", note: null} */
+    for (let i = 0; i < noteList.length; i++) {
+      noteItem.push({
+        studentName: noteList[i][0].studentName,
+        notes: noteList[i].map(n => n['note'])
+        .filter(n => n !== null)
+      })
+    }
+    return noteItem;
   };
 
   _createStudentDataItems = (studentData) => {
