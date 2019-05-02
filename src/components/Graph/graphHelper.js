@@ -8,6 +8,7 @@ const graphHelper = {
     return colorList
   },
   mentorTicketCounter(arr){
+    console.log(arr)
     let hm = new Map()
     let count = 1
     for(let i = 0; i < arr.length ; i ++) {
@@ -24,6 +25,7 @@ const graphHelper = {
       labels: keys,
       data: values
     }
+    console.log(hm)
     return filtered
   }
 }

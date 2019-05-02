@@ -19,26 +19,11 @@ export default class Graph extends Component {
         }]
       }
     }
-    let inputMentor;
-    if(data.length > 0){
-      let filteredData = graphHelper.mentorTicketCounter(data)
-      
-      const colorList = graphHelper.makeRandomColors(filteredData.data.length)
-       inputMentor = {
-        labels: filteredData.labels,
-        datasets: [{
-          data: filteredData.data,
-          backgroundColor: colorList,
-            hoverBackgroundColor: colorList
-        }]
-      }
-    }
+ 
     return (
     <div>
        <span>Graph of finished tickets by Student</span>
       {input && <Pie data={input} height={150} width={200} />}
-      <span>Completed tickets by Mentor</span>
-      {input && <Pie data={inputMentor} height={150} width={200} />}
     </div>
     );
   }
