@@ -13,7 +13,7 @@ export default function HelpStudentButton(props) {
     context.queueList[0].mentorName = mentorName
     context.queueList[0].url = `/mentor/${encodeURI(mentorName)}`
     if(context.queueList[0].slack_user_id) {
-      const text = `Your mentor is ready go at ${context.queueList[0].url}`
+      const text = `Your mentor is ready go at http://localhost:3000${context.queueList[0].url}`
       slackService.openDmAndMessage(context.queueList[0].slack_user_id, text)
     }
     context.tellUser(context.queueList[0])
