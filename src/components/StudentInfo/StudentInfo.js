@@ -30,13 +30,17 @@ export default function StudentInfo(props) {
   }
 
   const filterNotes = () => {
+    console.log(notes)
     return notes
       .filter(n => n.studentName === studentName)
       .map((n, i) => (
-        <div key={i}>
-          <h3>Mentor Notes</h3>
+        <div key={ i }>
+          {!n.notes.length
+            ? <h3>Student has no notes</h3>
+            : <h3>Mentor Notes</h3>
+          }
           <ul>
-            {n.notes.map((n, i) => (
+            { n.notes.map((n, i) => (
               <li key={i}>{n}</li>
             ))}
           </ul>
