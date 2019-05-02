@@ -35,31 +35,28 @@ export default class StudentQueue extends Component {
       el => el.studentName === this.props.user.user.full_name
     );
     const numberInLine = queueList.indexOf(userTickets[0]);
-
+    const isSomeoneInLine = !queueList.length;
     return (
-      <section>
-        <div className="studentsMainPage">
+      <section className="student-dashboard-container row">
+        <div className="studentsMainPage col-12">
+          <h2 className="studentListTitle">Waiting List</h2>
           {showNote.user_name === user_name && this.renderChatRoom(showNote)}
           {numberInLine > 0 && this.renderPlaceInLine(numberInLine)}
-          {userTickets ? (
-            this.renderOpenTickets(userTickets.length)
-          ) : (
-            <div>You don't have any tickets open.</div>
-          )}
-          <h2 className="studentListTitle">Waiting List</h2>
+          {userTickets 
+            ? this.renderOpenTickets(userTickets.length)
+            : <div>You don't have any tickets open.</div>
+          } 
+          {!isSomeoneInLine && 
+            <p className="noOneInQueue">No one is in line for help</p>} 
           <HelpForm className="getHelpButton" />
           <ul className="studentWaitingQueue">
-            {queueList.length > 0 ? (
-              queueList.map((listItem, index) => (
-                <StudentWaitingNameList
-                  key={index}
-                  personInLine={listItem}
-                  currentUser={user_name}
-                />
-              ))
-            ) : (
-              <p className="noOneInQueue">No one is in the queue</p>
-            )}
+            {queueList.map((listItem, index) =>
+              <StudentWaitingNameList
+                key={index}
+                personInLine={listItem}
+                currentUser={user_name}
+              />
+              )}
           </ul>
         </div>
       </section>

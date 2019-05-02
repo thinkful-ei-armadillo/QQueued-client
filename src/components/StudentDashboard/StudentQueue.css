@@ -10,24 +10,22 @@
   padding: 0px;
   overflow: auto;
   list-style: none;
-  height: 350px;
+  height: 100%;
   border: 2px solid #5e0a0a;
-  width: 30vh;
   text-align: center;
 }
 
 .noOneInQueue {
-  display: inline-block;
+  display: block;
   margin: auto, auto, auto, auto;
   top: 50%;
 }
 
 .studentListTitle {
-  width: 100%;
   color: #5e0a0a;
 }
 
-.tooltiptext {
+/* .tooltiptext {
   visibility: hidden;
   width: 120px;
   background-color: #5e0a0a;
@@ -38,7 +36,7 @@
   z-index: 2;
   top: 50%;
   left: 75%;
-}
+} */
 
 .studentNameForQueue:hover ~ .tooltiptext {
   visibility: visible;
