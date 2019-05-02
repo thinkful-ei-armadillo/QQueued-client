@@ -9,69 +9,67 @@ class Header extends Component {
 
   handleLogoutClick = () => {
     this.context.processLogout();
-  };
+  }
 
-  renderLogoutLink() {
+  renderLogoutLink(title, name) {
     return (
-      <div className="logged-in-header">
-        <span className="userName">Hello {this.context.user.full_name}!</span>
-        <nav>
-          {this.context.user && this.context.user.title === "mentor" ? (
-            <Link className="messageViaSlack" to="/message">
-              Send Message via Slack
-            </Link>
-          ) : null}
-          <Link className="logout" onClick={this.handleLogoutClick} to="/login">
-            Logout
-          </Link>
-        </nav>
+      <div className="Navbar-right">
+        <Link className="nav-text-right userName" to={'/'} >{name}</Link>
+        {title === "mentor" && this.renderMentorLinks()}
+        <Link className="nav-text-right logout" onClick={this.handleLogoutClick} to="/login">
+          Logout
+        </Link>
       </div>
     );
   }
 
   renderLoginLink() {
     return (
-      <nav className="logged-out-header">
-        <Link className="register" to="/register">
+      <div className="Navbar-right">
+        <Link className="nav-text-right register" to="/register">
           Sign up
         </Link>
-        <Link className="login" to="/login">
+        <Link className="nav-text-right login" to="/login">
           Login
-        </Link>{" "}
-      </nav>
+        </Link>
+      </div>
     );
   }
 
-  renderStudentDataLink = () => {
+  renderMentorLinks = () => {
     return (
-      <Link className="data-link" to="/data">
-        Students Data
-      </Link>
+      <React.Fragment>
+        <Link className="nav-text-right data-link" to="/data">
+          Students Data
+        </Link>
+        <Link className="nav-text-right messageViaSlack" to="/message">
+          Send Message via Slack
+        </Link>
+      </React.Fragment>
     );
-  };
+  }
+
+  handleNavToggle (){
+    const navs = document.querySelectorAll('.nav-text-right')
+    navs.forEach(nav => nav.classList.toggle('Navbar-ToggleShow'));
+  }
 
   render() {
+    const {title, full_name} = this.context.user;
+    const checkForUser = TokenService.hasAuthToken();
+    const redirectRoute = title === 'mentor' ? '/waiting-room' : '/waiting-list';
+    const homeLinkRedirect = checkForUser ? redirectRoute : '/';
     return (
       <header>
-        {this.context.user && this.context.user.title === "mentor" ? (
-          <nav className="left-links">
-            <Link className="gitRekt" to="/waiting-room">
-              Git-Rekt
-            </Link>
-            {this.renderStudentDataLink()}
-          </nav>
-        ) : this.context.user && this.context.user.title === "student" ? (
-          <Link className="gitRekt" to="/waiting-list">
-            Git-Rekt
-          </Link>
-        ) : (
-          <Link className="gitRekt" to="/">
-            Git-Rekt
-          </Link>
-        )}
-        {TokenService.hasAuthToken()
-          ? this.renderLogoutLink()
-          : this.renderLoginLink()}
+        <nav role="navigation">
+          <Link className="nav-text brand" to={homeLinkRedirect}>Git-Rekt</Link>
+          {checkForUser
+            ? this.renderLogoutLink(title, full_name)
+            : this.renderLoginLink()}
+          <div onClick={this.handleNavToggle} className="Navbar-toggle">
+            <i className="fas fa-bars"></i>
+          </div>
+        </nav>
       </header>
     );
   }
