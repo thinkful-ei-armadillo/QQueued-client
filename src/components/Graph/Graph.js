@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import { Pie } from "react-chartjs-2";
-import QueueContext from "../../context/QueueContext"
 import graphHelper from './graphHelper'
 
 export default class Graph extends Component {
-  static contextType = QueueContext;
-  
   render() {
     const { data } = this.props;
     const isEmptyData = !data.length ? true : false;
@@ -18,7 +15,6 @@ export default class Graph extends Component {
           hoverBackgroundColor: colorList
         }]
     } 
-
     return (
     <section>
       {!isEmptyData && <span>Graph of finished tickets by Student</span>}
