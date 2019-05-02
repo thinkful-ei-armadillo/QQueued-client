@@ -3,10 +3,15 @@ import QueueContext from "../../context/QueueContext";
 import HelpForm from "../../components/HelpForm/HelpForm";
 import "./StudentQueue.css";
 import StudentWaitingNameList from "./studentWaitingNameList/studentWatingNameList";
+import StudentHistory from "../StudentHistory/StudentHistory";
 import { Link } from "react-router-dom";
 
 export default class StudentQueue extends Component {
   static contextType = QueueContext;
+
+  state = {
+    historyName: true
+  };
 
   componentDidMount() {
     this.context.webSocket();
@@ -35,9 +40,26 @@ export default class StudentQueue extends Component {
       el => el.studentName === this.props.user.user.full_name
     );
     const numberInLine = queueList.indexOf(userTickets[0]);
-
     return (
       <section>
+        <div className="studentHistory">
+          <button
+            className="buttonHistory"
+            type="button"
+            onClick={() => {
+              if (!this.state.historyName) {
+                this.setState({ historyName: true });
+              } else {
+                this.setState({ historyName: false });
+              }
+            }}
+          >
+            My Ticket History
+          </button>
+          <section className={this.state.historyName ? "hide" : "display"}>
+            <StudentHistory currentUser={this.props.user.user.full_name} />
+          </section>
+        </div>
         <div className="studentsMainPage">
           {showNote.user_name === user_name && this.renderChatRoom(showNote)}
           {numberInLine > 0 && this.renderPlaceInLine(numberInLine)}

@@ -5,7 +5,7 @@ import graphHelper from './graphHelper'
 export default class Graph extends Component {
   render() {
     const { data } = this.props;
-    const isEmptyData = !data.length ? true : false;
+    const isEmptyData = !data.length;
     const colorList = graphHelper.makeRandomColors(data.length)
     const input = {
         labels: data.map(i => i.studentName),
@@ -17,7 +17,9 @@ export default class Graph extends Component {
     } 
     return (
     <section>
-      {!isEmptyData && <span>Graph of finished tickets by Student</span>}
+      {!isEmptyData ? 
+        <span>Graph of finished tickets by Student</span> 
+        : <h1>You have not helped any students</h1>}
       <Pie data={input} height={150} width={200} />
     </section>
     );
