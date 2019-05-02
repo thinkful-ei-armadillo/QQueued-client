@@ -15,7 +15,6 @@ export default class WaitingRoom extends Component {
   };
   static contextType = UserContext;
   render() {
-    console.log(this.props);
     const { full_name } = this.context.user;
     return (
       <QueueProvider>

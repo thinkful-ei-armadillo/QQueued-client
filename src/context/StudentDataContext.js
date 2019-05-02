@@ -3,10 +3,10 @@ import apiService from '../services/api-service';
 
 const StudentDataContext = createContext({
   studentData: [],
+  notes: [],
   error: null,
   setError: () => { },
   clearError: () => { },
-  getAllStudentData: () => { },
   updateStudentData: () => { }
 });
 
@@ -17,6 +17,7 @@ export class StudentDataProvider extends Component {
     super(props)
     const state = {
       studentData: [],
+      notes: [],
       error: null
     }
     this.state = state;
@@ -31,21 +32,57 @@ export class StudentDataProvider extends Component {
   };
 
   updateStudentData = (data) => {
-    const studentData = this._createStudentDataItems(data)
-    this.setState({ studentData });
+    return this._createStudentDataItems(data)
   };
 
-  componentDidMount() {
-    apiService
-      .getAllData()
-      .then(async data => await this.updateStudentData(data))
+  updateNotes = (note) => {
+    const notes = this._createNoteItems(note);
+    console.log(notes);
+    return notes;
+  }
+
+  async componentDidMount() {
+    try {
+      const studentData = await apiService.getAllData().then(async data => await this.updateStudentData(data));
+      const notes = await apiService.getNotes().then(async data => await this.updateNotes(data));
+
+      this.setState({ studentData });
+    }
+    catch {
+      console.log({error: 'error fetching initial data'})
+    }
+  };
+
+  _createNoteItems = (note) => {
+    let studentNames = [];
+    let noteList = [];
+ 
+    note.forEach(s => {
+      if (studentNames.indexOf(s.studentName) === -1) {
+        studentNames.push(s.studentName);
+      }
+    });
+
+    studentNames.forEach(name => {
+      noteList.push(
+        note.filter(student => student.studentName === name)
+      );
+    });
+
+    
+    return noteList;
+
+/* 0: {user_name: "student2", note: null}
+1: {user_name: "student3", note: null}
+2: {user_name: "student4", note: "test"}
+3: {user_name: "matth3wn", note: "test note!"}
+4: {user_name: "student2", note: null} */
   };
 
   _createStudentDataItems = (studentData) => {
     let studentNames = [];
     let studentDataList = [];
     let studentItem = [];
-
     // create array with only one student name per student
     studentData.forEach(s => {
       if (studentNames.indexOf(s.studentName) === -1) {
@@ -75,20 +112,13 @@ export class StudentDataProvider extends Component {
   }
 
   render() {
-    const {
-      studentData,
-      error,
-      setError,
-      clearError,
-      getAllStudentData
-    } = this.state;
 
     const value = {
-      studentData,
-      error,
-      setError,
-      clearError,
-      getAllStudentData
+      studentData: this.state.studentData,
+      notes: this.state.notes,
+      error: this.state.error,
+      setError: this.setError,
+      clearError: this.clearError
     };
 
     return (
