@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import openSocket from "socket.io-client";
 import "./Chat.css";
 import Button from "../Button/Button";
-import UserContext from "../../context/UserContext";
+import QueueContext from "../../context/QueueContext";
 
 export default class Chat extends Component {
-  static contextType = UserContext;
+  static contextType = QueueContext;
   constructor(props) {
     super(props);
 
@@ -17,6 +17,8 @@ export default class Chat extends Component {
     this.socket = openSocket(
       /* config.API_ENDPOINT ||  */ "http://localhost:8000"
     );
+    this.rooms = [];
+    this.recevier = "";
   }
 
   scrollToBottom() {
@@ -28,30 +30,19 @@ export default class Chat extends Component {
   }
 
   componentDidMount() {
-    this.socket.emit("change-username", {
-      userName: this.props.user.user.user_name
+    this.socket.emit("join-room", {
+      userName: this.props.user.user.full_name
     });
     this.socket.on("entered", data => {
-      this.setState({ users: [...this.state.users, data] });
+      this.rooms.push(data);
+      console.log(this.rooms);
+      this.setState({ users: [...this.state.users, data.userName] });
     });
-    this.socket.emit("message", {
-      student: this.props.user.user.user_name,
-      private: true,
-      mentor: this.props.user.user.user_name
-    });
+
     this.socket.on("message", data => {
-      if (data.private) {
-        if (
-          data.student === this.props.user.user_name ||
-          data.mentor === this.props.user.user_name
-        ) {
-          this.setState({ messages: [...this.state.messages, data] });
-        }
-      } else {
-        this.setState({ messages: [...this.state.messages, data] });
-      }
+      this.setState({ messages: [...this.state.messages, data] });
     });
-    // need to refactor
+
     this.scrollToBottom();
   }
   componentWillUnmount() {
@@ -64,11 +55,16 @@ export default class Chat extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    const helpedArray = this.context.currentlyBeingHelped;
+
     this.socket.emit("message", {
       user: this.state.users[0],
       text: this.state.input,
-      time: new Date().toLocaleTimeString()
+      time: new Date().toLocaleTimeString(),
+      room: this.rooms,
+      to: helpedArray[helpedArray.length - 1]
     });
+
     e.target.reset();
   };
 
@@ -76,7 +72,7 @@ export default class Chat extends Component {
     let thread;
     if (this.state.messages.length > 0) {
       thread = this.state.messages.map((i, j) => {
-        if (this.context.user.user_name !== i.user) {
+        if (this.props.user.user.full_name !== i.user) {
           return (
             <div className="foreignChatMessage" key={j}>
               <span title={i.user} className="foreignUser">
