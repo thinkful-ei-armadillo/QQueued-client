@@ -7,8 +7,9 @@ import Button from "../../components/Button/Button";
 import NotesForm from '../../components/NotesForm/NotesForm';
 import "./ChatRoute.css";
 
-export default function ChatRoute() {
+export default function ChatRoute(props) {
   const context = useContext(UserContext);
+  const { state } = props.history.location;
   return (
     <QueueProvider>
       <Link className="linkBack" to={`/waiting-room`}>
@@ -16,7 +17,7 @@ export default function ChatRoute() {
           <span>Back</span>
         </Button>
       </Link>
-      <NotesForm context={context} />
+      <NotesForm state={state} context={context} />
       <Chat user={context} />
     </QueueProvider>
   );
