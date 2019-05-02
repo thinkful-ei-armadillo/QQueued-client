@@ -3,6 +3,7 @@ import QueueContext from "../../context/QueueContext";
 import HelpForm from "../../components/HelpForm/HelpForm";
 import "./StudentQueue.css";
 import StudentWaitingNameList from "./studentWaitingNameList/studentWatingNameList";
+import StudentHistory from "../StudentHistory/StudentHistory";
 import { Link } from "react-router-dom";
 
 export default class StudentQueue extends Component {
@@ -61,6 +62,7 @@ export default class StudentQueue extends Component {
               <p className="noOneInQueue">No one is in the queue</p>
             )}
           </ul>
+          <StudentHistory currentUser={this.props.user.user.full_name} />
         </div>
       </section>
     );
