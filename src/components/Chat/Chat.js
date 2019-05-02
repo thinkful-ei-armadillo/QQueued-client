@@ -12,7 +12,8 @@ export default class Chat extends Component {
     this.state = {
       input: "",
       users: [],
-      messages: []
+      messages: [],
+      to: []
     };
     this.socket = openSocket(
       /* config.API_ENDPOINT ||  */ "http://localhost:8000"
@@ -35,7 +36,6 @@ export default class Chat extends Component {
     });
     this.socket.on("entered", data => {
       this.rooms.push(data);
-      console.log(this.rooms);
       this.setState({ users: [...this.state.users, data.userName] });
     });
 
@@ -56,7 +56,7 @@ export default class Chat extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const helpedArray = this.context.currentlyBeingHelped;
-
+    this.setState({})
     this.socket.emit("message", {
       user: this.state.users[0],
       text: this.state.input,
