@@ -51,7 +51,7 @@ class Header extends Component {
   
   renderStudentLinks = () => {
     return (
-      <Link className="nav-text-right" to='/student-history'>
+      <Link className="nav-text-right student-history-nav" to='/student-history'>
         My Ticket History
       </Link>
     )
