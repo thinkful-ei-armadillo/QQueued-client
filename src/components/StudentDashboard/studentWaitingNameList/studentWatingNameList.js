@@ -25,8 +25,9 @@ export class studentWatingNameList extends Component {
   };
 
   handleDeleteClick(id) {
-    ApiService.removeStudentFromQueue(id).then(() =>
-      this.context.removeStudentFromQueue(id)
+    ApiService.removeStudentFromQueue(id)
+      .then(() =>
+        this.context.removeStudentFromQueue(id)
     );
   };
 
@@ -37,9 +38,7 @@ export class studentWatingNameList extends Component {
 
   handleNameClick(queueUser) {
     const { currentUser } = this.props;
-
-    if (queueUser === currentUser) return this.showDeleteButton();
-    else return;
+    return queueUser === currentUser ? this.showDeleteButton() : '';
   }
 
   validateUser = (currentUser, personInLine) => {
@@ -60,7 +59,7 @@ export class studentWatingNameList extends Component {
         >
           {studentName}
         </p>
-        {this.state.showDeleteButton && (
+        {this.state.showDeleteButton && 
           <input
             type="button"
             name="deleteFromQueue"
@@ -76,7 +75,6 @@ export class studentWatingNameList extends Component {
           { this.state.hideEditInput
             ? null
             : <EditTicketForm toggleEditInput={ this.toggleEditInput } id={id} context={this.context} /> }
-
       </li>
     );
   }

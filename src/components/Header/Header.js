@@ -15,7 +15,7 @@ class Header extends Component {
     return (
       <div className="Navbar-right">
         <Link className="nav-text-right userName" to={'/'} >{name}</Link>
-        {title === "mentor" && this.renderMentorLinks()}
+        {title === "mentor" ? this.renderMentorLinks(): this.renderStudentLinks()}
         <Link className="nav-text-right logout" onClick={this.handleLogoutClick} to="/login">
           Logout
         </Link>
@@ -48,7 +48,14 @@ class Header extends Component {
       </React.Fragment>
     );
   }
-
+  
+  renderStudentLinks = () => {
+    return (
+      <Link className="nav-text-right student-history-nav" to='/student-history'>
+        My Ticket History
+      </Link>
+    )
+  }
   handleNavToggle (){
     const navs = document.querySelectorAll('.nav-text-right')
     navs.forEach(nav => nav.classList.toggle('Navbar-ToggleShow'));

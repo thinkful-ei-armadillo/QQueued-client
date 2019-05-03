@@ -21,7 +21,7 @@ nav{
 .register{
   margin-right: 10px;
 }
-.messageViaSlack::after, .data-link::after, .userName::after  {
+.student-history-nav::after, .messageViaSlack::after, .data-link::after, .userName::after  {
   content: ' | ';
   margin-right: 4px;
 }

@@ -1,8 +1,8 @@
 .studentsMainPage {
   text-align: center;
-  justify-content: center;
+  /* justify-content: center; */
   font-weight: bold;
-  position: relative;
+  /* position: relative; */
 }
 
 .studentWaitingQueue {
@@ -10,41 +10,37 @@
   padding: 0px;
   overflow: auto;
   list-style: none;
-  height: 350px;
+  height: 100%;
   border: 2px solid #5e0a0a;
-  width: 30vh;
   text-align: center;
 }
 
 .noOneInQueue {
-  display: inline-block;
-  margin: auto, auto, auto, auto;
-  top: 50%;
+  display: block;
+  /* margin: auto, auto, auto, auto; */
+  /* top: 50%; */
 }
 
 .studentListTitle {
-  width: 100%;
   color: #5e0a0a;
 }
 
-.hide,
-.nothing {
-  display: none;
-}
-
-.buttonHistory {
-  width: 30vh;
-  border: 1px solid black;
-  background: white;
+/* .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #5e0a0a;
+  color: #fff;
+  text-align: center;
   padding: 5px;
-  margin: 5px;
-  color: #5ca0d3;
-  font-weight: bold;
-}
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 75%;
+} */
 
-.display {
+
+/* .display {
   height: 100%;
-  width: 30vh;
   position: fixed;
   z-index: 1;
   top: 70px;
@@ -54,7 +50,7 @@
   margin-top: 0;
   background-color: white;
   overflow: auto;
-}
+} */
 
 .studentNameForQueue {
   display: grid;
