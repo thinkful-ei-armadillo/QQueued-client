@@ -3,10 +3,8 @@
 }
 
 #sendMessage {
-  margin: 20px;
   background: white;
 }
-
 .studentDropdown {
   height: 30px;
   width: 150px;
@@ -14,4 +12,13 @@
   font-weight: bold;
   color: rgb(201, 233, 245);
   background: #5e0a0a;
+}
+.message-textBox{
+  width:98%;
+  align-content: center;
+}
+.slack-message-button{
+  display: flex;
+  margin-top: 10px;
+  margin-left: auto;
 }

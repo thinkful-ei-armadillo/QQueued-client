@@ -6,10 +6,11 @@ import { StudentDataProvider } from "../../context/StudentDataContext";
 
 export default function StudentListRoute() {
   const context = useContext(UserContext);
+
   return (
     <StudentDataProvider>
       <QueueProvider>
-        <StudentQueue user={context} />
+        <StudentQueue user={context.user} />
       </QueueProvider>
     </StudentDataProvider>
   );

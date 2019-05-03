@@ -6,6 +6,7 @@ import UserContext from "../../context/UserContext";
 import HelpStudentButton from "../../components/HelpStudentButton/HelpStudentButton";
 import HasBeenHelpedList from "../../components/MentorDashboard/HasBeenHelpedList";
 import "./WaitingRoom.css";
+
 export default class WaitingRoom extends Component {
   static defaultProps = {
     location: {},
