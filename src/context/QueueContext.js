@@ -18,7 +18,8 @@ const QueueContext = createContext({
   dequeueWait: () => {},
   tellUser: () => {},
   showNote: () => {},
-  removeStudentFromQueue: () => {}
+  removeStudentFromQueue: () => { },
+  updateTicket: () => { }
 });
 
 export default QueueContext;
@@ -46,6 +47,7 @@ export class QueueProvider extends Component {
     this.socket.on('delete-ticket', data => {
       this.setState({queueList: data})
     })
+    
     apiService
       .getQueue()
       .then(async queue => {
@@ -96,6 +98,17 @@ export class QueueProvider extends Component {
     });
   };
 
+  updateTicket = (description, id) => {
+    apiService
+      .updateDescription(description, id)
+      .then(res => {
+        const { queueList } = this.state;
+        const idx = queueList.findIndex(item => item.id === res[0].id);
+        queueList[idx].description = res[0].description;
+        this.setState({ queueList });
+      })
+  }
+
   addStudent = description => {
     apiService.addStudent(description);
   };
@@ -143,6 +156,7 @@ export class QueueProvider extends Component {
       }
     });
   };
+
   removeStudentFromQueue = id => {
     const removedStudent = this.state.queueList.filter(queue => queue.id !== id);
     this.socket.emit('delete-ticket', removedStudent)
@@ -169,7 +183,8 @@ export class QueueProvider extends Component {
       dequeueWait: this.dequeueWait,
       tellUser: this.tellUser,
       showNote: this.state.note,
-      removeStudentFromQueue: this.removeStudentFromQueue
+      removeStudentFromQueue: this.removeStudentFromQueue,
+      updateTicket: this.updateTicket
     };
 
     return (

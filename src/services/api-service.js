@@ -103,6 +103,20 @@ const ApiService = {
         authorization: `Bearer ${TokenService.getAuthToken()}`
       }
     });
+  },
+
+  updateDescription(description, id) {
+    console.log({ apiService: id })
+    return fetch(`${config.API_ENDPOINT}/student/edit/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify({ description })
+    }).then(res =>
+      !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+    );
   }
 };
 

@@ -30,7 +30,6 @@ export default function StudentInfo(props) {
   }
 
   const filterNotes = () => {
-    console.log(notes)
     return notes
       .filter(n => n.studentName === studentName)
       .map((n, i) => (
