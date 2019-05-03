@@ -8,18 +8,19 @@ import { Link } from "react-router-dom";
 export default class StudentQueue extends Component {
   static contextType = QueueContext;
 
- 
-
   componentDidMount() {
     this.context.webSocket();
     this.context.dequeueWait();
   }
+
   renderPlaceInLine(indexInLine) {
     return <div>You are currently #{indexInLine + 1} in line.</div>;
   }
+
   renderOpenTickets(numOfTickets) {
     return <div>You have {numOfTickets} open ticket(s).</div>;
   }
+
   renderChatRoom(room) {
     return (
       <p>
@@ -30,14 +31,16 @@ export default class StudentQueue extends Component {
       </p>
     );
   }
+  
   render() {
     const { showNote, queueList } = this.context;
-    const { user_name } = this.props.user.user;
+    const { user_name, full_name } = this.props.user;
     const userTickets = queueList.filter(
-      el => el.studentName === this.props.user.user.full_name
+      el => el.studentName === full_name
     );
     const numberInLine = queueList.indexOf(userTickets[0]);
     const isSomeoneInLine = !queueList.length;
+   
     return (
       <section className="student-dashboard-container row">
         <div className="studentsMainPage col-12">

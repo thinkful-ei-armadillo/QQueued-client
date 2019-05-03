@@ -1,6 +1,5 @@
 import React from "react";
 import QueueContext from "../../context/QueueContext";
-
 import "./MentorDashboard.css";
 
 export default function BeingHelpedList() {
@@ -9,16 +8,16 @@ export default function BeingHelpedList() {
       <QueueContext.Consumer>
         {value => {
           const students = value.currentlyBeingHelped;
-          return students.map((s, i) => {
+          return students.map((student, index) => {
             return (
-              <li key={i} className="hasBeenHelped">
+              <li key={index} className="hasBeenHelped">
                 <span
-                  onClick={() => value.studentHelped(s.id)}
+                  onClick={() => value.studentHelped(student.id)}
                   className="studentName"
                 >
-                  <span>{s.studentName}</span>
+                  <span>{student.studentName}</span>
                 </span>{" "}
-                <span className="mentor"> {s.mentorName}</span>
+                <span className="mentor"> {student.mentorName}</span>
               </li>
             );
           });

@@ -11,12 +11,12 @@ export default class Message extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       text: "",
       slack_id: ""
     };
   }
+
   onChange = message => {
     this.setState({ text: message });
   };
@@ -24,9 +24,9 @@ export default class Message extends Component {
   onChangeDropDown = val => {
     this.setState({ slack_id: val });
   };
+
   onSubmit = e => {
     e.preventDefault();
-    console.log(this.state.slack_id)
     slackApiService
       .openDmAndMessage(this.state.slack_id, this.state.text)
       .then(res => {
@@ -37,51 +37,54 @@ export default class Message extends Component {
       })
       .catch(err => console.log(err.message));
   };
+  
+  renderDropDown = queueList => {
+    const studentNames = [];
+    const checkForDupHash = {};
+    for (let i = 0; i < queueList.length; i++) {
+      if (!checkForDupHash[queueList[i].studentName] && queueList[i].slack_user_id) {
+        checkForDupHash[queueList[i].studentName] = true;
+        studentNames.push(queueList[i]);
+      }
+    }
+    return studentNames.map(user => (
+        <option key={user.id} value={user.slack_user_id}>
+          {user.studentName}
+        </option>
+      )
+    );
+  }
 
   render() {
-    let dropDown = ""; // queueList
-
-    if (this.context.queueList.length > 0) {
-      let noDup = [];
-      let hash = Object.create(null);
-      for (let i = 0; i < this.context.queueList.length; i++) {
-        if (!hash[this.context.queueList[i].studentName] && this.context.queueList[i].slack_user_id) {
-          hash[this.context.queueList[i].studentName] = true;
-          noDup.push(this.context.queueList[i]);
-        }
-      }
-      dropDown = noDup.map(i => {
-        return (
-          <option key={i.id} value={i.slack_user_id}>
-            {i.studentName}
-          </option>
-        );
-      });
-    }
+    const {queueList} = this.context;
+ 
     return (
-      <div className="messageContainer">
-        <select
-          name="student-dropdown"
-          className="studentDropdown"
-          onChange={e => this.onChangeDropDown(e.target.value)}
-        >
-          <option key="999" value="">
-            --Select a student--
-          </option>
-          {dropDown}
-        </select>
-        <form onSubmit={e => this.onSubmit(e)} className="send-message">
-          <textarea
-            name="message"
-            id="sendMessage"
-            cols="50"
-            rows="10"
-            value={this.state.text}
-            onChange={e => this.onChange(e.target.value)}
-          />
-          <Button type="submit">Send!</Button>
-        </form>
-      </div>
+      <section className="messageContainer row">
+        <div className="col-6">
+          <form onSubmit={e => this.onSubmit(e)} className="send-message col-6">
+            <select
+              name="student-dropdown"
+              className="studentDropdown"
+              onChange={e => this.onChangeDropDown(e.target.value)}
+              required
+            >
+              <option value="">
+                --Select a student--
+              </option>
+              {this.renderDropDown(queueList)}
+            </select>    
+            <textarea
+              name="message"
+              id="sendMessage"
+              rows="10"
+              className="message-textBox"
+              value={this.state.text}
+              onChange={e => this.onChange(e.target.value)}
+            />
+            <Button type="submit" className="slack-message-button">Send!</Button>
+          </form>
+        </div>
+      </section>
     );
   }
 }

@@ -8,7 +8,7 @@ export default class RegistrationPage extends Component {
     }
   };
 
-  handleRegistrationSuccuess = user => {
+  handleRegistrationSuccuess = () => {
     this.props.history.push("/waiting-room");
   };
 

@@ -5,11 +5,9 @@ import { QueueProvider } from "../../context/QueueContext";
 export default class MessageRoute extends Component {
   render() {
     return (
-      <div>
-        <QueueProvider>
-          <Message />
-        </QueueProvider>
-      </div>
+      <QueueProvider>
+        <Message />
+      </QueueProvider>
     );
   }
 }
