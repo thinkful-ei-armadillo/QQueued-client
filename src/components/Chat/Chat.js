@@ -3,6 +3,7 @@ import openSocket from "socket.io-client";
 import "./Chat.css";
 import Button from "../Button/Button";
 import QueueContext from "../../context/QueueContext";
+import apiSerivce from "../../services/api-service"
 
 export default class Chat extends Component {
   static contextType = QueueContext;
@@ -30,9 +31,17 @@ export default class Chat extends Component {
     this.scrollToBottom();
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    const { currentlyBeingHelped } = await apiSerivce.getQueue()
+    const filtedList = currentlyBeingHelped.filter(
+      i =>
+        i.studentName === this.props.user.user.full_name ||
+        i.mentorName === this.props.user.user.full_name
+    );
+    
     this.socket.emit("join-room", {
-      userName: this.props.user.user.full_name
+      userName: this.props.user.user.full_name,
+      list: filtedList[filtedList.length -1]
     });
     this.socket.on("entered", data => {
       this.rooms.push(data);
