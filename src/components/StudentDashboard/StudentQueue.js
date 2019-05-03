@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 export default class StudentQueue extends Component {
   static contextType = QueueContext;
 
+ 
+
   componentDidMount() {
     this.context.webSocket();
     this.context.dequeueWait();
@@ -46,7 +48,7 @@ export default class StudentQueue extends Component {
             ? this.renderOpenTickets(userTickets.length)
             : <div>You don't have any tickets open.</div>
           } 
-          {!isSomeoneInLine && 
+          {isSomeoneInLine && 
             <p className="noOneInQueue">No one is in line for help</p>} 
           <HelpForm className="getHelpButton" />
           <ul className="studentWaitingQueue">

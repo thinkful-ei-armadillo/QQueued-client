@@ -57,8 +57,11 @@ export default class Chat extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const helpedArray = this.context.currentlyBeingHelped;
-    this.setState({})
+    const helpedArray = this.context.currentlyBeingHelped.filter(
+      i =>
+        i.studentName === this.state.users[0] ||
+        i.mentorName === this.state.users[0]
+    );
     this.socket.emit("message", {
       user: this.state.users[0],
       text: this.state.input,
