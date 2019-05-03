@@ -9,10 +9,12 @@ export default class EditTicketForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { context, toggleEditInput } = this.props
+    const { context, toggleEditInput, id } = this.props
+    console.log(this.props.context)
     if (this.validateInput()) {
-      context.updateTicket(this.state.description)
-      toggleEditInput();
+      console.log({editForm: id})
+      context.updateTicket(this.state.description, id)
+      toggleEditInput(e);
     }
   }
 

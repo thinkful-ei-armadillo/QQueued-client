@@ -62,6 +62,7 @@ export class QueueProvider extends Component {
           currentlyBeingHelped,
           hasBeenHelpedList
         );
+        console.log(await this.state.queueList)
       });
   }
 
@@ -72,7 +73,6 @@ export class QueueProvider extends Component {
   updateQueue = (queueList, currentlyBeingHelped, hasBeenHelpedList) => {
     if (!!queueList) {
       this.setState({ queueList });
-      console.log(this.state.queueList)
     }
     if (!!currentlyBeingHelped) {
       this.setState({ currentlyBeingHelped });
@@ -99,15 +99,14 @@ export class QueueProvider extends Component {
     });
   };
 
-  updateTicket = (description) => {
+  updateTicket = (description, id) => {
     apiService
-      .updateDescription(description)
+      .updateDescription(description, id)
       .then(res => {
-        console.log(res)
         const { queueList } = this.state;
-        /* const idx = queueList.findIndex(item => res.id === item.id);
-        queueList.splice(idx, 1, res);
-        this.setState({ queueList }); */
+        const idx = queueList.findIndex(item => item.id === res[0].id);
+        queueList[idx].description = res[0].description;
+        this.setState({ queueList });
       })
   }
 

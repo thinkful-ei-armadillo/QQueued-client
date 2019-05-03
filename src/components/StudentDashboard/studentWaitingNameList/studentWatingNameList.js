@@ -42,32 +42,40 @@ export class studentWatingNameList extends Component {
     else return;
   }
 
+  validateUser = (currentUser, personInLine) => {
+    if (currentUser === personInLine) {
+      return true;
+    }
+    return false;
+  }
+
   render() {
     const { personInLine, currentUser } = this.props;
+    const { user_name, studentName, id, description } = personInLine;
     return (
-      <li key={personInLine.id} className="eachStudentInQueue">
+      <li key={id} className="eachStudentInQueue">
         <p
-          onClick={() => this.handleNameClick(personInLine.user_name)}
+          onClick={() => this.handleNameClick(user_name)}
           className="studentNameForQueue"
         >
-          {personInLine.studentName}
+          {studentName}
         </p>
         {this.state.showDeleteButton && (
           <input
             type="button"
             name="deleteFromQueue"
-            onClick={() => this.handleDeleteClick(personInLine.id)}
+            onClick={() => this.handleDeleteClick(id)}
             value="leave Waiting List"
           />
         )}
         <input
           type="button"
-          onClick={ e => this.toggleEditInput(e) }
-          value={ personInLine.description }
-          className={ `'${personInLine.user_name === currentUser ? 'tooltiptext select' : 'tooltiptext'} '`} />
+          onClick={ this.validateUser(currentUser, user_name) ? e => this.toggleEditInput(e) : null }
+          value={ description }
+          className={ `${this.validateUser(currentUser, user_name) ? 'tooltiptext select' : 'tooltiptext'}`} />
           { this.state.hideEditInput
-            ? ''
-            : <EditTicketForm toggleEditInput={ this.toggleEditInput } context={QueueContext} /> }
+            ? null
+            : <EditTicketForm toggleEditInput={ this.toggleEditInput } id={id} context={this.context} /> }
 
       </li>
     );
