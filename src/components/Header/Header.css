@@ -1,6 +1,6 @@
 nav{
   display: flex;
-  background: #5e0a0a;
+  background: #403931;
   font-size: 14px;
   padding-bottom: 1px;
   text-decoration: none;
@@ -15,9 +15,9 @@ nav{
   color: #c8e6f5;
 }
 .nav-text, .nav-text-right{
-  color: #c8e6f5;
+  color: #d9dfe2;
   text-decoration: none;
-}
+} 
 .register{
   margin-right: 10px;
 }
@@ -39,7 +39,7 @@ nav{
     display: initial;
     position: absolute;
     cursor: pointer;
-    right: 2em;
+    right: 2.1em;
   }
   .nav-text-right{
     display: none; 
