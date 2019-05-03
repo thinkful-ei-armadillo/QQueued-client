@@ -62,7 +62,6 @@ export class QueueProvider extends Component {
           currentlyBeingHelped,
           hasBeenHelpedList
         );
-        console.log(await this.state.queueList)
       });
   }
 
