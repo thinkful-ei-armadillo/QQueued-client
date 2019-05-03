@@ -18,7 +18,7 @@ export default class Chat extends Component {
       to: []
     };
     this.socket = openSocket(
-      config.API_ENDPOINT /* || "http://localhost:8000" */
+      config.SOCKET_ENDPOINT /* || "http://localhost:8000" */
     );
     this.rooms = [];
     this.recevier = "";

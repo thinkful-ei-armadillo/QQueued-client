@@ -54,7 +54,7 @@ export class StudentDataProvider extends Component {
   };
 
   // sort data before updating state
-  _createNoteItems = (note) => {
+  _createNoteItems = (note=[]) => {
     let studentNames = [];
     let noteList = [];
     let noteItem = [];
