@@ -40,3 +40,8 @@
   padding: 4px;
   background: rgb(201, 233, 245);
 }
+
+.mentorHistory li span,
+.ticketHistory li span {
+  float: right;
+}
