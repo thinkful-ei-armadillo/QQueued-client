@@ -18,7 +18,7 @@ export default class Message extends Component {
   }
 
   onChange = message => {
-    this.setState({ text: message });
+    this.setState({ text: message, message: '' });
   };
 
   onChangeDropDown = val => {
@@ -36,6 +36,7 @@ export default class Message extends Component {
         return;
       })
       .catch(err => console.log(err.message));
+      this.setState({text: '', message: `Message sent!`})
   };
   
   renderDropDown = queueList => {
@@ -72,7 +73,8 @@ export default class Message extends Component {
                 --Select a student--
               </option>
               {this.renderDropDown(queueList)}
-            </select>    
+            </select>
+            {this.state.message && <p>{this.state.message}</p>}    
             <textarea
               name="message"
               id="sendMessage"
