@@ -31,8 +31,7 @@
   list-style: none;
 }
 
-.mentorHistory li,
-.ticketHistory li {
+.mentorHistory li {
   border: 1px solid navy;
   width: 100%;
   font-size: 10pt;
@@ -41,7 +40,39 @@
   background: rgb(201, 233, 245);
 }
 
-.mentorHistory li span,
-.ticketHistory li span {
+.mentorHistory li span {
   float: right;
+}
+
+.mentorForTicket {
+  text-indent: 10%;
+  border: 1px solid navy;
+  padding: 3px;
+}
+
+.noMentorForTicket {
+  display: none;
+}
+
+.ticketDropDown,
+.ticketUp {
+  text-align: left;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid navy;
+  background: navy;
+  color: white;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.ticketUp img {
+  width: 7px;
+  height: 7px;
+  transform: rotate(-90deg);
+}
+
+.ticketDropDown img {
+  width: 7px;
+  height: 7px;
 }
