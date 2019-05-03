@@ -84,12 +84,13 @@ export default class Registration extends Component {
               required
             />
           </div>
-          <input
+          <button
             className="registrationSubmit"
             type="submit"
-            name="submit"
-            value="Register"
-          />
+            name="submit">
+            Register
+          </button>
+          
           <section className="alreadyHaveAccount">
             Already have an account?{" "}
             {
