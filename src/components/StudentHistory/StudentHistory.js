@@ -21,7 +21,6 @@ export default class StudentHistory extends Component {
   }
 
   fillState() {
-    console.log(this.state.data);
     for (let i = 0; i < this.state.data.length; i++) {
       if (this.state.data[i].description) {
         this.setState({
@@ -42,10 +41,6 @@ export default class StudentHistory extends Component {
   }
 
   createHistoryTab() {
-    console.log(this.props.currentUser);
-    console.log(this.state.data);
-    console.log(this.state.mentors);
-    console.log(this.state.descriptions);
     return (
       <>
         <section className="studentHistory">

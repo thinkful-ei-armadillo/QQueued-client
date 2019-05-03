@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import openSocket from "socket.io-client";
+import config from '../../config';
 import "./Chat.css";
 import Button from "../Button/Button";
 import QueueContext from "../../context/QueueContext";
@@ -17,7 +18,7 @@ export default class Chat extends Component {
       to: []
     };
     this.socket = openSocket(
-      /* config.API_ENDPOINT ||  */ "http://localhost:8000"
+      config.API_ENDPOINT /* || "http://localhost:8000" */
     );
     this.rooms = [];
     this.recevier = "";
