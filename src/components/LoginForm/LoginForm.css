@@ -4,20 +4,20 @@
 
 .loginInput {
   display: inline-block;
-  border: 2px solid #5e0a0a;
-  border-radius: 2px;
-  background: #c8e6f5;
+  border: 2px solid #403931ec;
+  border-radius: 3px;
+  background: #C7CFD9;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .passwordInput,
 .usernameInput,
 .fullNameInput {
-  background: #c8e6f5;
   margin-right: 10px;
   margin-left: 5px;
   margin-bottom: 8px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .usernameInput {
@@ -25,26 +25,27 @@
 }
 
 .loginTitle {
-  color: #5e0a0a;
+  color: #D94032;
+  font-family: 'Karla', sans-serif;
 }
 
-.loginButton {
+.loginButton, .registrationSubmit {
+  font-family: 'Montserrat', sans-serif;
   display: inline-block;
   color: white;
-  padding: 8px;
-  margin-top: 15px;
+  padding: 4px;
+  margin-top: 5px;
   margin-bottom: 10px;
   border: none;
-  background: #5e0a0a;
+  background: rgba(206, 45, 30, 0.808);
   font-weight: bold;
-  width: 100%;
+  border-radius: 1.2em;
+  width: 30%;
+  margin-right: 9px;
 }
 input[type="text"],
 input[type="password"] {
   flex: 1;
-}
-#login-username-input {
-  width: 100%;
 }
 
 @media only screen and (max-width: 600px) {

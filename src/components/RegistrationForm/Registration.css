@@ -5,53 +5,46 @@
 .registrationInput {
   display: inline-block;
   text-align: center;
-  border: 2px solid #5e0a0a;
+  border: 2px solid #403931ec;
   border-radius: 2px;
   width: 100%;
-  background: #c8e6f5;
+  background: #C7CFD9;
+  padding-left: 1.4px;
+  padding-right: 1.4px;
 }
 
 input {
+  margin-top: 3px;
+  /* margin-left: 3px; */
   background: white;
-  border: 1px solid navy;
+  border: 1px solid #403931;
 }
 
-label,
+/* label,
 .title-selection {
   background: #c8e6f5;
-}
+} */
 
 .title-selection {
   display: inline-block;
   margin-bottom: 1px;
 }
 
-.registrationSubmit {
-  display: inline-block;
-  color: white;
-  padding: 8px;
-  margin-top: 15px;
-  margin-bottom: 10px;
-  border: none;
-  background: #5e0a0a;
-  font-weight: bold;
-  width: 100%;
-}
-
 .registerTitle {
-  color: #5e0a0a;
+  color: #D94032;
   text-align: center;
+  font-family: 'Karla', sans-serif;
 }
 
 .alreadyHaveAccount {
   color: black;
-  background: #c8e6f5;
+
   margin-bottom: 5px;
 }
 
 .loginLink {
   color: #5e0a0a;
-  background: #c8e6f5;
+
 }
 
 @media only screen and (max-width: 600px) {
