@@ -44,14 +44,15 @@ export class StudentDataProvider extends Component {
     try {
       const studentData = await apiService.getAllData().then(data => this.createStudentData(data));
       const notes = await apiService.getNotes().then(data => this.createNotes(data));
-
+      
       this.setState({ studentData, notes });
     }
     catch (error){
-      console.log(error);
+      console.log({ error });
     }
   };
 
+  // sort data before updating state
   _createNoteItems = (note) => {
     let studentNames = [];
     let noteList = [];

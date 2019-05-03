@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import ApiService from "../../../services/api-service";
 import QueueContext from "../../../context/QueueContext";
+import EditTicketForm from '../../EditTicketForm/EditTicketForm';
 import "../StudentQueue.css";
 
 export class studentWatingNameList extends Component {
   static contextType = QueueContext;
   state = {
-    showDeleteButton: null
+    showDeleteButton: null,
+    hideEditInput: true
   };
 
   showDeleteButton = () => {
@@ -26,6 +28,11 @@ export class studentWatingNameList extends Component {
     ApiService.removeStudentFromQueue(id).then(() =>
       this.context.removeStudentFromQueue(id)
     );
+  };
+
+  toggleEditInput = e => {
+    e.stopPropagation()
+    this.setState({ hideEditInput: !this.state.hideEditInput });
   }
 
   handleNameClick(queueUser) {
@@ -36,7 +43,7 @@ export class studentWatingNameList extends Component {
   }
 
   render() {
-    const { personInLine } = this.props;
+    const { personInLine, currentUser } = this.props;
     return (
       <li key={personInLine.id} className="eachStudentInQueue">
         <p
@@ -53,7 +60,15 @@ export class studentWatingNameList extends Component {
             value="leave Waiting List"
           />
         )}
-        <p className="tooltiptext">{personInLine.description}</p>
+        <input
+          type="button"
+          onClick={ e => this.toggleEditInput(e) }
+          value={ personInLine.description }
+          className={ `'${personInLine.user_name === currentUser ? 'tooltiptext select' : 'tooltiptext'} '`} />
+          { this.state.hideEditInput
+            ? ''
+            : <EditTicketForm toggleEditInput={ this.toggleEditInput } context={QueueContext} /> }
+
       </li>
     );
   }
