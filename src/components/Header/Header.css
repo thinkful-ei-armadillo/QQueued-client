@@ -1,0 +1,54 @@
+nav{
+  display: flex;
+  background: #5e0a0a;
+  font-size: 14px;
+  padding-bottom: 1px;
+  text-decoration: none;
+}
+.Navbar-right, .Navbar-right-no-user{
+  display: flex;
+  margin-left: auto;
+  margin-right: 2em;
+}
+.Navbar-toggle {
+  display: none;
+  color: #c8e6f5;
+}
+.nav-text, .nav-text-right{
+  color: #c8e6f5;
+  text-decoration: none;
+}
+.register{
+  margin-right: 10px;
+}
+.student-history-nav::after, .messageViaSlack::after, .data-link::after, .userName::after  {
+  content: ' | ';
+  margin-right: 4px;
+}
+.brand
+ {
+  margin-left: 2em;
+}
+
+@media only screen and (max-width: 600px){
+  nav, .Navbar-right{
+    flex-direction: column;
+  }
+  .Navbar-toggle {
+    align-self: flex-end;
+    display: initial;
+    position: absolute;
+    cursor: pointer;
+    right: 2em;
+  }
+  .nav-text-right{
+    display: none; 
+  }
+  .nav-text-right::after{
+    content: "";
+  }
+  .Navbar-ToggleShow {
+    display: flex;
+  }
+
+}

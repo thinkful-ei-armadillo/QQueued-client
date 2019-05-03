@@ -1,0 +1,58 @@
+.registrationContainer {
+  text-align: center;
+}
+
+.registrationInput {
+  display: inline-block;
+  text-align: center;
+  border: 2px solid #5e0a0a;
+  border-radius: 2px;
+  width: 100%;
+  background: #c8e6f5;
+}
+
+input {
+  background: white;
+  border: 1px solid navy;
+}
+
+label,
+.title-selection {
+  background: #c8e6f5;
+}
+
+.title-selection {
+  display: inline-block;
+  margin-bottom: 1px;
+}
+
+.registrationSubmit {
+  display: inline-block;
+  color: white;
+  padding: 8px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border: none;
+  background: #5e0a0a;
+  font-weight: bold;
+  width: 100%;
+}
+
+.registerTitle {
+  color: #5e0a0a;
+  text-align: center;
+}
+
+.alreadyHaveAccount {
+  color: black;
+  background: #c8e6f5;
+  margin-bottom: 5px;
+}
+
+.loginLink {
+  color: #5e0a0a;
+  background: #c8e6f5;
+}
+
+@media only screen and (max-width: 600px) {
+}

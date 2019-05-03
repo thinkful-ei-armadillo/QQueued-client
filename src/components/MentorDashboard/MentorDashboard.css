@@ -1,0 +1,54 @@
+.description,
+.mentor {
+  display: grid;
+  margin: 10px;
+  padding: 8px;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2),
+    1px 1px 4px 2px rgba(0, 0, 0, 0.1), 1px 1px 4px 2px rgba(0, 0, 0, 0.1),
+    1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+
+  font-weight: normal;
+}
+
+.studentName {
+  display: grid;
+  margin: 10px;
+  padding: 8px;
+  color: #000000;
+  background: rgb(201, 233, 245);
+  font-weight: normal;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2),
+    1px 1px 4px 2px rgba(0, 0, 0, 0.1), 1px 1px 4px 2px rgba(0, 0, 0, 0.1),
+    1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+}
+
+.mentor {
+  background: rgb(157, 238, 231);
+}
+
+.studentName span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.studentName span:after {
+  content: "\00bb";
+  color: green;
+  position: absolute;
+  font-size: 22pt;
+  opacity: 0;
+  top: 0;
+  right: -10px;
+  transition: 0.5s;
+}
+
+.studentName:hover span {
+  padding-right: 15px;
+}
+
+.studentName:hover span:after {
+  opacity: 1;
+  right: 0;
+}

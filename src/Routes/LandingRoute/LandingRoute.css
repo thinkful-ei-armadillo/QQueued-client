@@ -1,0 +1,21 @@
+.landingPageContainer {
+  text-align: center;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.welcome {
+  margin-top: 30px;
+  color: #5e0a0a;
+}
+
+.landingDescription {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 600px) {
+  .landingPageContainer {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}

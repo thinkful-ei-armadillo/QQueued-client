@@ -1,0 +1,64 @@
+.Mentor-List-Section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.Mentor-List-Section {
+  display: flex;
+  height: 90vh;
+  text-align: center;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.linkToChatRoom {
+  background: none;
+}
+
+.Mentor-List-Section ul {
+  margin: 10px;
+  padding: 10px;
+  background: #e0cece;
+}
+
+.Waiting-List-Section {
+  text-align: center;
+}
+
+.Waiting-List-Section,
+.Being-Helped-List-Section,
+.Has-Been-Helped-List-Section {
+  height: 70vh;
+  overflow: auto;
+  background: #e0cece;
+  box-shadow: 5px 10px #7e3b3b;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.hidden {
+  display: none;
+}
+
+.Mentor-List-Section span {
+  padding: 10px;
+  align-content: center;
+}
+
+.keyForMentors {
+  display: flex;
+  top: 15%;
+}
+
+/* add .selectable class at some point */
+.Being-Helped-List-Section .studentName:hover {
+  cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+  .Waiting-List-Section,
+  .Being-Helped-List-Section,
+  .Has-Been-Helped-List-Section {
+    height: 100%;
+  }
+}

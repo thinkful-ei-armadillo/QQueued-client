@@ -3,16 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8"
+    "chart.js": "^2.8.0",
+    "classnames": "^2.2.6",
+    "jwt-decode": "^2.2.0",
+    "react": "^16.8.3",
+    "react-chartjs-2": "^2.7.6",
+    "react-dom": "^16.8.3",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^2.1.8",
+    "react-stay-scrolled": "^6.0.0",
+    "semantic-ui-react": "^0.86.0",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0",
+    "use-interval": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "now ./build",
+    "postdeploy": "now alias -A ./build/now.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -22,5 +34,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "jsonwebtoken": "^8.5.0",
+    "unfetch": "^4.1.0"
+  }
 }

@@ -1,0 +1,51 @@
+.loginContainer {
+  text-align: center;
+}
+
+.loginInput {
+  display: inline-block;
+  border: 2px solid #5e0a0a;
+  border-radius: 2px;
+  background: #c8e6f5;
+}
+
+.passwordInput,
+.usernameInput,
+.fullNameInput {
+  background: #c8e6f5;
+  margin-right: 10px;
+  margin-left: 5px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: row;
+}
+
+.usernameInput {
+  margin-top: 10px;
+}
+
+.loginTitle {
+  color: #5e0a0a;
+}
+
+.loginButton {
+  display: inline-block;
+  color: white;
+  padding: 8px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border: none;
+  background: #5e0a0a;
+  font-weight: bold;
+  width: 100%;
+}
+input[type="text"],
+input[type="password"] {
+  flex: 1;
+}
+#login-username-input {
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+}
