@@ -66,7 +66,7 @@ export class studentWatingNameList extends Component {
             onClick={() => this.handleDeleteClick(id)}
             value="leave Waiting List"
           />
-        )}
+        }
         <input
           type="button"
           onClick={ this.validateUser(currentUser, user_name) ? e => this.toggleEditInput(e) : null }
