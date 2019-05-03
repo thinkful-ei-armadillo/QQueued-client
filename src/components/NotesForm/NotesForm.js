@@ -23,8 +23,7 @@ export default class NotesForm extends Component {
     } else {
       apiService
         .postNote(this.state.note, queue_id)
-        .then((res) => {
-          console.log(res)
+        .then(() => {
           this.setState({ note: '', error: null, hasError: null })
         })
     }
