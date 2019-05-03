@@ -8,21 +8,20 @@ export default class StudentHistory extends Component {
   state = {
     helper: true,
     issues: true,
-    data: null,
+    data: [],
     descriptions: [],
     mentors: []
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     ApiService.getAllData().then(data => {
-      this.setState({ data: data }, function() {
-        console.log(this.state.data);
-      });
+      this.setState({ data: data });
+      this.fillState();
     });
-    this.fillState();
   }
 
   fillState() {
+    console.log(this.state.data);
     for (let i = 0; i < this.state.data.length; i++) {
       if (this.state.data[i].description) {
         this.setState({
@@ -40,15 +39,13 @@ export default class StudentHistory extends Component {
         });
       }
     }
-
-    console.log(this.state.mentors);
-    console.log(this.state.descriptions);
   }
 
   createHistoryTab() {
     console.log(this.props.currentUser);
-    console.log(ApiService.getAllData());
     console.log(this.state.data);
+    console.log(this.state.mentors);
+    console.log(this.state.descriptions);
     return (
       <>
         <section className="studentHistory">
@@ -73,11 +70,12 @@ export default class StudentHistory extends Component {
           <ul
             className={this.state.helper ? "mentorHistory" : "noMentorHistory"}
           >
-            {this.state.mentors.length !== 0 ? (
-              this.state.mentors.map((m, i) => <li key={i}>{m}</li>)
-            ) : (
-              <p>loading...</p>
-            )}
+            {this.state.mentors.map((m, i) => (
+              <li key={i}>
+                {m}
+                <span>#{i}</span>
+              </li>
+            ))}
           </ul>
           <button
             onClick={() => {
@@ -101,7 +99,10 @@ export default class StudentHistory extends Component {
             className={this.state.issues ? "ticketHistory" : "noTicketHistory"}
           >
             {this.state.descriptions.map((q, i) => (
-              <li key={i}>{q}</li>
+              <li key={i}>
+                {q}
+                <span>#{i}</span>
+              </li>
             ))}
           </ul>
         </section>
