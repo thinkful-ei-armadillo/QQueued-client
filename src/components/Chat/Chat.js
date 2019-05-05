@@ -149,16 +149,16 @@ export default class Chat extends Component {
     }
     return (
       <div className="chatRoomContainer">
-        {this.state.studentInput && (
-          <div>
-            <span>{this.state.student}: </span>
-            {this.state.studentInput}
-          </div>
-        )}
         <section className="chatRoomInput">
           <section className="messages">
             {activeUsers}
             {thread}
+            {this.state.studentInput && (
+              <div>
+                <span>{this.state.student} preview: </span>
+               <p className="foreignMessage">{this.state.studentInput}</p> 
+              </div>
+            )}
             <div
               style={{ float: "left", clear: "both" }}
               ref={el => {
@@ -174,6 +174,7 @@ export default class Chat extends Component {
               id=""
               placeholder="send a message"
               onChange={e => this.handleChange(e.target.value)}
+              autocomplete="off"
             />
             <Button type="submit">Send</Button>
           </form>
