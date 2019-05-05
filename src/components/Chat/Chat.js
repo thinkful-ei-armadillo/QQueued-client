@@ -3,7 +3,7 @@ import openSocket from "socket.io-client";
 import "./Chat.css";
 import Button from "../Button/Button";
 import QueueContext from "../../context/QueueContext";
-import apiSerivce from "../../services/api-service"
+import apiSerivce from "../../services/api-service";
 
 export default class Chat extends Component {
   static contextType = QueueContext;
@@ -14,7 +14,9 @@ export default class Chat extends Component {
       input: "",
       users: [],
       messages: [],
-      to: []
+      to: [],
+      studentInput: "",
+      student: ""
     };
     this.socket = openSocket(
       /* config.API_ENDPOINT ||  */ "http://localhost:8000"
@@ -32,16 +34,16 @@ export default class Chat extends Component {
   }
 
   async componentDidMount() {
-    const { currentlyBeingHelped } = await apiSerivce.getQueue()
+    const { currentlyBeingHelped } = await apiSerivce.getQueue();
     const filtedList = currentlyBeingHelped.filter(
       i =>
         i.studentName === this.props.user.user.full_name ||
         i.mentorName === this.props.user.user.full_name
     );
-    
+
     this.socket.emit("join-room", {
       userName: this.props.user.user.full_name,
-      list: filtedList[filtedList.length -1]
+      list: filtedList[filtedList.length - 1]
     });
     this.socket.on("entered", data => {
       this.rooms.push(data);
@@ -49,18 +51,44 @@ export default class Chat extends Component {
     });
 
     this.socket.on("message", data => {
-      this.setState({ messages: [...this.state.messages, data] });
+      this.setState({
+        messages: [...this.state.messages, data],
+        student: "",
+        studentInput: ""
+      });
     });
 
+    this.socket.on("isTyping", data => {
+      if (this.state.users[0] !== data.to.studentName) {
+        this.setState({
+          student: data.to.studentName,
+          studentInput: data.type
+        });
+      }
+    });
     this.scrollToBottom();
   }
   componentWillUnmount() {
     const helpedArray = this.context.currentlyBeingHelped;
-    this.socket.emit('left', {user: this.state.users[0], room: this.rooms, to: helpedArray[helpedArray.length - 1]})
+    this.socket.emit("left", {
+      user: this.state.users[0],
+      room: this.rooms,
+      to: helpedArray[helpedArray.length - 1]
+    });
     this.socket.close();
   }
 
   handleChange = e => {
+    const helpedArray = this.context.currentlyBeingHelped.filter(
+      i =>
+        i.studentName === this.state.users[0] ||
+        i.mentorName === this.state.users[0]
+    );
+    this.socket.emit("isTyping", {
+      type: e,
+      to: helpedArray[helpedArray.length - 1],
+      user: this.state.users[0]
+    });
     this.setState({ input: e });
   };
 
@@ -78,7 +106,7 @@ export default class Chat extends Component {
       room: this.rooms,
       to: helpedArray[helpedArray.length - 1]
     });
-
+    this.setState({ student: "", studentInput: "" });
     e.target.reset();
   };
 
@@ -121,6 +149,12 @@ export default class Chat extends Component {
     }
     return (
       <div className="chatRoomContainer">
+        {this.state.studentInput && (
+          <div>
+            <span>{this.state.student}: </span>
+            {this.state.studentInput}
+          </div>
+        )}
         <section className="chatRoomInput">
           <section className="messages">
             {activeUsers}
