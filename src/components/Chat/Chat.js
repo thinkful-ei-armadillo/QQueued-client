@@ -34,6 +34,7 @@ export default class Chat extends Component {
   }
 
   async componentDidMount() {
+    this.focusInput.focus()
     const { currentlyBeingHelped } = await apiSerivce.getQueue();
     const filtedList = currentlyBeingHelped.filter(
       i =>
@@ -168,13 +169,14 @@ export default class Chat extends Component {
           </section>
           <form className="chatRoomForm" onSubmit={e => this.handleSubmit(e)}>
             <input
+              ref={(input) => {this.focusInput = input}}
               className="sendMessage"
               type="text"
               name="input-field"
               id=""
               placeholder="send a message"
               onChange={e => this.handleChange(e.target.value)}
-              autocomplete="off"
+              autoComplete="off"
             />
             <Button type="submit">Send</Button>
           </form>
