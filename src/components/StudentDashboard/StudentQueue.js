@@ -7,6 +7,13 @@ import { Link } from "react-router-dom";
 
 export default class StudentQueue extends Component {
   static contextType = QueueContext;
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      note: ''
+    }
+  }
 
   componentDidMount() {
     this.context.webSocket();
@@ -40,7 +47,6 @@ export default class StudentQueue extends Component {
     );
     const numberInLine = queueList.indexOf(userTickets[0]);
     const isSomeoneInLine = !queueList.length;
-   
     return (
       <section className="student-dashboard-container row">
         <div className="studentsMainPage col-12">
