@@ -25,14 +25,16 @@ export default class WaitingRoom extends Component {
             <div className="description">Student Issues</div>
             <div className="mentor">Mentors</div>
           </div>
-          <section className="Waiting-List-Section">
-            <section>Waiting List</section>
-            <HelpStudentButton
-              mentorName={full_name}
-              history={this.props.history}
-            />
-            <WaitingList />
-          </section>
+          <div className="col-3">
+            <section className="Waiting-List-Section">
+              <section>Waiting List</section>
+              <HelpStudentButton
+                mentorName={full_name}
+                history={this.props.history}
+              />
+              <WaitingList />
+            </section>
+          </div>
           <div className="col-3">
             <section className="Being-Helped-List-Section">
               <section>Being Helped List</section>

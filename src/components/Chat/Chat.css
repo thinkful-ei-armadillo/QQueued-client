@@ -105,3 +105,13 @@
   height: 60vh;
   overflow: auto;
 }
+
+@media only screen and (max-width: 504px) {
+  .sendMessage {
+    width: 40%;
+  }
+
+  .chatRoomForm button {
+    margin: 10px;
+  }
+}
