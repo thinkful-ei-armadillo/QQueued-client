@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HelpForm class component renders the UI as expected 1`] = `
+Array [
+  <button
+    className="Button"
+    onClick={[Function]}
+  >
+    Get Help!
+  </button>,
+  <section
+    className="Help-Form-Section"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="hidden"
+      >
+        <input
+          className="Input Help-Form-Input"
+          onChange={[Function]}
+          required={true}
+          type="text"
+        />
+        <button
+          className="Button"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </section>,
+]
+`;

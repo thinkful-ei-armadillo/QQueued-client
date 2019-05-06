@@ -14,4 +14,9 @@ describe("Header class component", () => {
     expect(testHeader.getInstance());
     testHeader.unmount();
   });
+
+  it('renders the UI as expected', () => {
+    const tree = TestRenderer.create(<MemoryRouter><Header /></MemoryRouter>).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 });

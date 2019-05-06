@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header class component renders the UI as expected 1`] = `
+<header>
+  <nav
+    role="navigation"
+  >
+    <a
+      className="nav-text brand"
+      href="/"
+      onClick={[Function]}
+    >
+      Git-Rekt
+    </a>
+    <div
+      className="Navbar-right"
+    >
+      <a
+        className="nav-text-right login"
+        href="/login"
+        onClick={[Function]}
+      >
+        Login
+      </a>
+      <a
+        className="nav-text-right register"
+        href="/register"
+        onClick={[Function]}
+      >
+        Sign up
+      </a>
+    </div>
+    <div
+      className="Navbar-toggle"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-bars"
+      />
+    </div>
+  </nav>
+</header>
+`;
