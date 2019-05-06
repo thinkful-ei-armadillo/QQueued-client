@@ -18,7 +18,7 @@
 .Mentor-List-Section ul {
   margin: 10px;
   padding: 10px;
-  background: #e0cece;
+  /* background: #e0cece; */
 }
 
 .Waiting-List-Section {
@@ -30,8 +30,9 @@
 .Has-Been-Helped-List-Section {
   height: 70vh;
   overflow: auto;
-  background: #e0cece;
-  box-shadow: 5px 10px #7e3b3b;
+  border-radius: 4px;
+  background: rgb(228, 229, 231);
+  box-shadow: 5px 10px rgb(129, 126, 121);
   color: black;
   font-weight: bold;
   margin-bottom: 14px;
@@ -42,7 +43,6 @@
 }
 
 .Mentor-List-Section span {
-  padding: 10px;
   align-content: center;
 }
 
@@ -55,7 +55,7 @@
 .Being-Helped-List-Section .studentName:hover {
   cursor: pointer;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 630px) {
   .Waiting-List-Section,
   .Being-Helped-List-Section,
   .Has-Been-Helped-List-Section {
