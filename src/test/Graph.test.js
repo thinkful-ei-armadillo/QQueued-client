@@ -1,10 +1,11 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
+import { MemoryRouter } from 'react-router-dom';
+import ReactDOM from 'react-dom';
 import Graph from '../components/Graph/Graph';
 
-// Error can not read propery length of undefined, not sure what's missing here to get passing test
 describe("Graph class component", () => {
-  it.skip("renders without crashing", () => {
+  it("renders without crashing", () => {
 
     const studentData = [
       {
@@ -20,12 +21,13 @@ describe("Graph class component", () => {
       }
     ]
 
-    const testGraph = TestRenderer.create(
-
-      <Graph data={studentData} />
-  
+    const div = document.createElement("div");
+    ReactDOM.render(
+      <MemoryRouter>
+        <Graph data={studentData} />
+      </MemoryRouter>,
+      div
     );
-    expect(testGraph.getInstance());
-    testGraph.unmount();
+    ReactDOM.unmountComponentAtNode(div);
   });
 });

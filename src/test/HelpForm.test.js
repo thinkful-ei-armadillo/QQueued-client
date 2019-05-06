@@ -1,13 +1,12 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
 import HelpForm from '../components/HelpForm/HelpForm';
+import ReactDOM from "react-dom";
 
 describe("HelpForm class component", () => {
   it("renders without crashing", () => {
-    const testHelpForm = TestRenderer.create(
-      <HelpForm />
-    );
-    expect(testHelpForm.getInstance());
-    testHelpForm.unmount();
+    const div = document.createElement("div");
+    ReactDOM.render(<HelpForm />, div);
+    ReactDOM.unmountComponentAtNode(div);
   });
 });

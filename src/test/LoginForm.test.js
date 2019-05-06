@@ -1,6 +1,16 @@
 import React from "react";
-import TestRenderer from "react-test-renderer";
+import ReactDOM from 'react-dom';
+import LoginForm from '../components/LoginForm/LoginForm';
+import { MemoryRouter } from 'react-router-dom';
 
-describe("", () => {
-  it.skip("renders without crashing", () => {});
+
+describe("LoginForm class component", () => {
+  it("renders without crashing", () => {
+    const div = document.createElement("div");
+    ReactDOM.render(
+    <MemoryRouter>
+      <LoginForm />
+    </MemoryRouter>, div);
+    ReactDOM.unmountComponentAtNode(div);
+  });
 });

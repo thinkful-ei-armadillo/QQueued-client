@@ -6,7 +6,6 @@ export default class Graph extends Component {
   
   render() {
     const { data } = this.props;
-    console.log(data);
     
     const isEmptyData = !data.length;
     const colorList = graphHelper.makeRandomColors(data.length)
