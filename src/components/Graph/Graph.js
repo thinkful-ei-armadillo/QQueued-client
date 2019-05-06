@@ -3,8 +3,11 @@ import { Pie } from "react-chartjs-2";
 import graphHelper from './graphHelper'
 
 export default class Graph extends Component {
+  
   render() {
     const { data } = this.props;
+    console.log(data);
+    
     const isEmptyData = !data.length;
     const colorList = graphHelper.makeRandomColors(data.length)
     const input = {
@@ -15,6 +18,7 @@ export default class Graph extends Component {
           hoverBackgroundColor: colorList
         }]
     } 
+
     return (
     <section>
       {!isEmptyData ? 
