@@ -8,12 +8,3 @@ exports[`HelpStudentButton function component renders the UI as expected 1`] = `
   Help a student
 </button>
 `;
-
-exports[`renders the UI as expected 1`] = `
-<button
-  className="Button"
-  onClick={[Function]}
->
-  Help a student
-</button>
-`;
