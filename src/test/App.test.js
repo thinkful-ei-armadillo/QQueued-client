@@ -7,13 +7,14 @@ import App from '../components/App/App';
 describe('App class component', () => {
 
   it('renders without crashing', () => {
-    const testApp = TestRenderer.create(
+    const div = document.createElement('div');
+    ReactDOM.render(
       <MemoryRouter>
         <App />
-      </MemoryRouter>
-    );
-    expect(testApp.getInstance())
-    testApp.unmount()
+      </MemoryRouter>,
+      div
+    )
+    ReactDOM.unmountComponentAtNode(div);
   });
 
   it('renders the UI as expected', () => {
