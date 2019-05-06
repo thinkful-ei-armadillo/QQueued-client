@@ -10,6 +10,7 @@ describe('Chat class component', () => {
         <Chat />
       </MemoryRouter>
     );
+    
     expect(testChat.getInstance())
     testChat.unmount()
   })
