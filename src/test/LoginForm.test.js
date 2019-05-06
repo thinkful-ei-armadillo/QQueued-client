@@ -11,7 +11,7 @@ describe("LoginForm class component", () => {
     const div = document.createElement("div");
     ReactDOM.render(
     <MemoryRouter>
-      <LoginForm />
+      <LoginFrom />
     </MemoryRouter>, div);
     ReactDOM.unmountComponentAtNode(div);
   })
