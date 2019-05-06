@@ -8,6 +8,13 @@ import { mount } from 'enzyme';
 
 
 describe('Chat class component', () => {
+
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<Chat />, div);
+    ReactDOM.unmountComponentAtNode(div);
+  })
+
   it('should render Input', () => {
     const wrapper = mount(<Chat />);
     expect(wrapper.find('.sendMessage')).toHaveLength(1)
