@@ -20,10 +20,20 @@ describe('Chat class component', () => {
     expect(wrapper.find('.sendMessage')).toHaveLength(1)
   })
 
-  it('should render Input', () => {
+  it('should render chat ref', () => {
     const wrapper = mount(<Chat />);
     const mockRef = {}
     expect(wrapper.ref(mockRef))
+  })
+
+  it('should render chat window', () => {
+    const wrapper = mount(<Chat />);
+    expect(wrapper.find('.messages'));
+  })
+
+  it('should render chat send button', () => {
+    const wrapper = mount(<Chat />)
+    expect(wrapper.find('.Button'))
   })
 
   it('renders the UI as expected', () => {

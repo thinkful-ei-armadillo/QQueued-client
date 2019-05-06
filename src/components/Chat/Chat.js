@@ -34,7 +34,9 @@ export default class Chat extends Component {
   }
 
   async componentDidMount() {
-    this.focusInput.focus()
+    if(this.focusInput){
+      this.focusInput.focus()
+    }
     const { currentlyBeingHelped } = await apiSerivce.getQueue();
     const filtedList = currentlyBeingHelped.filter(
       i =>
