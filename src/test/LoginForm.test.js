@@ -21,9 +21,31 @@ describe("LoginForm class component", () => {
     expect(wrapper.find('input'))
   })
 
+  it('should render password Input', () => {
+    const wrapper = mount(<MemoryRouter><LoginFrom /></MemoryRouter>);
+    expect(wrapper.find('#login-password-input'))
+  })
+
+  it('should render user Input', () => {
+    const wrapper = mount(<MemoryRouter><LoginFrom /></MemoryRouter>);
+    expect(wrapper.find('#login-username-input'))
+  })
+
+  it('should render user label', () => {
+    const wrapper = mount(<MemoryRouter><LoginFrom /></MemoryRouter>);
+    expect(wrapper.find('.Label username-login'))
+  })
+
+  it('should render login button', () => {
+    const wrapper = mount(<MemoryRouter><LoginFrom /></MemoryRouter>);
+    expect(wrapper.find('.loginButton'))
+  })
+
   it('should render Input', () => {
     const wrapper = mount(<MemoryRouter><LoginFrom /></MemoryRouter>);
     const mockRef = {}
     expect(wrapper.ref(mockRef))
   })
 });
+
+// login-password-input
