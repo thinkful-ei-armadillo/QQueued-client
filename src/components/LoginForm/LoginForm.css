@@ -43,6 +43,12 @@
   width: 30%;
   margin-right: 9px;
 }
+.loginButton:active, .registrationSubmit:active {
+  transform: translateY(2px);
+}
+.loginButton:hover, .registrationSubmit:hover{
+  background: rgba(143, 31, 21, 0.808);
+}
 input[type="text"],
 input[type="password"] {
   flex: 1;

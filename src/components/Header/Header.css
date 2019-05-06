@@ -4,6 +4,12 @@ nav{
   font-size: 14px;
   padding-bottom: 1px;
   text-decoration: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
 }
 .Navbar-right, .Navbar-right-no-user{
   display: flex;
@@ -12,17 +18,24 @@ nav{
 }
 .Navbar-toggle {
   display: none;
-  color: #c8e6f5;
+  color: #BFB99E;
+}
+.Navbar-toggle:active{
+  transform: translateY(.5px);
 }
 .nav-text, .nav-text-right{
-  color: #d9dfe2;
+  color: #BFB99E;
   text-decoration: none;
 } 
-.register{
-  margin-right: 10px;
+.nav-text-right:hover, .Navbar-toggle:hover{
+  color: #D83F31;
+}
+.login{
+  padding-right: 10px;
 }
 .student-history-nav::after, .messageViaSlack::after, .data-link::after, .userName::after  {
   content: ' | ';
+ 
   margin-right: 4px;
 }
 .brand
@@ -30,7 +43,7 @@ nav{
   margin-left: 2em;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 504px){
   nav, .Navbar-right{
     flex-direction: column;
   }

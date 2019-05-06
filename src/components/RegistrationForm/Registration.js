@@ -44,6 +44,7 @@ export default class Registration extends Component {
       >
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <h2 className="registerTitle">Register</h2>
+        <p className="register-text">Find the answer to unanswered questions</p>
         <div className="registrationInput">
           <p className="title-selection">Select your title:</p>
           <input
