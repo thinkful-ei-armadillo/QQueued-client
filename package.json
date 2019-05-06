@@ -38,6 +38,7 @@
   ],
   "devDependencies": {
     "jsonwebtoken": "^8.5.0",
+    "react-test-renderer": "^16.8.6",
     "unfetch": "^4.1.0"
   }
 }

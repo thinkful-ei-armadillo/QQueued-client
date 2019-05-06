@@ -144,12 +144,14 @@ export class QueueProvider extends Component {
       });
     });
   };
+
   update = () => {
     this.socket.on("helpStudent", data => {
       const { queueList, currentlyBeingHelped } = data
       this.setState({queueList, currentlyBeingHelped})
     })
   }
+  
   closeWebSocket = () => {
     this.socket.close();
   };
