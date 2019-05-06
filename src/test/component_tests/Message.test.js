@@ -1,8 +1,8 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
 import ReactDOM from "react-dom";
-import Message from '../components/Message/Message';
-import '../setupTests';
+import Message from '../../components/Message/Message';
+import '../../setupTests';
 import { mount } from 'enzyme';
 
 describe("Message class component", () => {

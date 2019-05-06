@@ -2,8 +2,8 @@ import React from "react";
 import TestRenderer from "react-test-renderer";
 import { MemoryRouter } from 'react-router-dom';
 import ReactDOM from "react-dom";
-import StudentQueue from '../components/StudentDashboard/StudentQueue';
-import StudentWaitingNameList from '../components/StudentDashboard/studentWaitingNameList/studentWaitingNameList';
+import StudentQueue from '../../components/StudentDashboard/StudentQueue';
+import StudentWaitingNameList from '../../components/StudentDashboard/studentWaitingNameList/studentWaitingNameList';
 
 describe("StudentDashboard components", () => {
   let div;

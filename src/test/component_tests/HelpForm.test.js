@@ -1,6 +1,6 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
-import HelpForm from '../components/HelpForm/HelpForm';
+import HelpForm from '../../components/HelpForm/HelpForm';
 import ReactDOM from "react-dom";
 
 describe("HelpForm class component", () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
 import ReactDOM from "react-dom";
-import StudentInfo from '../components/StudentInfo/StudentInfo';
+import StudentInfo from '../../components/StudentInfo/StudentInfo';
 
 describe("StudentInfo function component", () => {
   const match = {
@@ -40,7 +40,7 @@ describe("StudentInfo function component", () => {
     ]
   };
 
-  it.only("renders without crashing", () => {
+  it("renders without crashing", () => {
     const div = document.createElement('div');
     ReactDOM.render(<StudentInfo dataContext={data} match={match} />, div)
     ReactDOM.unmountComponentAtNode(div);

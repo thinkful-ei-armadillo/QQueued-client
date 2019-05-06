@@ -2,8 +2,8 @@ import React from "react";
 import TestRenderer from "react-test-renderer";
 import ReactDOM from "react-dom";
 import { MemoryRouter } from 'react-router-dom';
-import StudentHistory from '../components/StudentHistory/StudentHistory'
-import StudentHistoryElement from '../components/StudentHistory/StudentHistoryElement/StudentHistoryElement';
+import StudentHistory from '../../components/StudentHistory/StudentHistory'
+import StudentHistoryElement from '../../components/StudentHistory/StudentHistoryElement/StudentHistoryElement';
 
 describe("StudentHistory Components", () => {
   let div;
