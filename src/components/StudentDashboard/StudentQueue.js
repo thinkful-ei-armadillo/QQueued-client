@@ -21,11 +21,11 @@ export default class StudentQueue extends Component {
   }
 
   renderPlaceInLine(indexInLine) {
-    return <div>You are currently #{indexInLine + 1} in line.</div>;
+    return <div className="position-in-line">You are currently #{indexInLine + 1} in line</div>;
   }
 
   renderOpenTickets(numOfTickets) {
-    return <div>You have {numOfTickets} open ticket(s).</div>;
+    return <div>You have {numOfTickets} open ticket(s)</div>;
   }
 
   renderChatRoom(room) {
@@ -59,7 +59,7 @@ export default class StudentQueue extends Component {
           } 
           {isSomeoneInLine && 
             <p className="noOneInQueue">No one is in line for help</p>} 
-          <HelpForm className="getHelpButton" />
+          {!userTickets.length && <HelpForm className="getHelpButton"/>}
           <ul className="studentWaitingQueue">
             {queueList.map((listItem, index) =>
               <StudentWaitingNameList
