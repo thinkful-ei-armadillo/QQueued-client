@@ -42,6 +42,8 @@ export default class StudentHistory extends Component {
   }
 
   createHistoryTab() {
+    console.log(this.state);
+    
     return (
       <>
         <section className="studentHistory">

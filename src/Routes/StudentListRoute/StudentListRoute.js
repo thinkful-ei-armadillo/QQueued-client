@@ -8,10 +8,8 @@ export default function StudentListRoute() {
   const context = useContext(UserContext);
 
   return (
-    <StudentDataProvider>
-      <QueueProvider>
-        <StudentQueue user={context.user} />
-      </QueueProvider>
-    </StudentDataProvider>
+    <QueueProvider>
+      <StudentQueue user={context.user} />
+    </QueueProvider>
   );
 }
