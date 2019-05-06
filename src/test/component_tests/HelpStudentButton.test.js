@@ -1,8 +1,8 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
-import HelpStudentButton from '../components/HelpStudentButton/HelpStudentButton';
+import HelpStudentButton from '../../components/HelpStudentButton/HelpStudentButton';
 import ReactDOM from 'react-dom';
-import '../setupTests';
+import '../../setupTests';
 import { mount } from 'enzyme';
 
 describe("HelpStudentButton function component", () => {

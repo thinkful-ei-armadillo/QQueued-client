@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from "react-router-dom";
 import TestRenderer from 'react-test-renderer';
-import App from '../components/App/App';
+import App from '../../components/App/App';
 
 describe('App class component', () => {
 

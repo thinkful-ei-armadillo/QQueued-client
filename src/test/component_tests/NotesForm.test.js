@@ -1,12 +1,12 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
 import ReactDOM from "react-dom";
-import StudentDataList from '../components/StudentDataList/StudentDataList';
+import NotesForm from '../../components/NotesForm/NotesForm';
 
-describe("StudentDataList class component", () => {
+describe("NotesForm class component", () => {
   it("renders without crashing", () => {
     const div = document.createElement('div');
-    ReactDOM.render(<StudentDataList />, div);
+    ReactDOM.render(<NotesForm />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 });

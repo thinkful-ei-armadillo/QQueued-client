@@ -1,9 +1,9 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
-import Header from '../components/Header/Header';
+import Header from '../../components/Header/Header';
 import ReactDOM from "react-dom";
 import { MemoryRouter } from 'react-router-dom';
-import '../setupTests';
+import '../../setupTests';
 import { mount } from 'enzyme';
  
 describe("Header class component", () => {

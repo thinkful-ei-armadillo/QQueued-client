@@ -1,8 +1,8 @@
 import React from "react";
-import '../setupTests'
+import '../../setupTests'
 import { MemoryRouter } from 'react-router-dom';
 import ReactDOM from "react-dom";
-import Chat from '../components/Chat/Chat';
+import Chat from '../../components/Chat/Chat';
 import TestRenderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 
