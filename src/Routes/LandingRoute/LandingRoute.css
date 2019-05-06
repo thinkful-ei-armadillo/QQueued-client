@@ -7,10 +7,14 @@
 .welcome {
   margin-top: 30px;
   color: #5e0a0a;
+  padding: 20px;
+  font-size: 3em;
 }
 
-.landingDescription {
+.landingDescription,
+.descriptionSignupLogin {
   display: inline-block;
+  font-size: 1.5em;
 }
 
 @media only screen and (max-width: 600px) {

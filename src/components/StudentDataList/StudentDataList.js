@@ -9,7 +9,7 @@ export default class StudentDataList extends Component {
   createStudentListItem = () => {
     const { studentData } = this.context;
     return (
-      <>
+      <div className="dataPageContainer">
         <Graph data={studentData} />
         {studentData.map((s, i) => (
           <section className="data-list-section" key={i}>
@@ -30,7 +30,7 @@ export default class StudentDataList extends Component {
             </ul>
           </section>
         ))}
-      </>
+      </div>
     );
   };
 

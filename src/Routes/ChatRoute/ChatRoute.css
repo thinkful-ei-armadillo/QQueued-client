@@ -7,7 +7,7 @@
   cursor: pointer;
   font-weight: bold;
   color: #5e0a0a;
-  margin: 20px;
+  margin: 50px 20px 20px 20px;
   background: #f2eee0;
   border: 1px solid #5ca0d3;
   border-radius: 35em;
@@ -37,4 +37,15 @@
 .button:hover span:after {
   opacity: 1;
   left: 0;
+}
+
+#chatRouteContainer {
+  display: inline;
+}
+
+@media only screen and (max-width: 600px) {
+  #chatRouteContainer {
+    display: flex;
+    flex-direction: column;
+  }
 }

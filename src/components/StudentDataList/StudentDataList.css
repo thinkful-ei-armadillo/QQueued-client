@@ -1,15 +1,22 @@
 .display-data-section {
-  display: grid;
+  padding: 50px;
+  margin: 25px;
+}
+
+.dataPageContainer {
+  display: flex;
+  justify-content: space-evenly;
   grid-template-columns: auto auto auto auto;
   grid-template-rows: auto;
-  justify-content: space-evenly;
-  align-items: start;
-  margin-top: 40px;
 }
 
 .display-data-section a {
   text-decoration: none;
   color: black;
+}
+
+.chartjs-render-monitor {
+  padding-bottom: 25px;
 }
 
 .display-data-section a:hover {
@@ -41,4 +48,10 @@
   padding: 0 20px;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3),
     1px 1px 6px 1px rgba(0, 0, 0, 0.2), 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 600px) {
+  .dataPageContainer {
+    flex-direction: column;
+  }
 }

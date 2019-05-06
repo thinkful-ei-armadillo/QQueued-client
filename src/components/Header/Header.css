@@ -1,4 +1,4 @@
-nav{
+nav {
   display: flex;
   background: #403931;
   font-size: 14px;
@@ -11,40 +11,54 @@ nav{
   margin-left: auto;
   margin-right: auto;
 }
-.Navbar-right, .Navbar-right-no-user{
+
+.nav-text-right,
+.nav-text,
+.fas {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.Navbar-right,
+.Navbar-right-no-user {
   display: flex;
   margin-left: auto;
   margin-right: 2em;
 }
 .Navbar-toggle {
   display: none;
-  color: #BFB99E;
+  color: #bfb99e;
 }
-.Navbar-toggle:active{
-  transform: translateY(.5px);
+.Navbar-toggle:active {
+  transform: translateY(0.5px);
 }
-.nav-text, .nav-text-right{
-  color: #BFB99E;
+.nav-text,
+.nav-text-right {
+  color: #bfb99e;
   text-decoration: none;
-} 
-.nav-text-right:hover, .Navbar-toggle:hover{
-  color: #D83F31;
 }
-.login{
+.nav-text-right:hover,
+.Navbar-toggle:hover {
+  color: #d83f31;
+}
+.login {
   padding-right: 10px;
 }
-.student-history-nav::after, .messageViaSlack::after, .data-link::after, .userName::after  {
-  content: ' | ';
- 
+.student-history-nav::after,
+.messageViaSlack::after,
+.data-link::after,
+.userName::after {
+  content: " | ";
+
   margin-right: 4px;
 }
-.brand
- {
+.brand {
   margin-left: 2em;
 }
 
-@media only screen and (max-width: 504px){
-  nav, .Navbar-right{
+@media only screen and (max-width: 504px) {
+  nav,
+  .Navbar-right {
     flex-direction: column;
   }
   .Navbar-toggle {
@@ -54,14 +68,13 @@ nav{
     cursor: pointer;
     right: 2.1em;
   }
-  .nav-text-right{
-    display: none; 
+  .nav-text-right {
+    display: none;
   }
-  .nav-text-right::after{
+  .nav-text-right::after {
     content: "";
   }
   .Navbar-ToggleShow {
     display: flex;
   }
-
 }
