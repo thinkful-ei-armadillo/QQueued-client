@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditTicketForm class component render UI as expected 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <input
+    className="Input"
+    onChange={[Function]}
+    type="text"
+  />
+  <button
+    className="Button"
+  >
+    Submit
+  </button>
+</form>
+`;

@@ -9,4 +9,8 @@ describe('EditTicketForm class component', () => {
     ReactDOM.render(<EditTicketForm />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
+  it('render UI as expected', () => {
+    const tree = TestRenderer.create(<EditTicketForm />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })

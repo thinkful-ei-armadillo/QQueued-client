@@ -1,7 +1,10 @@
 .registrationContainer {
   text-align: center;
 }
-
+.register-text{
+  text-align: center;
+  color: rgb(134, 140, 146);
+}
 .registrationInput {
   display: inline-block;
   text-align: center;

@@ -4,9 +4,14 @@ import HelpStudentButton from '../components/HelpStudentButton/HelpStudentButton
 import ReactDOM from 'react-dom';
 
 describe("HelpStudentButton function component", () => {
-  it("renders without crashing", () => {
-    const div = document.createElement("div");
+  it.skip("renders without crashing", () => {});
+
+  const div = document.createElement("div");
     ReactDOM.render(<HelpStudentButton />, div);
     ReactDOM.unmountComponentAtNode(div);
-  });
+  
+  it('renders the UI as expected', () => {
+    const tree = TestRenderer.create(<HelpStudentButton />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 });

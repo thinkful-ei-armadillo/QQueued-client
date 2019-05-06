@@ -3,6 +3,7 @@ import TestRenderer from "react-test-renderer";
 import { MemoryRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import Graph from '../components/Graph/Graph';
+import { Pie } from "react-chartjs-2";
 
 describe("Graph class component", () => {
   it("renders without crashing", () => {
@@ -30,4 +31,5 @@ describe("Graph class component", () => {
     );
     ReactDOM.unmountComponentAtNode(div);
   });
+  
 });

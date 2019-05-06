@@ -7,6 +7,13 @@ import { Link } from "react-router-dom";
 
 export default class StudentQueue extends Component {
   static contextType = QueueContext;
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      note: ''
+    }
+  }
 
   componentDidMount() {
     this.context.webSocket();
@@ -14,11 +21,11 @@ export default class StudentQueue extends Component {
   }
 
   renderPlaceInLine(indexInLine) {
-    return <div>You are currently #{indexInLine + 1} in line.</div>;
+    return <div className="position-in-line">You are currently #{indexInLine + 1} in line</div>;
   }
 
   renderOpenTickets(numOfTickets) {
-    return <div>You have {numOfTickets} open ticket(s).</div>;
+    return <div>You have {numOfTickets} open ticket(s)</div>;
   }
 
   renderChatRoom(room) {
@@ -40,7 +47,6 @@ export default class StudentQueue extends Component {
     );
     const numberInLine = queueList.indexOf(userTickets[0]);
     const isSomeoneInLine = !queueList.length;
-   
     return (
       <section className="student-dashboard-container row">
         <div className="studentsMainPage col-12">
@@ -53,7 +59,7 @@ export default class StudentQueue extends Component {
           } 
           {isSomeoneInLine && 
             <p className="noOneInQueue">No one is in line for help</p>} 
-          <HelpForm className="getHelpButton" />
+          {!userTickets.length && <HelpForm className="getHelpButton"/>}
           <ul className="studentWaitingQueue">
             {queueList.map((listItem, index) =>
               <StudentWaitingNameList

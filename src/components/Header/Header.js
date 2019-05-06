@@ -26,11 +26,11 @@ class Header extends Component {
   renderLoginLink() {
     return (
       <div className="Navbar-right">
-        <Link className="nav-text-right register" to="/register">
-          Sign up
-        </Link>
         <Link className="nav-text-right login" to="/login">
           Login
+        </Link>
+        <Link className="nav-text-right register" to="/register">
+          Sign up
         </Link>
       </div>
     );
@@ -40,10 +40,10 @@ class Header extends Component {
     return (
       <React.Fragment>
         <Link className="nav-text-right data-link" to="/data">
-          Students Data
+          Data
         </Link>
         <Link className="nav-text-right messageViaSlack" to="/message">
-          Send Message via Slack
+          Slack Message
         </Link>
       </React.Fragment>
     );

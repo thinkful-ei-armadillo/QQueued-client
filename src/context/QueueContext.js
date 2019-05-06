@@ -88,12 +88,13 @@ export class QueueProvider extends Component {
       let student = queueList.shift();
       student.mentorName = mentorName;
       currentlyBeingHelped.push(student);
+      
       this.socket.emit('helpStudent', {queueList: queueList, currentlyBeingHelped: currentlyBeingHelped})
       this.setState({
         queueList,
         currentlyBeingHelped
       }, () => history.push({
-        pathname: `/mentor/${mentorName}`,
+        pathname: `${this.state.note.url}`,
         state: { queue_id }
       }));
     });

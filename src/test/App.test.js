@@ -15,4 +15,9 @@ describe('App class component', () => {
     expect(testApp.getInstance())
     testApp.unmount()
   });
+
+  it('renders the UI as expected', () => {
+    const tree = TestRenderer.create(<MemoryRouter><App /></MemoryRouter>).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })

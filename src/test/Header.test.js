@@ -13,4 +13,9 @@ describe("Header class component", () => {
       </MemoryRouter>, div)
     ReactDOM.unmountComponentAtNode(div);
   });
+
+  it('renders the UI as expected', () => {
+    const tree = TestRenderer.create(<MemoryRouter><Header /></MemoryRouter>).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 });

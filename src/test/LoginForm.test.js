@@ -1,8 +1,10 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import LoginForm from '../components/LoginForm/LoginForm';
+import '../setupTests'
+import TestRenderer from "react-test-renderer";
+import LoginFrom from "../components/LoginForm/LoginForm"
 import { MemoryRouter } from 'react-router-dom';
-
+import { mount } from 'enzyme';
 
 describe("LoginForm class component", () => {
   it("renders without crashing", () => {
@@ -12,5 +14,16 @@ describe("LoginForm class component", () => {
       <LoginForm />
     </MemoryRouter>, div);
     ReactDOM.unmountComponentAtNode(div);
-  });
+  })
+
+  it('should render Input', () => {
+    const wrapper = mount(<MemoryRouter><LoginFrom /></MemoryRouter>);
+    expect(wrapper.find('input'))
+  })
+
+  it('should render Input', () => {
+    const wrapper = mount(<MemoryRouter><LoginFrom /></MemoryRouter>);
+    const mockRef = {}
+    expect(wrapper.ref(mockRef))
+  })
 });

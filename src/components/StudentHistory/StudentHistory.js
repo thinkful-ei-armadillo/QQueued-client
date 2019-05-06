@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import StudentDataContext from "../../context/StudentDataContext";
 import ApiService from "../../services/api-service";
+import StudentHistoryElement from "./StudentHistoryElement/StudentHistoryElement";
 import "./StudentHistory.css";
 
 export default class StudentHistory extends Component {
@@ -21,7 +22,6 @@ export default class StudentHistory extends Component {
   }
 
   fillState() {
-    console.log(this.state.data);
     for (let i = 0; i < this.state.data.length; i++) {
       if (this.state.data[i].description) {
         this.setState({
@@ -42,10 +42,6 @@ export default class StudentHistory extends Component {
   }
 
   createHistoryTab() {
-    console.log(this.props.currentUser);
-    console.log(this.state.data);
-    console.log(this.state.mentors);
-    console.log(this.state.descriptions);
     return (
       <>
         <section className="studentHistory">
@@ -59,7 +55,7 @@ export default class StudentHistory extends Component {
             }}
             className={this.state.helper ? "buttonDropDown" : "buttonUp"}
           >
-            You've been helped by{" "}
+            My Ticket History{" "}
             <span>
               <img
                 src="https://user-images.githubusercontent.com/45447942/57102722-02ab6200-6cd9-11e9-888a-9e206d404505.png"
@@ -70,39 +66,8 @@ export default class StudentHistory extends Component {
           <ul
             className={this.state.helper ? "mentorHistory" : "noMentorHistory"}
           >
-            {this.state.mentors.map((m, i) => (
-              <li key={i}>
-                {m}
-                <span>#{i}</span>
-              </li>
-            ))}
-          </ul>
-          <button
-            onClick={() => {
-              if (!this.state.issues) {
-                this.setState({ issues: true });
-              } else {
-                this.setState({ issues: false });
-              }
-            }}
-            className={this.state.issues ? "buttonDropDown" : "buttonUp"}
-          >
-            For These Issues{" "}
-            <span>
-              <img
-                src="https://user-images.githubusercontent.com/45447942/57102722-02ab6200-6cd9-11e9-888a-9e206d404505.png"
-                alt="arrow"
-              />
-            </span>
-          </button>
-          <ul
-            className={this.state.issues ? "ticketHistory" : "noTicketHistory"}
-          >
-            {this.state.descriptions.map((q, i) => (
-              <li key={i}>
-                {q}
-                <span>#{i}</span>
-              </li>
+            {this.state.data.map((data, i) => (
+              <StudentHistoryElement data={data} key={i} />
             ))}
           </ul>
         </section>

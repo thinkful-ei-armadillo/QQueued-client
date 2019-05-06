@@ -18,7 +18,7 @@ export default class Message extends Component {
   }
 
   onChange = message => {
-    this.setState({ text: message, message: '' });
+    this.setState({ text: message, message: "" });
   };
 
   onChangeDropDown = val => {
@@ -36,29 +36,31 @@ export default class Message extends Component {
         return;
       })
       .catch(err => console.log(err.message));
-      this.setState({text: '', message: `Message sent!`})
+    this.setState({ text: "", message: `Message sent!` });
   };
-  
+
   renderDropDown = queueList => {
     const studentNames = [];
     const checkForDupHash = {};
     for (let i = 0; i < queueList.length; i++) {
-      if (!checkForDupHash[queueList[i].studentName] && queueList[i].slack_user_id) {
+      if (
+        !checkForDupHash[queueList[i].studentName] &&
+        queueList[i].slack_user_id
+      ) {
         checkForDupHash[queueList[i].studentName] = true;
         studentNames.push(queueList[i]);
       }
     }
     return studentNames.map(user => (
-        <option key={user.id} value={user.slack_user_id}>
-          {user.studentName}
-        </option>
-      )
-    );
-  }
+      <option key={user.id} value={user.slack_user_id}>
+        {user.studentName}
+      </option>
+    ));
+  };
 
   render() {
-    const {queueList} = this.context;
- 
+    const { queueList, currentlyBeingHelped } = this.context;
+    const combinedList = queueList.concat(currentlyBeingHelped);
     return (
       <section className="messageContainer row">
         <div className="col-6">
@@ -69,12 +71,10 @@ export default class Message extends Component {
               onChange={e => this.onChangeDropDown(e.target.value)}
               required
             >
-              <option value="">
-                --Select a student--
-              </option>
-              {this.renderDropDown(queueList)}
+              <option value="">--Select a student--</option>
+              {this.renderDropDown(combinedList)}
             </select>
-            {this.state.message && <p>{this.state.message}</p>}    
+            {this.state.message && <p>{this.state.message}</p>}
             <textarea
               name="message"
               id="sendMessage"
@@ -83,8 +83,14 @@ export default class Message extends Component {
               value={this.state.text}
               onChange={e => this.onChange(e.target.value)}
             />
-            <Button type="submit" className="slack-message-button">Send!</Button>
+            <Button type="submit" className="slack-message-button">
+              Send!
+            </Button>
           </form>
+          <p className="message-desc">
+            Note: Only students with Slack ID's associated will show up on the
+            drop down.
+          </p>
         </div>
       </section>
     );

@@ -9,4 +9,8 @@ describe("HelpForm class component", () => {
     ReactDOM.render(<HelpForm />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
+  it('renders the UI as expected', () => {
+    const tree = TestRenderer.create(<HelpForm />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 });
