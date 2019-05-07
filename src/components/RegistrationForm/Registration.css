@@ -1,7 +1,7 @@
 .registrationContainer {
   text-align: center;
 }
-.register-text{
+.register-text {
   text-align: center;
   color: rgb(134, 140, 146);
 }
@@ -11,7 +11,7 @@
   border: 2px solid #403931ec;
   border-radius: 2px;
   width: 100%;
-  background: #C7CFD9;
+  background: #c7cfd9;
   padding-left: 1.4px;
   padding-right: 1.4px;
 }
@@ -21,6 +21,7 @@ input {
   /* margin-left: 3px; */
   background: white;
   border: 1px solid #403931;
+  padding: 5px;
 }
 
 /* label,
@@ -34,9 +35,10 @@ input {
 }
 
 .registerTitle {
-  color: #D94032;
+  color: #d94032;
   text-align: center;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
+  padding-top: 50px;
 }
 
 .alreadyHaveAccount {
@@ -47,7 +49,6 @@ input {
 
 .loginLink {
   color: #5e0a0a;
-
 }
 
 @media only screen and (max-width: 600px) {

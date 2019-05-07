@@ -1,12 +1,13 @@
 .buttonUp,
 .buttonDropDown {
   width: 100%;
-  padding: 5px;
-  border: 1px solid navy;
-  background: navy;
+  padding: 10px;
+  border: 1px solid #403931;
+  background: #403931;
   color: white;
   font-weight: bold;
-  margin-top: 5px;
+  margin-top: 50px;
+  overflow: hidden;
 }
 
 .buttonUp img {
@@ -32,12 +33,12 @@
 }
 
 .mentorHistory li {
-  border: 1px solid navy;
+  border: 1px solid #403931;
   width: 100%;
   font-size: 10pt;
   margin-bottom: 2px;
   padding: 4px;
-  background: rgb(201, 233, 245);
+  background: #bfb99e;
 }
 
 .mentorHistory li span {
@@ -46,8 +47,11 @@
 
 .mentorForTicket {
   text-indent: 10%;
-  border: 1px solid navy;
+  border: 1px solid #403931;
+  font-weight: bold;
+  color: #5e0a0a;
   padding: 3px;
+  background: white;
 }
 
 .noMentorForTicket {
@@ -59,8 +63,8 @@
   text-align: left;
   width: 100%;
   padding: 5px;
-  border: 1px solid navy;
-  background: navy;
+  border: 1px solid#403931;
+  background: #403931;
   color: white;
   font-weight: bold;
   margin-top: 5px;

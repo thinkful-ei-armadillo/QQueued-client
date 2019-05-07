@@ -6,8 +6,8 @@
   display: inline-block;
   border: 2px solid #403931ec;
   border-radius: 3px;
-  background: #C7CFD9;
-  font-family: 'Montserrat', sans-serif;
+  background: #c7cfd9;
+  font-family: "Montserrat", sans-serif;
 }
 
 .passwordInput,
@@ -25,12 +25,14 @@
 }
 
 .loginTitle {
-  color: #D94032;
-  font-family: 'Karla', sans-serif;
+  color: #d94032;
+  font-family: "Karla", sans-serif;
+  padding: 55px;
 }
 
-.loginButton, .registrationSubmit {
-  font-family: 'Montserrat', sans-serif;
+.loginButton,
+.registrationSubmit {
+  font-family: "Montserrat", sans-serif;
   display: inline-block;
   color: white;
   padding: 4px;
@@ -43,10 +45,12 @@
   width: 30%;
   margin-right: 9px;
 }
-.loginButton:active, .registrationSubmit:active {
+.loginButton:active,
+.registrationSubmit:active {
   transform: translateY(2px);
 }
-.loginButton:hover, .registrationSubmit:hover{
+.loginButton:hover,
+.registrationSubmit:hover {
   background: rgba(143, 31, 21, 0.808);
 }
 input[type="text"],

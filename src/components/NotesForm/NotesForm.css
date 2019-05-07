@@ -6,7 +6,16 @@
   margin-left: 20px;
 }
 
-#note-form .Button, #note-form .Label {
+#note-form .Button,
+#note-form .Label {
   display: flex;
   justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  #note-form-section {
+    display: flex;
+    margin: auto;
+    width: 75%;
+  }
 }

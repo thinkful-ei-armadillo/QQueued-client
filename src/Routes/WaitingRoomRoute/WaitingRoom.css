@@ -3,6 +3,24 @@
   padding-left: 0;
 }
 
+.Waiting-List-Section,
+.Being-Helped-List-Section,
+.Has-Been-Helped-List-Section {
+  margin-top: 50px;
+}
+
+.keyForMentors {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+}
+
+.Being-Helped-List-Section section,
+.Has-Been-Helped-List-Section section,
+.Waiting-List-Section section {
+  margin-top: 25px;
+}
+
 .Mentor-List-Section {
   display: flex;
   height: 90vh;
@@ -60,5 +78,9 @@
   .Being-Helped-List-Section,
   .Has-Been-Helped-List-Section {
     height: 100%;
+  }
+
+  .Mentor-List-Section {
+    flex-direction: column;
   }
 }
