@@ -49,25 +49,26 @@ export default class NotesForm extends Component {
     this.setState({ note });
   };
 
-  createForm = () => {
-    return (
-      <form onSubmit={e => this.handleSubmit(e)} id="note-form">
-        {this.state.hasError ? <p>{this.state.error}</p> : null}
-        <Label htmlFor="note">Enter Note</Label>
-        <textarea
-          onChange={e => this.updateNote(e.target.value)}
-          form="note-form"
-          id="note"
-          name="note-input"
-          rows="15"
-          cols="35"
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    );
-  };
+  // createForm = () => {
+  //   return (
+    
+  //   )
+  // }
 
   render() {
-    return <section id="note-form-section">{this.createForm()}</section>;
+    return (
+      // <section id="note-form-section">
+      //   {this.createForm()}
+      // </section>
+        <form onSubmit={(e) => this.handleSubmit(e)} id="note-form" className="col-3">
+        { this.state.hasError
+          ? <p>{ this.state.error }</p>
+          : null
+        }
+        <Label htmlFor="note">Notes</Label>
+        <textarea onChange={(e) => this.updateNote(e.target.value)} id="note" name="note-input" required />
+        <Button type="submit" className="save">save</Button>
+      </form>
+    )
   }
 }

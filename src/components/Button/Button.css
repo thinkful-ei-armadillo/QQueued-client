@@ -1,13 +1,17 @@
 .Button {
-  color: #5e0a0a;
-  margin: 20px;
-  background: #f2eee0;
+  /* color: #5e0a0a; */
+  margin: 0.8em;
+  /* background: #f2eee0; */
   border: 1px solid #5ca0d3;
   border-radius: 35em;
-  outline: none;
+  /* outline: none; */
 }
-
 
 .Button:hover {
   cursor: pointer;
+  background: rgb(228, 248, 255);
+  /* background: #bfb99e;
+  color: white;
+  font-weight: bold;
+  border: 2px solid white; */
 }

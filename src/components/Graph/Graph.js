@@ -4,8 +4,10 @@ import graphHelper from "./graphHelper";
 import "./Graph.css";
 
 export default class Graph extends Component {
+  
   render() {
     const { data } = this.props;
+    
     const isEmptyData = !data.length;
     const colorList = graphHelper.makeRandomColors(data.length);
     const input = {
@@ -15,8 +17,7 @@ export default class Graph extends Component {
           data: data.map(data => data.questions.length),
           backgroundColor: colorList,
           hoverBackgroundColor: colorList
-        }
-      ]
+        }]
     };
     return (
       <section className="graph">

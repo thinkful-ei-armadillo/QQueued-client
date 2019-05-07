@@ -1,10 +1,11 @@
 .chatRoomContainer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  /* justify-content: center; */
+  margin-bottom: 15px;
 }
 
 .time {
-  color: lightgray;
   font-size: 8pt;
   margin: 2px;
 }
@@ -22,20 +23,22 @@
 }
 
 .userHasJoined {
-  background: #5e0a0a;
+  background: rgb(172, 58, 48);
   color: white;
+  padding-left: 5px;
 }
 
 .chatRoomForm,
 .chatMessage {
   background: none;
+  display: flex;
 }
 
 .chatRoomForm {
-  position: absolute;
+  /* position: absolute;
   flex-direction: row;
   bottom: 0;
-  width: 100%;
+  width: 100%; */
 }
 
 .chatMessage {
@@ -81,9 +84,8 @@
 .sendMessage {
   margin: 5px;
   padding: 10px;
-  border-radius: 25px;
-  background: #c8e6f5;
-  width: 55%;
+  border-radius: 15px;
+  /* background: #dbe9f0; */
 }
 
 .currentUser,
@@ -96,14 +98,49 @@
   font-size: 15px;
   line-height: 200%;
   text-align: center;
-  background: #5e0a0a;
+  background: #D94032;
   margin: 5px;
 }
 
 .messages {
-  background: none;
+  display: flex;
+  flex-direction: column;
+  background: #C7CFD9;
   height: 60vh;
   overflow: auto;
+  border-radius: 2px;
+}
+
+Button.chatSendButton{
+  margin: 10px; 
+  background: #44682f;
+  color: white;
+  border: none;
+}
+Button.chatSendButton:active{
+  transform: translateY(1px);
+}
+Button.backButton {
+  background-color: rgb(172, 58, 48);
+  padding: 3px;
+  width: 5em;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 35em;
+  border: none;
+  color: white;
+}
+/* 
+Button.backButton:hover span {
+  padding-left: 4px;
+} */
+
+Button.backButton:hover::before {
+  content: "\00ab";
+  opacity: 1;
+  left: 0;
+  transition: all 0.5s;
+  padding-right: 2px;
 }
 
 @media only screen and (max-width: 504px) {

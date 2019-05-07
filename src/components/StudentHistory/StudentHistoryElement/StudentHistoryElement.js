@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import "../StudentHistory.css";
 
 export class StudentHistoryElement extends Component {
-  state = {};
+  state = {
+    issues: null
+  };
 
   render() {
     const { data } = this.props;
