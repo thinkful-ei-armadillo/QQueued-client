@@ -4,7 +4,6 @@ import UserContext from "../../context/UserContext";
 
 export class StudentHistoryRoute extends Component {
   static contextType = UserContext;
-  state = {};
   render() {
     const { full_name } = this.context.user;
     return (

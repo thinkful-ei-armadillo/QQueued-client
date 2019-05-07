@@ -106,7 +106,6 @@ const ApiService = {
   },
 
   updateDescription(description, id) {
-    console.log({ apiService: id })
     return fetch(`${config.API_ENDPOINT}/student/edit/${id}`, {
       method: "PATCH",
       headers: {

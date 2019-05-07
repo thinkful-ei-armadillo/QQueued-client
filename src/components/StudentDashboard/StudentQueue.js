@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import QueueContext from "../../context/QueueContext";
 import HelpForm from "../../components/HelpForm/HelpForm";
 import "./StudentQueue.css";
-import StudentWaitingNameList from "./studentWaitingNameList/studentWatingNameList";
+import StudentWaitingNameList from "./studentWaitingNameList/studentWaitingNameList";
 import { Link } from "react-router-dom";
 
 export default class StudentQueue extends Component {
@@ -42,6 +42,7 @@ export default class StudentQueue extends Component {
   render() {
     const { showNote, queueList } = this.context;
     const { user_name, full_name } = this.props.user;
+    console.log({ showNote })
     const userTickets = queueList.filter(
       el => el.studentName === full_name
     );
