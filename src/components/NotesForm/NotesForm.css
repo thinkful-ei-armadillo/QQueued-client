@@ -1,12 +1,23 @@
 #note-form {
-  float: left;
+  display: flex;
+  flex-direction: column;
 }
 
 #note-form-section {
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 
 #note-form .Button, #note-form .Label {
-  display: flex;
-  justify-content: center;
+ margin-left: auto;
+ margin-right: auto;
+}
+textarea[name="note-input"]{
+  height: 30vh;
+}
+Button.save{
+  border: none;
+  padding: 2px;
+  width: 3em;
+  background: rgb(74, 94, 153);
+  color: white
 }
