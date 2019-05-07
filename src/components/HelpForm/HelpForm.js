@@ -56,7 +56,9 @@ export default class HelpForm extends Component {
                 type={"text"}
                 required
               />
-              <Button type={"submit"}>Submit</Button>
+              <Button className="submitButton" type={"submit"}>
+                Submit
+              </Button>
             </div>
           </form>
         </section>

@@ -1,0 +1,6 @@
+.helpStudentButton:hover {
+  cursor: pointer;
+  background: rgb(228, 248, 255);
+  color: black;
+  border: 1px solid black;
+}

@@ -20,7 +20,7 @@
 }
 
 .display-data-section a:hover {
-  color: rgba(0, 0, 0, 0.65);
+  color: #403931;
 }
 
 .display-data-section h3 {
@@ -34,20 +34,23 @@
 }
 
 .data-list li {
+  color: #403931;
   padding-bottom: 5px;
 }
 
 .data-list-section {
+  color: #5e0a0a;
   border-radius: 7px;
   height: 50vh;
   width: 30vh;
   overflow: auto;
   margin-bottom: 20px;
-  background-color: rgba(183, 228, 253, 0.5);
+  background-color: #c7cfd9;
   text-align: center;
   padding: 0 20px;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3),
     1px 1px 6px 1px rgba(0, 0, 0, 0.2), 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
+  margin: 10px;
 }
 
 @media only screen and (max-width: 1000px) {
