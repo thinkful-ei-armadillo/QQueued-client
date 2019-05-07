@@ -22,7 +22,7 @@ export default class WaitingRoom extends Component {
       <QueueProvider>
         <div className="Mentor-List-Section row">
           <section className="keyForMentors col-3">
-            <h2 className="studentName">Students Issues</h2>
+            <h2 className="studentTitle">Students Issues</h2>
             <div className="Waiting-List-Section">
               <HelpStudentButton
                 mentorName={full_name}
@@ -32,13 +32,13 @@ export default class WaitingRoom extends Component {
             </div>
           </section>
           <section className="col-3">
-            <h2 className="description">Being Helped</h2>
+            <h2 className="being-helped-section-title">Being Helped</h2>
             <div className="Being-Helped-List-Section">
               <BeingHelpedList />
             </div>
           </section>
           <section className="col-3">
-            <h2 className="mentor">Has Been Helped</h2>
+            <h2 className="has-been-helped-title">Has Been Helped</h2>
             <div className="Has-Been-Helped-List-Section">
               <HasBeenHelpedList />
             </div>

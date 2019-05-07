@@ -17,7 +17,7 @@ export default function BeingHelpedList() {
                 >
                   <span>{student.studentName}</span>
                 </span>{" "}
-                <span className="mentor"> {student.mentorName}</span>
+                <span className="mentorName"> {student.mentorName}</span>
               </li>
             );
           });
