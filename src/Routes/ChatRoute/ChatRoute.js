@@ -10,6 +10,7 @@ import "./ChatRoute.css";
 export default function ChatRoute(props) {
   const context = useContext(UserContext);
   const { state } = props.history.location;
+  
   return (
     <QueueProvider>
       <Link className="linkBack" to={`/waiting-room`}>

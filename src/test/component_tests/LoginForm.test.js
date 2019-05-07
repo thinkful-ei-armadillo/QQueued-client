@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import '../../setupTests'
-import TestRenderer from "react-test-renderer";
 import LoginFrom from "../../components/LoginForm/LoginForm"
 import { MemoryRouter } from 'react-router-dom';
 import { mount } from 'enzyme';

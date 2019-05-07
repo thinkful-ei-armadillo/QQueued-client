@@ -1,5 +1,4 @@
 import React from "react";
-import TestRenderer from "react-test-renderer";
 import ReactDOM from "react-dom";
 import Message from '../../components/Message/Message';
 import '../../setupTests';

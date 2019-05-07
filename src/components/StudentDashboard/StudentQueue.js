@@ -42,6 +42,7 @@ export default class StudentQueue extends Component {
   render() {
     const { showNote, queueList } = this.context;
     const { user_name, full_name } = this.props.user;
+    console.log({ showNote })
     const userTickets = queueList.filter(
       el => el.studentName === full_name
     );

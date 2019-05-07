@@ -1,5 +1,4 @@
 import React from "react";
-import TestRenderer from "react-test-renderer";
 import ReactDOM from "react-dom";
 import { MemoryRouter } from 'react-router-dom';
 import StudentHistory from '../../components/StudentHistory/StudentHistory'

@@ -12,7 +12,7 @@ import StudentRoute from "../../Routes/StudentRoute/StudentRoute";
 import StudentListRoute from "../../Routes/StudentListRoute/StudentListRoute";
 import StudentDataRoute from "../../Routes/StudentDataRoute/StudentDataRoute";
 import ChatRoute from "../../Routes/ChatRoute/ChatRoute";
-import StudentHistoryRoute from '../../Routes/StudentHistory/StudentHistoryRoute'
+import StudentHistoryRoute from '../../Routes/StudentHistoryRoute/StudentHistoryRoute'
 import StudentInfoRoute from "../../Routes/StudentInfoRoute/StudentInfoRoute";
 import PrivateRoute from '../../Routes/PrivateRoute/PrivateRoute';
 import "./App.css";

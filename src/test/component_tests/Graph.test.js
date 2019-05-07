@@ -6,7 +6,7 @@ import Graph from '../../components/Graph/Graph';
 import { Pie } from "react-chartjs-2";
 
 describe("Graph class component", () => {
-  it.skip("renders without crashing", () => {
+  it("renders without crashing", () => {
 
     const studentData = [
       {

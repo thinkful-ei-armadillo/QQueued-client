@@ -1,14 +1,9 @@
 import React from "react";
-import TestRenderer from "react-test-renderer";
 import { MemoryRouter } from 'react-router-dom';
 import ReactDOM from "react-dom";
-<<<<<<< HEAD:src/test/RegistrationForm.test.js
-import RegistrationFrom from '../components/RegistrationForm/Registration';
-import '../setupTests';
-import { mount } from 'enzyme';
-=======
 import RegistrationFrom from '../../components/RegistrationForm/Registration';
->>>>>>> 21725b6f009c7071c5464a59d31d259f94d5494c:src/test/component_tests/RegistrationForm.test.js
+import '../../setupTests';
+import { mount } from 'enzyme';
 
 describe("RegistrationForm class component", () => {
   const wrapper = mount(<MemoryRouter><RegistrationFrom /></MemoryRouter>)
