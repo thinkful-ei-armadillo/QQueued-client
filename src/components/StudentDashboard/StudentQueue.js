@@ -31,9 +31,9 @@ export default class StudentQueue extends Component {
   renderChatRoom(room) {
     return (
       <p>
-        Your mentor {room.mentorName} is waiting in this
+        Your mentor {room.mentorName} is waiting in this {" "}
         <span>
-          <Link to={room.url}> Room </Link>
+          <Link to={room.url}>Room</Link>
         </span>
       </p>
     );
@@ -42,7 +42,6 @@ export default class StudentQueue extends Component {
   render() {
     const { showNote, queueList } = this.context;
     const { user_name, full_name } = this.props.user;
-    console.log({ showNote })
     const userTickets = queueList.filter(
       el => el.studentName === full_name
     );
