@@ -65,6 +65,7 @@ export default class Message extends Component {
       <section className="messageContainer row">
         <div className="col-6">
           <form onSubmit={e => this.onSubmit(e)} className="send-message col-6">
+            <h2 className="slack-message-title">Message to Slack</h2>
             <select
               name="student-dropdown"
               className="studentDropdown"
