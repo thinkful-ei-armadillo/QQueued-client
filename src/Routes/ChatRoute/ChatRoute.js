@@ -7,13 +7,12 @@ import "./ChatRoute.css";
 
 export default function ChatRoute(props) {
   const context = useContext(UserContext);
-  const { state } = props.history.location;
-  
+  const {roomId} = props.match.params
   return (
     <QueueProvider>
       <section className="row">
-        <Chat user={context.user} />
-        <NotesForm state={state} context={context} />
+        <Chat user={context.user}/>
+        <NotesForm noteId={roomId}/>
       </section>
     </QueueProvider>
   );

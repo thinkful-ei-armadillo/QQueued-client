@@ -33,7 +33,7 @@ class App extends Component {
             <MentorRoute path={ "/message" } component={ MessageRoute } />
             <MentorRoute path={ "/data/:studentName" } component={ StudentInfoRoute }/>
             <MentorRoute path={"/data"} component={StudentDataRoute} />
-            <PrivateRoute path={ "/mentor/:mentorName" } component={ ChatRoute } />
+            <PrivateRoute path={ "/room/:roomId" } component={ ChatRoute } />
             <Route component={NotFoundRoute} />
           </Switch>
         </main>
