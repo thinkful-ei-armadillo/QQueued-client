@@ -79,6 +79,9 @@
   border-radius: 15px;
 }
 
+.sendMessage:focus {
+  outline: none;
+}
 .currentUser,
 .foreignUser {
   width: 30px;
