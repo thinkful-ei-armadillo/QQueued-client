@@ -64,7 +64,7 @@ export default class StudentQueue extends Component {
             <p className="noOneInQueue">No one is in line for help</p>
           )}
           {!userTickets.length && <HelpForm className="getHelpButton" />}
-          <ul className={isAnyoneInLine}>
+          <ul className={!isSomeoneInLine ? "studentWaitingQueue" : ""}>
             {queueList.map((listItem, index) => (
               <StudentWaitingNameList
                 key={index}
