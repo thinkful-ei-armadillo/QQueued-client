@@ -8,11 +8,11 @@ import { Link } from "react-router-dom";
 export default class StudentQueue extends Component {
   static contextType = QueueContext;
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      note: ''
-    }
+      note: ""
+    };
   }
 
   componentDidMount() {
@@ -21,7 +21,11 @@ export default class StudentQueue extends Component {
   }
 
   renderPlaceInLine(indexInLine) {
-    return <div className="position-in-line">You are currently #{indexInLine + 1} in line</div>;
+    return (
+      <div className="position-in-line">
+        You are currently #{indexInLine + 1} in line
+      </div>
+    );
   }
 
   renderOpenTickets(numOfTickets) {
@@ -31,20 +35,18 @@ export default class StudentQueue extends Component {
   renderChatRoom(room) {
     return (
       <p>
-        Your mentor {room.mentorName} is waiting in this {" "}
+        Your mentor {room.mentorName} is waiting in this{" "}
         <span>
           <Link to={room.url}>Room</Link>
         </span>
       </p>
     );
   }
-  
+
   render() {
     const { showNote, queueList } = this.context;
     const { user_name, full_name } = this.props.user;
-    const userTickets = queueList.filter(
-      el => el.studentName === full_name
-    );
+    const userTickets = queueList.filter(el => el.studentName === full_name);
     const numberInLine = queueList.indexOf(userTickets[0]);
     const isSomeoneInLine = !queueList.length;
     return (
@@ -53,21 +55,23 @@ export default class StudentQueue extends Component {
           <h2 className="studentListTitle">Waiting List</h2>
           {showNote.user_name === user_name && this.renderChatRoom(showNote)}
           {numberInLine > 0 && this.renderPlaceInLine(numberInLine)}
-          {userTickets 
-            ? this.renderOpenTickets(userTickets.length)
-            : <div>You don't have any tickets open.</div>
-          } 
-          {isSomeoneInLine && 
-            <p className="noOneInQueue">No one is in line for help</p>} 
-          {!userTickets.length && <HelpForm className="getHelpButton"/>}
-          <ul className="studentWaitingQueue">
-            {queueList.map((listItem, index) =>
+          {userTickets ? (
+            this.renderOpenTickets(userTickets.length)
+          ) : (
+            <div>You don't have any tickets open.</div>
+          )}
+          {isSomeoneInLine && (
+            <p className="noOneInQueue">No one is in line for help</p>
+          )}
+          {!userTickets.length && <HelpForm className="getHelpButton" />}
+          <ul className={!isSomeoneInLine ? "studentWaitingQueue" : ""}>
+            {queueList.map((listItem, index) => (
               <StudentWaitingNameList
                 key={index}
                 personInLine={listItem}
                 currentUser={user_name}
               />
-              )}
+            ))}
           </ul>
         </div>
       </section>

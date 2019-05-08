@@ -1,0 +1,28 @@
+.studentInfo {
+  text-align: center;
+  display: grid;
+  justify-content: space-evenly;
+}
+
+.data-lists {
+  list-style: none;
+  padding: 20px;
+  border-radius: 25px;
+  height: 20vh;
+  overflow: auto;
+  border-bottom: 5px solid #5e0a0a;
+  border-right: 5px solid #5e0a0a;
+  border-left: 5px solid #5e0a0a;
+}
+
+.data-lists li {
+  border-bottom: 1px solid #5e0a0a;
+  padding: 8px;
+  margin: 5px;
+}
+
+.studentInfo h2 {
+  padding-top: 50px;
+  color: #5e0a0a;
+  font-weight: bolder;
+}

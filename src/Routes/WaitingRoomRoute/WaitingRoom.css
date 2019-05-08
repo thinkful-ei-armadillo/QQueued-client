@@ -2,8 +2,30 @@
   list-style-type: none;
   padding-left: 0;
 }
-
-
+.studentTitle,
+.studentName,
+.mentorName,
+.being-helped-section-title,
+.has-been-helped-title {
+  display: grid;
+  margin: 10px;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2),
+    1px 1px 4px 2px rgba(0, 0, 0, 0.1), 1px 1px 4px 2px rgba(0, 0, 0, 0.1),
+    1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+  font-weight: normal;
+}
+.studentName,
+.studentTitle {
+  color: #000000;
+  background: #d83f31;
+}
+.has-been-helped-title {
+  background: rgb(33, 94, 33);
+  color: rgb(223, 209, 209);
+}
 .keyForMentors {
   display: flex;
   flex-direction: row;
@@ -36,7 +58,7 @@
   height: 70vh;
   overflow: auto;
   border-radius: 4px;
-  background: #C7CFD9;
+  background: #c7cfd9;
   box-shadow: 5px 4px #403931ec;
   color: black;
   font-weight: bold;
@@ -59,11 +81,11 @@
 .Being-Helped-List-Section .studentName:hover {
   cursor: pointer;
 }
+
 @media only screen and (max-width: 630px) {
   .Waiting-List-Section,
   .Being-Helped-List-Section,
   .Has-Been-Helped-List-Section {
     height: 100%;
   }
-
 }

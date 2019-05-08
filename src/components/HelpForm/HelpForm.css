@@ -1,0 +1,13 @@
+.getHelpButton:hover {
+  cursor: pointer;
+  background: rgb(228, 248, 255);
+  color: black;
+  border: 1px solid black;
+}
+
+.submitButton:hover {
+  cursor: pointer;
+  background: rgb(163, 228, 163);
+  color: black;
+  border: 1px solid black;
+}

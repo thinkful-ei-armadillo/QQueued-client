@@ -54,7 +54,6 @@ export default class NotesForm extends Component {
   //   )
   // }
   render() {
-    console.log(this.props.noteId)
     return (
       // <section id="note-form-section">
       //   {this.createForm()}

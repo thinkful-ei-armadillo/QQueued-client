@@ -24,7 +24,8 @@
 .studentListTitle {
   color: #d94032;
   font-family: "Karla", sans-serif;
-  padding: 50px;
+  font-size: 2em;
+  margin-bottom: 1em;
 }
 
 .studentNameForQueue {

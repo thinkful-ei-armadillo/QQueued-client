@@ -114,7 +114,6 @@ export default class Chat extends Component {
   };
 
   render() {
-    console.log(this.state.users)
     let thread;
     if (this.state.messages.length > 0) {
       thread = this.state.messages.map((i, j) => {
