@@ -49,5 +49,9 @@ export default function StudentInfo(props) {
       ));
   };
 
-  return <>{filterStudentInfo()}</>;
+  return (
+    <>
+      <div className="studentInfo-container">{filterStudentInfo()}</div>
+    </>
+  );
 }

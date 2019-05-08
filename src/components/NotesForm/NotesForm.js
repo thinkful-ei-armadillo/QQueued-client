@@ -7,25 +7,24 @@ import "./NotesForm.css";
 
 export default class NotesForm extends Component {
   static contextType = QueueContext;
-  state = {
-    note: "",
-    error: null,
-    hasError: null
-  };
+  constructor(){
+    super();
+    this.noteInput = React.createRef();
+    this.state = {
+      error: null,
+      hasError: null,
+    }
+  }
 
   handleSubmit = e => {
-    const { user } = this.props.context;
-    const { queue_id } = this.props.state;
     e.preventDefault();
-    const { hasError, error } = this.ValidateUser(user);
-    if (hasError) {
-      this.setState({ hasError, error });
-    } else {
-      apiService.postNote(this.state.note, queue_id).then(res => {
-        console.log(res);
-        this.setState({ note: "", error: null, hasError: null });
-      });
-    }
+    const {noteId} = this.props
+    const note = this.noteInput.current.value
+
+    console.log(noteId)
+    console.log(note)
+    apiService.postNote(note, noteId).then(()=> console.log('done'));
+    
   };
 
   ValidateUser = user => {
@@ -54,19 +53,19 @@ export default class NotesForm extends Component {
     
   //   )
   // }
-
   render() {
+    console.log(this.props.noteId)
     return (
       // <section id="note-form-section">
       //   {this.createForm()}
       // </section>
-        <form onSubmit={(e) => this.handleSubmit(e)} id="note-form" className="col-3">
+        <form onSubmit={this.handleSubmit} id="note-form" className="c ol-3">
         { this.state.hasError
           ? <p>{ this.state.error }</p>
           : null
         }
         <Label htmlFor="note">Notes</Label>
-        <textarea onChange={(e) => this.updateNote(e.target.value)} id="note" name="note-input" required />
+        <textarea id="note" ref={this.noteInput} name="note-input" required/>
         <Button type="submit" className="save">save</Button>
       </form>
     )

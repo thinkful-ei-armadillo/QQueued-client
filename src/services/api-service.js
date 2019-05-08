@@ -12,13 +12,13 @@ const ApiService = {
     );
   },
 
-  async moveStudent() {
+  async moveStudent(uuid) {
     return await fetch(`${config.API_ENDPOINT}/queue`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${TokenService.getAuthToken()}`
-      }
+      }, body: JSON.stringify({ uuid })
     });
     //       .then(res => {
     //       return res.text()
@@ -55,8 +55,8 @@ const ApiService = {
     );
   },
 
-  postNote(note, queue_id) {
-    return fetch(`${config.API_ENDPOINT}/data/note/${queue_id}`, {
+  postNote(note, noteId) {
+    return fetch(`${config.API_ENDPOINT}/data/note/${noteId}`, {
       method: "POST",
       headers: {
         'content-type': 'application/json',
@@ -64,11 +64,11 @@ const ApiService = {
       },
       body: JSON.stringify({ note })
     })
-      .then(res =>
-        !res.ok
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      );
+      // .then(res =>
+      //   !res.ok
+      //     ? res.json().then(e => Promise.reject(e))
+      //     : res.json()
+      // );
   },
 
   getNotes() {

@@ -35,9 +35,9 @@ export default class StudentQueue extends Component {
   renderChatRoom(room) {
     return (
       <p>
-        Your mentor {room.mentorName} is waiting in this
+        Your mentor {room.mentorName} is waiting in this{" "}
         <span>
-          <Link to={room.url}> Room </Link>
+          <Link to={room.url}>Room</Link>
         </span>
       </p>
     );
@@ -49,6 +49,7 @@ export default class StudentQueue extends Component {
     const userTickets = queueList.filter(el => el.studentName === full_name);
     const numberInLine = queueList.indexOf(userTickets[0]);
     const isSomeoneInLine = !queueList.length;
+    const isAnyoneInLine = !isSomeoneInLine && "studentWaitingQueue";
     return (
       <section className="student-dashboard-container row">
         <div className="studentsMainPage col-12">
@@ -64,7 +65,7 @@ export default class StudentQueue extends Component {
             <p className="noOneInQueue">No one is in line for help</p>
           )}
           {!userTickets.length && <HelpForm className="getHelpButton" />}
-          <ul className="studentWaitingQueue">
+          <ul className={isAnyoneInLine}>
             {queueList.map((listItem, index) => (
               <StudentWaitingNameList
                 key={index}
