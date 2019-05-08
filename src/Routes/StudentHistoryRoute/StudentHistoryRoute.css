@@ -1,12 +1,11 @@
-.buttonHistory {
-    border: 1px solid black;
-    background: white;
-    padding: 5px;
-    margin: 5px;
-    color: #5ca0d3;
-    font-weight: bold;
-  }
-  .hide,
-.nothing {
-  display: none;
+.student-history-section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 70vh;
+}
+
+#ticket-history-title {
+  padding-top: 20px;
+  text-align: center;
 }
