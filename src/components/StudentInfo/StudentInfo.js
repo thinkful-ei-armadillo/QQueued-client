@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import StudentDataContext from '../../context/StudentDataContext';
+import './StudentInfo.css';
 
 export default function StudentInfo(props) {
   const dataContext = useContext(StudentDataContext);
@@ -49,7 +50,9 @@ export default function StudentInfo(props) {
 
   return (
     <>
-      {filterStudentInfo()}
+      <div className="studentInfo-container">
+        {filterStudentInfo()}
+      </div>
     </>
   )
 }

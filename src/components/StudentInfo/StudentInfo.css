@@ -1,0 +1,11 @@
+.studentInfo-container{
+  display: flex;
+  justify-content: center;
+  background-color: rgba(183, 228, 253, 0.5);
+  width: 50vh;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 7px;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3), 1px 1px 6px 1px rgba(0, 0, 0, 0.2), 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
+  padding: 1%;
+}
