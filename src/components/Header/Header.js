@@ -12,9 +12,12 @@ class Header extends Component {
   }
 
   renderLogoutLink(title, name) {
+    const checkForUser = TokenService.hasAuthToken();
+    const redirectRoute = title === 'mentor' ? '/waiting-room' : '/waiting-list';
+    const homeLinkRedirect = checkForUser ? redirectRoute : '/';
     return (
       <div className="Navbar-right">
-        <Link className="nav-text-right userName" to={'/'} >{name}</Link>
+        <Link className="nav-text-right userName" to={homeLinkRedirect} >{name}</Link>
         {title === "mentor" ? this.renderMentorLinks(): this.renderStudentLinks()}
         <Link className="nav-text-right logout" onClick={this.handleLogoutClick} to="/login">
           Logout

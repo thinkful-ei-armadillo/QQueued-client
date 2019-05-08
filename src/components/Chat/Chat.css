@@ -1,7 +1,6 @@
 .chatRoomContainer {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   margin-bottom: 15px;
 }
 
@@ -32,13 +31,6 @@
 .chatMessage {
   background: none;
   display: flex;
-}
-
-.chatRoomForm {
-  /* position: absolute;
-  flex-direction: row;
-  bottom: 0;
-  width: 100%; */
 }
 
 .chatMessage {
@@ -85,7 +77,6 @@
   margin: 5px;
   padding: 10px;
   border-radius: 15px;
-  /* background: #dbe9f0; */
 }
 
 .currentUser,
@@ -98,29 +89,29 @@
   font-size: 15px;
   line-height: 200%;
   text-align: center;
-  background: #D94032;
+  background: #d94032;
   margin: 5px;
 }
 
 .messages {
   display: flex;
   flex-direction: column;
-  background: #C7CFD9;
+  background: #c7cfd9;
   height: 60vh;
   overflow: auto;
   border-radius: 2px;
 }
 
-Button.chatSendButton{
-  margin: 10px; 
+button.chatSendButton {
+  margin: 10px;
   background: #44682f;
   color: white;
   border: none;
 }
-Button.chatSendButton:active{
+button.chatSendButton:active {
   transform: translateY(1px);
 }
-Button.backButton {
+button.backButton {
   background-color: rgb(172, 58, 48);
   padding: 3px;
   width: 5em;
@@ -130,15 +121,21 @@ Button.backButton {
   border: none;
   color: white;
 }
-/* 
-Button.backButton:hover span {
-  padding-left: 4px;
-} */
 
-Button.backButton:hover::before {
+button.backButton:hover::before {
   content: "\00ab";
   opacity: 1;
   left: 0;
   transition: all 0.5s;
   padding-right: 2px;
+}
+
+@media only screen and (max-width: 504px) {
+  .sendMessage {
+    width: 40%;
+  }
+
+  .chatRoomForm button {
+    margin: 10px;
+  }
 }
