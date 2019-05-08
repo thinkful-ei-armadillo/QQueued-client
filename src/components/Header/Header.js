@@ -14,8 +14,8 @@ class Header extends Component {
   renderLogoutLink(title, name) {
     return (
       <div className="Navbar-right">
-        <Link className="nav-text-right userName" to={'/'} >{name}</Link>
-        {title === "mentor" ? this.renderMentorLinks(): this.renderStudentLinks()}
+        <Link className="nav-text-right userName" to={`/history/${name}`} >{name}</Link>
+        {title === "mentor" ? this.renderMentorLinks(): this.renderStudentLinks(name)}
         <Link className="nav-text-right logout" onClick={this.handleLogoutClick} to="/login">
           Logout
         </Link>
@@ -49,9 +49,9 @@ class Header extends Component {
     );
   }
   
-  renderStudentLinks = () => {
+  renderStudentLinks = (name) => {
     return (
-      <Link className="nav-text-right student-history-nav" to='/student-history'>
+      <Link className="nav-text-right student-history-nav" to={ `/history/${name}` }>
         My Ticket History
       </Link>
     )
