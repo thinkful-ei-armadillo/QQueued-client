@@ -1,12 +1,28 @@
-.studentInfo-container {
-  display: flex;
-  justify-content: center;
-  background-color: rgba(183, 228, 253, 0.5);
-  width: 50vh;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 7px;
-  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3),
-    1px 1px 6px 1px rgba(0, 0, 0, 0.2), 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
-  padding: 1%;
+.studentInfo {
+  text-align: center;
+  display: grid;
+  justify-content: space-evenly;
+}
+
+.data-lists {
+  list-style: none;
+  padding: 20px;
+  border-radius: 25px;
+  height: 20vh;
+  overflow: auto;
+  border-bottom: 5px solid #5e0a0a;
+  border-right: 5px solid #5e0a0a;
+  border-left: 5px solid #5e0a0a;
+}
+
+.data-lists li {
+  border-bottom: 1px solid #5e0a0a;
+  padding: 8px;
+  margin: 5px;
+}
+
+.studentInfo h2 {
+  padding-top: 50px;
+  color: #5e0a0a;
+  font-weight: bolder;
 }
