@@ -8,18 +8,26 @@
   margin-top: 30px;
   color: #5e0a0a;
   padding: 20px;
-  font-size: 3em;
 }
 
+.people-inline {
+  width: 75%;
+  border-radius: 7px;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3),
+    1px 1px 6px 1px rgba(0, 0, 0, 0.2), 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
+}
 .landingDescription,
 .descriptionSignupLogin {
   display: inline-block;
-  font-size: 1.5em;
 }
 
 @media only screen and (max-width: 600px) {
   .landingPageContainer {
     padding-left: 1em;
     padding-right: 1em;
+  }
+
+  .people-inline {
+    width: 100%;
   }
 }
