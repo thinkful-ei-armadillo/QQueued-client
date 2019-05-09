@@ -6,6 +6,13 @@
 .history-list-container {
   font-family: "Montserrat", sans-serif;
   color:rgb(54, 49, 43);
+  overflow: auto;
+  border-radius: 7px;
+  background: #c7cfd9;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3), 1px 1px 6px 1px rgba(0, 0, 0, 0.2), 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
+  color: black;
+  margin-bottom: 14px;
+  padding: 10px;
 }
 
 .history-list-container ul {

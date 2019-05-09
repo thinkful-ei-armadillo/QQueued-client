@@ -48,7 +48,7 @@ main{
 .col-12 {
   padding-left: 1.04166666%;
   padding-right: 1.04166666%;
-  /* display: inline; */
+  display: inline;
 }
 
 .col-4,
@@ -58,6 +58,9 @@ main{
 }
 .col-12{
   width: 95%;
+}
+.col-6{
+  width: 85%;
 }
 .col-3 {
   width: 65%;
@@ -86,7 +89,6 @@ main{
     margin-left: 30%;
     margin-right: 30%;
   }
-
 }
   
   @media only screen and (max-width: 500px) {
@@ -94,5 +96,4 @@ main{
       margin-left: auto;
       margin-right: auto;
     }
-
   }

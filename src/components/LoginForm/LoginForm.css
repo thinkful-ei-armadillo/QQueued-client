@@ -15,7 +15,7 @@
 .usernameInput,
 .fullNameInput {
   margin-right: 10px;
-  margin-left: 5px;
+  margin-left: 10px;
   margin-bottom: 8px;
   display: flex;
   flex-direction: column;

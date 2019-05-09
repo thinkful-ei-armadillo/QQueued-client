@@ -10,7 +10,6 @@ export default function StudentHistory(props) {
     history.push(`/room/${roomId}`)
   } 
 
-  const makeListItem = () => {
     return (
       <StudentDataContext.Consumer>
         {value =>
@@ -28,10 +27,4 @@ export default function StudentHistory(props) {
         }
       </StudentDataContext.Consumer>
     );
-  }
-
-  return (
-    <>{ makeListItem() }</>
-  );
-  
 }
