@@ -20,7 +20,7 @@ export default class NotesForm extends Component {
     e.preventDefault();
     const {noteId} = this.props
     const note = this.noteInput.current.value
-    apiService.postNote(note, noteId).then(()=> console.log('done'));
+    apiService.postNote(note, noteId);
   };
 
 
