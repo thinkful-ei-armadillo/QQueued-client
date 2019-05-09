@@ -4,17 +4,17 @@
 
 .studentName span {
   display: inline-block;
-  /* position: relative; */
+  position: relative;
   transition: 0.5s;
 }
 
 .studentName span:after {
   content: "\00bb";
-  color: green;
-  /* position: absolute; */
+  color: rgb(33, 94, 33);
+  position: absolute;
   font-size: 22pt;
   opacity: 0;
-  top: 0;
+  top: -10px;
   right: -10px;
   transition: 0.5s;
 }
