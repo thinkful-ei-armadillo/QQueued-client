@@ -71,7 +71,7 @@ class Header extends Component {
     const homeLinkRedirect = checkForUser ? redirectRoute : '/';
     return (
       <header>
-        <nav role="navigation">
+        <nav role="navigation" className="row">
           <Link className="nav-text brand" to={homeLinkRedirect}>Git-Rekt</Link>
           {checkForUser
             ? this.renderLogoutLink(title, full_name)
