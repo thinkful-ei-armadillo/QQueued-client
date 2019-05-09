@@ -10,7 +10,7 @@ export default function BeingHelpedList(props) {
         onClick={() => value.studentHelped(student.id)}
         className="studentName"
       > 
-        <span>{student.studentName}</span>
+        <span>{ student.studentName } - click to remove</span>
       </span>
     )
   }

@@ -29,11 +29,9 @@ export default function StudentHistory(props) {
       </StudentDataContext.Consumer>
     );
   }
-    
 
-
-    return (
-      <>{ makeListItem() }</>
-    );
+  return (
+    <>{ makeListItem() }</>
+  );
   
 }
