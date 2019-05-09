@@ -2,7 +2,6 @@ import React from "react";
 import "./MentorDashboard.css";
 import QueueContext from "../../context/QueueContext";
 import "./MentorDashboardAnimations.css";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 export default function HasBeenHelpedList() {
   const makeHelpedList = () => {
@@ -12,11 +11,6 @@ export default function HasBeenHelpedList() {
           const queue = value.hasBeenHelpedList;
           return queue ? (
             <div>
-              <ReactCSSTransitionGroup
-                transitionName="fade"
-                transitionEnterTimeout={700}
-                transitionLeaveTimeout={700}
-              >
                 {queue.map((q, i) => {
                   return (
                     <li key={i} className="eachStudentInQueue">
@@ -24,7 +18,6 @@ export default function HasBeenHelpedList() {
                     </li>
                   );
                 })}
-              </ReactCSSTransitionGroup>
             </div>
           ) : null;
         }}
