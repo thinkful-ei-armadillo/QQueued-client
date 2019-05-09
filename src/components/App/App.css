@@ -56,6 +56,9 @@ main{
 .col-12 {
   min-height: 100%;
 }
+.col-12{
+  width: 95%;
+}
 .col-3 {
   width: 65%;
 }
