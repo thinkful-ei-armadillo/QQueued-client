@@ -1,16 +1,22 @@
-nav {
-  display: flex;
-  background: #403931;
-  font-size: 14px;
-  padding-bottom: 1px;
-  text-decoration: none;
+header{
   top: 0;
   left: 0;
   right: 0;
   position: fixed;
+  margin-right: auto;
   margin-left: auto;
   z-index:1000;
-  margin-right: auto;
+  background: #403931;
+}
+nav[role="navigation"].row{
+  margin-bottom: 0px;
+}
+nav {
+  display: flex;
+  margin-bottom: 0px;
+  font-size: 14px;
+  padding-bottom: 1px;
+  text-decoration: none;
 }
 
 .nav-text-right,

@@ -4,10 +4,11 @@
 
 .loginInput {
   display: inline-block;
-  border: 2px solid #403931ec;
-  border-radius: 3px;
+  border-radius: 7px;
   background: #c7cfd9;
   font-family: "Montserrat", sans-serif;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3),
+    1px 1px 6px 1px rgba(0, 0, 0, 0.2), 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
 }
 
 .passwordInput,
@@ -36,7 +37,7 @@
   display: inline-block;
   color: white;
   padding: 4px;
-  margin-top: 5px;  
+  margin-top: 5px;
   margin-bottom: 10px;
   border: none;
   background: rgba(206, 45, 30, 0.808);
