@@ -59,7 +59,6 @@ export class StudentDataProvider extends Component {
     }
   };
 
- 
   _createStudentDataItems = (studentData) => {
     let studentNames = [];
     let studentDataList = [];

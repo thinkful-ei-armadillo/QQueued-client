@@ -21,8 +21,8 @@ export default class NotesForm extends Component {
     const {noteId} = this.props
     const note = this.noteInput.current.value
     apiService.postNote(note, noteId).then(()=> console.log('done'));
-    
   };
+
 
   ValidateUser = user => {
     let hasError = false;

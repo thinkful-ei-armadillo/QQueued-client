@@ -1,4 +1,5 @@
 import React, { Component, createContext } from "react";
+import config from '../config';
 import apiService from "../services/api-service";
 import openSocket from "socket.io-client";
 
@@ -18,9 +19,9 @@ const QueueContext = createContext({
   dequeueWait: () => {},
   tellUser: () => {},
   showNote: () => {},
-  removeStudentFromQueue: () => { },
-  updateTicket: () => { },
-  update: () => { }
+  removeStudentFromQueue: () => {},
+  updateTicket: () => {},
+  update: () => {}
 });
 
 export default QueueContext;
@@ -37,7 +38,7 @@ export class QueueProvider extends Component {
     };
     this.state = state;
     this.socket = openSocket(
-      /* config.API_ENDPOINT ||  */ "http://localhost:8000"
+      config.SOCKET_ENDPOINT /* || "http://localhost:8000" */
     )
   }
 
