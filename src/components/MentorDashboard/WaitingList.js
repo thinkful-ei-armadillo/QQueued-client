@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import QueueContext from "../../context/QueueContext";
 import "./MentorDashboard.css";
+import "./MentorDashboardAnimations.css";
+
 export default class StudentDescriptionList extends Component {
   static contextType = QueueContext;
 
@@ -15,14 +17,18 @@ export default class StudentDescriptionList extends Component {
   }
 
   makeStudentList = () => {
-    return this.context.queueList.map((i, j) => {
-      return (
-        <li key={j} className="waitingListLiConatiner">
-          <span className="studentName">{i.studentName}</span>{" "}
-          <span className="description"> {i.description}</span>
-        </li>
-      );
-    });
+    return (
+      <div>
+          {this.context.queueList.map((i, j) => {
+            return (
+              <li key={j} className="waitingListLiConatiner">
+                <span className="studentName">{i.studentName}</span>{" "}
+                <span className="description"> {i.description}</span>
+              </li>
+            );
+          })}
+      </div>
+    );
   };
 
   render() {

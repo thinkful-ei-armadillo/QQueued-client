@@ -1,17 +1,20 @@
 import React, { Component } from "react";
-import StudentHistory from "../../components/StudentHistory/StudentHistory";
-import UserContext from "../../context/UserContext";
+import StudentHistory from '../../components/StudentHistory/StudentHistory';
+import { StudentDataProvider } from '../../context/StudentDataContext';
+import './StudentHistoryRoute.css';
 
 export class StudentHistoryRoute extends Component {
-  static contextType = UserContext;
   render() {
-    const { full_name } = this.context.user;
+    const { history } = this.props;
     return (
-      <section className="row">
-        <div className="studentHistory col-12">
-          <StudentHistory currentUser={full_name} />
-        </div>
-      </section>
+      <>
+        <h3 id={"ticket-history-title"}>Your Ticket History</h3>
+        <section className='student-history-section'>
+          <StudentDataProvider>
+            <StudentHistory history={history} />
+          </StudentDataProvider>
+        </section>
+      </>
     );
   }
 }

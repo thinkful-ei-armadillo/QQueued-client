@@ -9,18 +9,21 @@ nav {
   right: 0;
   position: fixed;
   margin-left: auto;
+  z-index:1000;
   margin-right: auto;
 }
 
 .nav-text-right,
 .nav-text,
 .fas {
-  padding-top: .1em;
-  padding-bottom: .1em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  font-size: 15px;
 }
 
 .Navbar-right,
-.Navbar-right-no-user {
+.Navbar-right-no-user,
+.nav-text {
   display: flex;
   margin-left: auto;
   margin-right: 2em;
@@ -66,6 +69,7 @@ nav {
     display: initial;
     position: absolute;
     cursor: pointer;
+    top: .1em;
     right: 2.1em;
   }
   .nav-text-right {

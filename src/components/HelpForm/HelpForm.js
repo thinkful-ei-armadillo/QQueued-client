@@ -44,7 +44,7 @@ export default class HelpForm extends Component {
   render() {
     return (
       <>
-        <Button onClick={() => this.toggleHelpForm()}>
+        <Button className="getHelpButton" onClick={() => this.toggleHelpForm()}>
           {this.state.buttonTitle}
         </Button>
         <section className="Help-Form-Section">
@@ -56,7 +56,9 @@ export default class HelpForm extends Component {
                 type={"text"}
                 required
               />
-              <Button type={"submit"}>Submit</Button>
+              <Button className="submitButton" type={"submit"}>
+                Submit
+              </Button>
             </div>
           </form>
         </section>

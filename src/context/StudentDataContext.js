@@ -3,6 +3,7 @@ import apiService from '../services/api-service';
 
 const StudentDataContext = createContext({
   studentData: [],
+  studentHistory: [],
   notes: [],
   error: null,
   setError: () => { },
@@ -17,6 +18,7 @@ export class StudentDataProvider extends Component {
     super(props)
     const state = {
       studentData: [],
+      studentHistory: [],
       notes: [],
       error: null
     }
@@ -31,56 +33,37 @@ export class StudentDataProvider extends Component {
     this.setState({ error: null });
   };
 
-  createStudentData = (data) => {
-    return this._createStudentDataItems(data)
-  };
-
-  createNotes = (note) => {
-    const notes = this._createNoteItems(note);
-    return notes;
+  _createStudentHistory = (data) => {
+    return data.map(d => {
+      if (d["mentor_notes"] === null) {
+        d["mentor_notes"] = "mentor left no notes";
+      }
+      if (d["student_notes"] === null) {
+        d["student_notes"] = "you made no notes";
+      }
+      return d;
+    });
+    
   }
 
   async componentDidMount() {
     try {
-  
-      const studentData = await apiService.getAllData().then(data => this.createStudentData(data));
-      const notes = await apiService.getNotes().then(data => this.createNotes(data));
-      await this.setState({ studentData, notes });
-
+      await apiService.getAllData().then(data => {
+        const studentData = this._createStudentDataItems(data);
+        const studentHistory = this._createStudentHistory(data);
+        this.setState({ studentData, studentHistory });
+      });
     }
     catch (error){
       console.log({ error });
     }
   };
 
-  // sort data before updating state
-  _createNoteItems = (note) => {
-    let studentNames = [];
-    let noteList = [];
-    let noteItem = [];
-
-    note.forEach(n => {
-      if (studentNames.indexOf(n.studentName) === -1) {
-        studentNames.push(n.studentName);
-      }
-    });
-
-    studentNames.forEach(name => noteList.push(note.filter(n => n.studentName === name)));
-
-    for (let i = 0; i < noteList.length; i++) {
-      noteItem.push({
-        studentName: noteList[i][0].studentName,
-        notes: noteList[i].map(n => n['note'])
-        .filter(n => n !== null)
-      })
-    }
-    return noteItem;
-  };
-
   _createStudentDataItems = (studentData) => {
     let studentNames = [];
     let studentDataList = [];
     let studentItem = [];
+
     // create array with only one student name per student
     studentData.forEach(s => {
       if (studentNames.indexOf(s.studentName) === -1) {
@@ -103,16 +86,26 @@ export class StudentDataProvider extends Component {
         mentors: studentDataList[i]
           .map(s => s["mentorName"])
           .filter((e, i, s) => i === s.indexOf(e)),
-        questions: studentDataList[i].map(q => q["description"])
+        questions: studentDataList[i].map(q => q["description"]),
+        mentorNotes: studentDataList[i]
+          .map(mn => ({ [mn["mentorName"]]: mn["mentor_notes"] }))
+          .filter(n => {
+            let keys = Object.keys(n); 
+            return n[keys] !== null
+          }),     
+        studentNotes: studentDataList[i]
+          .map(sn => sn["student_notes"])
+          .filter(n => n !== null)
       });
     }
     return studentItem;
   }
 
   render() {
-
+    console.log({ studentData: this.state.studentData, studentHistory: this.state.studentHistory })
     const value = {
       studentData: this.state.studentData,
+      studentHistory: this.state.studentHistory,
       notes: this.state.notes,
       error: this.state.error,
       setError: this.setError,

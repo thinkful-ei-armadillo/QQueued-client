@@ -1,6 +1,7 @@
 import React from "react";
 import QueueContext from "../../context/QueueContext";
 import "./MentorDashboard.css";
+import "./MentorDashboardAnimations.css";
 
 export default function BeingHelpedList(props) {
   function renderButtonToComplete (value, student){

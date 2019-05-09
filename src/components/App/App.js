@@ -29,7 +29,7 @@ class App extends Component {
             <Route path={"/register"} component={Registration} />
             <MentorRoute path={"/waiting-room"} component={WaitingRoom} />
             <StudentRoute path={"/waiting-list"} component={StudentListRoute} />
-            <StudentRoute path={"/student-history"} component={StudentHistoryRoute} />
+            <StudentRoute path={"/history/:studentName"} component={StudentHistoryRoute} />
             <MentorRoute path={ "/message" } component={ MessageRoute } />
             <MentorRoute path={ "/data/:studentName" } component={ StudentInfoRoute }/>
             <MentorRoute path={"/data"} component={StudentDataRoute} />
