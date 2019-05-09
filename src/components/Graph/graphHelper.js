@@ -7,6 +7,7 @@ const graphHelper = {
     }
     return colorList
   },
+  
   mentorTicketCounter(arr){
     let hm = new Map()
     let count = 1

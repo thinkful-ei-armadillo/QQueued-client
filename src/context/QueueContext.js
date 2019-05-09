@@ -83,18 +83,19 @@ export class QueueProvider extends Component {
     }
   };
 
-  helpStudent = async (mentorName, history, queue_id) => {
-    apiService.moveStudent().then(() => {
+  helpStudent = async (mentorName, history, queue_id, roomNumber) => {
+    apiService.moveStudent(roomNumber).then(() => {
       const { queueList, currentlyBeingHelped } = this.state;
       let student = queueList.shift();
       student.mentorName = mentorName;
       currentlyBeingHelped.push(student);
+      
       this.socket.emit('helpStudent', {queueList: queueList, currentlyBeingHelped: currentlyBeingHelped})
       this.setState({
         queueList,
         currentlyBeingHelped
       }, () => history.push({
-        pathname: `/mentor/${mentorName}`,
+        pathname: `${this.state.note.url}`,
         state: { queue_id }
       }));
     });
@@ -144,12 +145,14 @@ export class QueueProvider extends Component {
       });
     });
   };
+
   update = () => {
     this.socket.on("helpStudent", data => {
       const { queueList, currentlyBeingHelped } = data
       this.setState({queueList, currentlyBeingHelped})
     })
   }
+  
   closeWebSocket = () => {
     this.socket.close();
   };

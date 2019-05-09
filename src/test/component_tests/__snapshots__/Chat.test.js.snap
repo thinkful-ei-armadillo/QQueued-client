@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chat class component renders the UI as expected 1`] = `
+<div
+  className="chatRoomContainer"
+>
+  <section
+    className="chatRoomInput"
+  >
+    <section
+      className="messages"
+    >
+      
+      <div
+        style={
+          Object {
+            "clear": "both",
+            "float": "left",
+          }
+        }
+      />
+    </section>
+    <form
+      className="chatRoomForm"
+      onSubmit={[Function]}
+    >
+      <input
+        autoComplete="off"
+        className="sendMessage"
+        id=""
+        name="input-field"
+        onChange={[Function]}
+        placeholder="send a message"
+        type="text"
+      />
+      <button
+        className="Button"
+        type="submit"
+      >
+        Send
+      </button>
+    </form>
+  </section>
+</div>
+`;

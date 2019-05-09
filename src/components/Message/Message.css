@@ -11,14 +11,18 @@
   margin: 20px;
   font-weight: bold;
   color: rgb(201, 233, 245);
-  background: #5e0a0a;
+  background: #403931;
 }
-.message-textBox{
-  width:98%;
+.message-textBox {
+  width: 98%;
   align-content: center;
 }
-.slack-message-button{
+.slack-message-button {
   display: flex;
   margin-top: 10px;
   margin-left: auto;
+}
+.slack-message-title{
+  text-align: center;
+  margin-top: 5px;
 }

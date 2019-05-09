@@ -12,7 +12,7 @@ import StudentRoute from "../../Routes/StudentRoute/StudentRoute";
 import StudentListRoute from "../../Routes/StudentListRoute/StudentListRoute";
 import StudentDataRoute from "../../Routes/StudentDataRoute/StudentDataRoute";
 import ChatRoute from "../../Routes/ChatRoute/ChatRoute";
-import StudentHistoryRoute from '../../Routes/StudentHistory/StudentHistoryRoute'
+import StudentHistoryRoute from '../../Routes/StudentHistoryRoute/StudentHistoryRoute'
 import StudentInfoRoute from "../../Routes/StudentInfoRoute/StudentInfoRoute";
 import PrivateRoute from '../../Routes/PrivateRoute/PrivateRoute';
 import "./App.css";
@@ -29,11 +29,11 @@ class App extends Component {
             <Route path={"/register"} component={Registration} />
             <MentorRoute path={"/waiting-room"} component={WaitingRoom} />
             <StudentRoute path={"/waiting-list"} component={StudentListRoute} />
-            <StudentRoute path={"/student-history"} component={StudentHistoryRoute} />
+            <StudentRoute path={"/history/:studentName"} component={StudentHistoryRoute} />
             <MentorRoute path={ "/message" } component={ MessageRoute } />
             <MentorRoute path={ "/data/:studentName" } component={ StudentInfoRoute }/>
             <MentorRoute path={"/data"} component={StudentDataRoute} />
-            <PrivateRoute path={ "/mentor/:mentorName" } component={ ChatRoute } />
+            <PrivateRoute path={ "/room/:roomId" } component={ ChatRoute } />
             <Route component={NotFoundRoute} />
           </Switch>
         </main>

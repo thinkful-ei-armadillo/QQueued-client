@@ -17,35 +17,33 @@ export default class WaitingRoom extends Component {
   static contextType = UserContext;
   render() {
     const { full_name } = this.context.user;
+    const { history } = this.props;
     return (
       <QueueProvider>
-        <section className="Mentor-List-Section row">
-          <div className="keyForMentors col-3">
-            <div className="studentName">Students</div>
-            <section className="Waiting-List-Section">
-              Waiting List
+        <div className="Mentor-List-Section row">
+          <section className="keyForMentors col-3">
+            <h2 className="studentTitle">Students Issues</h2>
+            <div className="Waiting-List-Section">
               <HelpStudentButton
                 mentorName={full_name}
-                history={this.props.history}
+                history={history}
               />
               <WaitingList />
-            </section>
-          </div>
-          <div className="col-3">
-            <div className="description">Student Issues</div>
-            <section className="Being-Helped-List-Section">
-              Being Helped List
+            </div>
+          </section>
+          <section className="col-3">
+            <h2 className="being-helped-section-title">Being Helped</h2>
+            <div className="Being-Helped-List-Section">
               <BeingHelpedList />
-            </section>
-          </div>
-          <div className="col-3">
-            <div className="mentor">Mentors</div>
-            <section className="Has-Been-Helped-List-Section">
-              Has Been Helped
+            </div>
+          </section>
+          <section className="col-3">
+            <h2 className="has-been-helped-title">Has Been Helped</h2>
+            <div className="Has-Been-Helped-List-Section">
               <HasBeenHelpedList />
-            </section>
-          </div>
-        </section>
+            </div>
+          </section>
+        </div>
       </QueueProvider>
     );
   }

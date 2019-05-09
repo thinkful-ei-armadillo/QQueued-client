@@ -3,13 +3,14 @@ import StudentDataContext from "../../context/StudentDataContext";
 import { Link } from "react-router-dom";
 import "./StudentDataList.css";
 import Graph from "../Graph/Graph";
+
 export default class StudentDataList extends Component {
   static contextType = StudentDataContext;
 
   createStudentListItem = () => {
     const { studentData } = this.context;
     return (
-      <>
+      <div className="dataPageContainer">
         <Graph data={studentData} />
         {studentData.map((s, i) => (
           <section className="data-list-section" key={i}>
@@ -30,7 +31,7 @@ export default class StudentDataList extends Component {
             </ul>
           </section>
         ))}
-      </>
+      </div>
     );
   };
 

@@ -1,78 +1,23 @@
-.buttonUp,
-.buttonDropDown {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid navy;
-  background: navy;
-  color: white;
-  font-weight: bold;
-  margin-top: 5px;
+.history-list-container span:hover,
+.history-list-container button:hover {
+  cursor: pointer;
 }
 
-.buttonUp img {
-  width: 7px;
-  height: 7px;
-  transform: rotate(-90deg);
+.history-list-container {
+  font-family: "Montserrat", sans-serif;
+  color:rgb(54, 49, 43);
 }
 
-.buttonDropDown img {
-  width: 7px;
-  height: 7px;
+.history-list-container ul {
+  list-style-type: none;
+  padding-left: 0;
 }
 
-.noMentorHistory,
-.noTicketHistory {
-  display: none;
-}
-
-.mentorHistory,
-.ticketHistory {
-  padding: 0;
-  list-style: none;
-}
-
-.mentorHistory li {
-  border: 1px solid navy;
-  width: 100%;
-  font-size: 10pt;
-  margin-bottom: 2px;
-  padding: 4px;
-  background: rgb(201, 233, 245);
-}
-
-.mentorHistory li span {
-  float: right;
-}
-
-.mentorForTicket {
-  text-indent: 10%;
-  border: 1px solid navy;
-  padding: 3px;
-}
-
-.noMentorForTicket {
-  display: none;
-}
-
-.ticketDropDown,
-.ticketUp {
-  text-align: left;
-  width: 100%;
-  padding: 5px;
-  border: 1px solid navy;
-  background: navy;
-  color: white;
-  font-weight: bold;
-  margin-top: 5px;
-}
-
-.ticketUp img {
-  width: 7px;
-  height: 7px;
-  transform: rotate(-90deg);
-}
-
-.ticketDropDown img {
-  width: 7px;
-  height: 7px;
+.history-list-container button {
+  border: none;
+  border-radius: 35em;
+  outline: none;
+  width: 8em;
+  height: 3em;
+  background-color: #d83f31;
 }
