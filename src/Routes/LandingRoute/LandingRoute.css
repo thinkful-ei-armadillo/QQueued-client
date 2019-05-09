@@ -1,27 +1,36 @@
-.landingPageContainer {
+.landingPageContainer.col-12 {
+  display: flex;
   text-align: center;
   padding-left: 2em;
   padding-right: 2em;
+  flex-direction: column;
 }
 
 .welcome {
-  margin-top: 30px;
+  font-size: 1.8em;
   color: #5e0a0a;
-  padding: 20px;
 }
 
 .people-inline {
-  width: 75%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 7px;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3),
     1px 1px 6px 1px rgba(0, 0, 0, 0.2), 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
 }
-.landingDescription,
-.descriptionSignupLogin {
-  display: inline-block;
+.landingDescription{ 
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 14px;
 }
-
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 630px){
+  .landingPageContainer.col-12{
+    width:100%;
+  }
+}
+@media only screen and (max-width: 630px) {
   .landingPageContainer {
     padding-left: 1em;
     padding-right: 1em;

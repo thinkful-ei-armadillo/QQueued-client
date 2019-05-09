@@ -10,6 +10,7 @@ header{
 }
 nav[role="navigation"].row{
   margin-bottom: 0px;
+  max-width: 1250px;
 }
 nav {
   display: flex;
@@ -63,6 +64,7 @@ nav {
 }
 .brand {
   margin-left: 2em;
+  margin-right: auto;
 }
 
 @media only screen and (max-width: 540px) {

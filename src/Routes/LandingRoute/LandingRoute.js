@@ -4,11 +4,11 @@ import "./LandingRoute.css";
 export class LandingRoute extends Component {
   render() {
     return (
-      <section className="landingPageContainer row">
-        <div className='col-12'>
-          <h1 className="welcome">Welcome to Git-Rekt</h1>
-          <img src="http://lalive.s3.amazonaws.com/img/Line15.jpg" alt="people-inline" className='people-inline'/>
-          <p className="landingDescription">
+      <section className=" row">
+        <div className='landingPageContainer col-12'>
+          <h1 className="welcome">QQueued</h1>
+          <img src="http://lalive.s3.amazonaws.com/img/Line15.jpg" alt="people-inline" className='people-inline col-6'/>
+          <p className="landingDescription col-6">
             This is your new tool to help deal with communication between students
             and mentors. This page is a visual queue, allowing mentors to be even
             more transparent with the students in the sense that the students will
