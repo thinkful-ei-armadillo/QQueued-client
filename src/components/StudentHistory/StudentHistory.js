@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import StudentDataContext from '../../context/StudentDataContext';
 import DetailsList from './DetailsList';
 import './StudentHistory.css';
@@ -29,11 +29,9 @@ export default function StudentHistory(props) {
       </StudentDataContext.Consumer>
     );
   }
-    
 
-
-    return (
-      <>{ makeListItem() }</>
-    );
+  return (
+    <>{ makeListItem() }</>
+  );
   
 }

@@ -102,7 +102,6 @@ export class StudentDataProvider extends Component {
   }
 
   render() {
-    console.log({ studentData: this.state.studentData, studentHistory: this.state.studentHistory })
     const value = {
       studentData: this.state.studentData,
       studentHistory: this.state.studentHistory,
