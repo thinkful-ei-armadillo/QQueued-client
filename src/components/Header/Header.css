@@ -9,14 +9,16 @@ nav {
   right: 0;
   position: fixed;
   margin-left: auto;
+  z-index:1000;
   margin-right: auto;
 }
 
 .nav-text-right,
 .nav-text,
 .fas {
-  padding-top: 0.1em;
-  padding-bottom: 0.1em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  font-size: 15px;
 }
 
 .Navbar-right,
@@ -25,7 +27,6 @@ nav {
   display: flex;
   margin-left: auto;
   margin-right: 2em;
-  padding: 5px;
 }
 .Navbar-toggle {
   display: none;
@@ -58,7 +59,7 @@ nav {
   margin-left: 2em;
 }
 
-@media only screen and (max-width: 504px) {
+@media only screen and (max-width: 540px) {
   nav,
   .Navbar-right {
     flex-direction: column;
@@ -68,6 +69,7 @@ nav {
     display: initial;
     position: absolute;
     cursor: pointer;
+    top: .1em;
     right: 2.1em;
   }
   .nav-text-right {
