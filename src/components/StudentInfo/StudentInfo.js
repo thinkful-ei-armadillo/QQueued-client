@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, Fragment } from "react";
 import StudentDataContext from "../../context/StudentDataContext";
 import "./StudentInfo.css";
 
@@ -34,7 +34,7 @@ export default function StudentInfo(props) {
     return studentData
       .filter(s => s.studentName === studentName)
       .map((s, i) => (
-        <React.Fragment key={i}>
+        <Fragment key={i}>
           { !s.mentorNotes.length ? (
             <h3>Student has no notes</h3>
           ) : (
@@ -51,7 +51,7 @@ export default function StudentInfo(props) {
                 </ul>
               </>
             )}
-        </React.Fragment>
+        </Fragment>
       ));
   };
 
