@@ -12,9 +12,6 @@ class Header extends Component {
   }
 
   renderLogoutLink(title, name) {
-    const checkForUser = TokenService.hasAuthToken();
-    const redirectRoute = title === 'mentor' ? '/waiting-room' : '/waiting-list';
-    const homeLinkRedirect = checkForUser ? redirectRoute : '/';
     return (
       <div className="Navbar-right">
         <Link className="nav-text-right userName" to={`/history/${name}`} >{name}</Link>
@@ -71,7 +68,7 @@ class Header extends Component {
     const homeLinkRedirect = checkForUser ? redirectRoute : '/';
     return (
       <header>
-        <nav role="navigation">
+        <nav role="navigation" className="row">
           <Link className="nav-text brand" to={homeLinkRedirect}>Git-Rekt</Link>
           {checkForUser
             ? this.renderLogoutLink(title, full_name)

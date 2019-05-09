@@ -9,6 +9,7 @@ export default class StudentDataList extends Component {
 
   createStudentListItem = () => {
     const { studentData } = this.context;
+    
     return (
       <div className="dataPageContainer">
         <Graph data={studentData} />

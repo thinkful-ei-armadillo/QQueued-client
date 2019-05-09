@@ -34,7 +34,7 @@ export default class WaitingRoom extends Component {
           <section className="col-3">
             <h2 className="being-helped-section-title">Being Helped</h2>
             <div className="Being-Helped-List-Section">
-              <BeingHelpedList />
+              <BeingHelpedList mentorName={full_name}/>
             </div>
           </section>
           <section className="col-3">
