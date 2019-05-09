@@ -1,25 +1,7 @@
-/* .fade-enter {
-  opacity: 0.01;
-  width: 0%;
-}
-
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  width: 100%;
-  transition: 700ms;
-}
-
-.fade-leave {
-  opacity: 1;
-  width: 100%;
-}
-
-.fade-leave.fade-leave-active {
-  opacity: 0.01;
-  width: 0px;
-  transition: 700ms;
-}
- */
+/* 
+old animations had weird side effects so re worked it
+feel free to change to another animation so long as there are no side effects to the structure of the page
+*/
 
 .Has-Been-Helped-List-Section ul,
 .Has-Been-Helped-List-Section li,

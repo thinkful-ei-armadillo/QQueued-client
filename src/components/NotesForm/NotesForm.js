@@ -20,9 +20,6 @@ export default class NotesForm extends Component {
     e.preventDefault();
     const {noteId} = this.props
     const note = this.noteInput.current.value
-
-    console.log(noteId)
-    console.log(note)
     apiService.postNote(note, noteId).then(()=> console.log('done'));
     
   };
@@ -48,16 +45,9 @@ export default class NotesForm extends Component {
     this.setState({ note });
   };
 
-  // createForm = () => {
-  //   return (
-    
-  //   )
-  // }
   render() {
     return (
-      // <section id="note-form-section">
-      //   {this.createForm()}
-      // </section>
+      
         <form onSubmit={this.handleSubmit} id="note-form" className="c ol-3">
         { this.state.hasError
           ? <p>{ this.state.error }</p>
