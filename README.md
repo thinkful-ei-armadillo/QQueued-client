@@ -1,68 +1,82 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# [Application name]
 
-## Available Scripts
+**Application was made by Hunter Kreshock, Jonathan Kleinpeter, Matthew Nguyen and Robin Khiv**
 
-In the project directory, you can run:
+[Demo](https://get-rekt-capstone.now.sh/)   
+[Client Repo](https://github.com/thinkful-ei-armadillo/git-rekt-client)  
+[Server Repo](https://github.com/thinkful-ei-armadillo/git-rekt-server) 
 
-### `npm start`
+*You can use the follow credentials to demo our application.* 
+   
+Username: v1015181  
+Password: passworD1!  
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Sign into the following [Demo Slack Workspace](https://test-k877722.slack.com)  
+Slack email: v1015181@nwytg.net  
+Slack password: passworD1!  
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+**Important**: if you wish to you the Slack integration, your username on the application __must__ match your Slack handle.  
 
-### `npm test`
+## Summary      
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is your new tool to help deal with communication between students and mentors. Student are able to create help tickets through the application, or Slack, and are able to track where they are in line. The application is a visual queue, allowing mentors to be even more transparent with the students in the sense that the students will now know where the mentors are.  
 
-### `npm run build`
+## Getting Started  
+Client:    
+```
+git clone https://github.com/thinkful-ei-armadillo/git-rekt-client
+cd git-rekt-client  
+npm install 
+```  
+Server:  
+```
+git clone https://github.com/thinkful-ei-armadillo/git-rekt-client 
+cd git-rekt-server 
+npm install  
+npm run migrate  
+```  
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Slack Commands  
+Creating a help ticket:  
+```
+/help-me [insert question]
+``` 
+Under Apps, direct message wenc the bot either command to get position in queue:
+```
+queue or ticket
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## API Endpoints  
+```
+POST /api/auth  
+PUT /api/auth  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+GET /api/data  
+GET /api/data/note  
+POST /api/data/note/:noteID  
 
-### `npm run eject`
+GET /api/queue  
+POST /api/queue  
+PATCH /api/queue  
+PATCH /api/queue/:sessionID  
+DELETE /api/queue/:sessionID 
+```
+## Tech Used  
+*Front-End:*  
+* React
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+*Back-End:*   
+* Node.js 
+* Express.js  
+* Postgresql  
+* socket.io  
+* Slack API  
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+*Dev-Tools*  
+* ZEIT  
+* Heroku  
+* ngrok  
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
