@@ -4,7 +4,7 @@ import "./StudentInfo.css";
 
 export default function StudentInfo(props) {
   const dataContext = useContext(StudentDataContext);
-  const { studentData, notes } = dataContext;
+  const { studentData } = dataContext;
   const { studentName } = props.match.params;
 
   const filterStudentInfo = () => {
@@ -25,27 +25,33 @@ export default function StudentInfo(props) {
               <li key={i}>{q}</li>
             ))}
           </ul>
-          {filterNotes()}
+            {filterNotes()}
         </section>
       ));
   };
 
-  const filterNotes = () => {
-    return notes
-      .filter(n => n.studentName === studentName)
-      .map((n, i) => (
-        <div key={i}>
-          {!n.notes.length ? (
+  const filterNotes = () => {  
+    return studentData
+      .filter(s => s.studentName === studentName)
+      .map((s, i) => (
+        <React.Fragment key={i}>
+          { !s.mentorNotes.length ? (
             <h3>Student has no notes</h3>
           ) : (
-            <h3>Mentor Notes</h3>
-          )}
-          <ul className="data-lists">
-            {n.notes.map((n, i) => (
-              <li key={i}>{n}</li>
-            ))}
-          </ul>
-        </div>
+              <>
+                <h3>Mentor Notes</h3>
+                <ul className='data-lists'>
+                  {s.mentorNotes.map((n, i) => (
+                    <li key={i}>
+                      {s.mentors.map((m, i) => (
+                        <span key={i}>{n[m]}</span>
+                      ))}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+        </React.Fragment>
       ));
   };
 

@@ -20,7 +20,7 @@ export default class Chat extends Component {
       student: ""
     };
     this.socket = openSocket(
-      config.SOCKET_ENDPOINT /* || "http://localhost:8000" */
+      /* config.SOCKET_ENDPOINT  */ "http://localhost:8000" 
     );
     this.rooms = [];
     this.recevier = "";
