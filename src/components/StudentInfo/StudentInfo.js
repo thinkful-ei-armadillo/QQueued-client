@@ -8,8 +8,6 @@ export default function StudentInfo(props) {
   const { studentName } = props.match.params;
 
   const filterStudentInfo = () => {
-    console.log({studentData});
-    
     return studentData
       .filter(s => s.studentName === studentName)
       .map((s, i) => (
@@ -32,9 +30,7 @@ export default function StudentInfo(props) {
       ));
   };
 
-  const filterNotes = () => {
-    console.log(studentName);
-    
+  const filterNotes = () => {  
     return studentData
       .filter(s => s.studentName === studentName)
       .map((s, i) => (
