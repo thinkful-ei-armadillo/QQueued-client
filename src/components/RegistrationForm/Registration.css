@@ -6,14 +6,16 @@
   color: rgb(134, 140, 146);
 }
 .registrationInput {
+  font-family: "Montserrat", sans-serif;
   display: inline-block;
   text-align: center;
-  border: 2px solid #403931ec;
-  border-radius: 2px;
+  border-radius: 7px;
   width: 100%;
   background: #c7cfd9;
   padding-left: 1.4px;
   padding-right: 1.4px;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3),
+    1px 1px 6px 1px rgba(0, 0, 0, 0.2), 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
 }
 
 input {
