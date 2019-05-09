@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./LandingRoute.css";
+import Line15 from './Line15.jpg'
 
 export class LandingRoute extends Component {
   render() {
@@ -7,7 +8,7 @@ export class LandingRoute extends Component {
       <section className=" row">
         <div className='landingPageContainer col-12'>
           <h1 className="welcome">QQueued</h1>
-          <img src="http://lalive.s3.amazonaws.com/img/Line15.jpg" alt="people-inline" className='people-inline col-6'/>
+          <img src={Line15} alt="people-inline" className='people-inline col-6'/>
           <p className="landingDescription col-6">
             This is your new tool to help deal with communication between students
             and mentors. This page is a visual queue, allowing mentors to be even

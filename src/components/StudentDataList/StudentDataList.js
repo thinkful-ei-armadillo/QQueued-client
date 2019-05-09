@@ -7,39 +7,31 @@ import Graph from "../Graph/Graph";
 export default class StudentDataList extends Component {
   static contextType = StudentDataContext;
 
-  createStudentListItem = () => {
-    const { studentData } = this.context;
-    
-    return (
-      <div className="dataPageContainer">
-        <Graph data={studentData} />
-        {studentData.map((s, i) => (
-          <section className="data-list-section" key={i}>
-            <h3>
-              {<Link to={`/data/${s.studentName}`}>{s.studentName}</Link>}
-            </h3>
-            <h4>Helped By</h4>
-            <ul className="data-list">
-              {s.mentors.map((m, i) => (
-                <li key={i}>{m}</li>
-              ))}
-            </ul>
-            <h4>Questions</h4>
-            <ul className="data-list">
-              {s.questions.map((q, i) => (
-                <li key={i}>{q}</li>
-              ))}
-            </ul>
-          </section>
-        ))}
-      </div>
-    );
+  createStudentListItem = studentData => {
+    return studentData.map((s, i) => (
+      <li className="" key={i}>
+        <Link to={`/data/${s.studentName}`} className="data-student-name">
+          {s.studentName}
+        </Link>
+        <p className="data-question">{s.questions[0]}</p>
+      </li>
+    ))
   };
 
   render() {
+    const {studentData} = this.context;
     return (
-      <section className="display-data-section">
-        {this.createStudentListItem()}
+      <section className="display-data-section row">
+        <Graph data={studentData} />
+        <div className="col-6">
+          <ul className="studentDataListTitles">
+            <li className="data-student-name">Student Name (click name for more info)</li>
+            <li className="data-question">Question</li>
+          </ul>
+          <ul className="dataPageContainer">
+            {this.createStudentListItem(studentData)}
+          </ul>
+        </div>
       </section>
     );
   }

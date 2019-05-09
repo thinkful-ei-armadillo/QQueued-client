@@ -1,61 +1,52 @@
-.display-data-section {
-  padding: 50px;
-  margin: 25px;
-}
 
-.dataPageContainer {
+.studentDataListTitles{
   display: flex;
-  justify-content: space-evenly;
-  grid-template-columns: auto auto auto auto;
-  grid-template-rows: auto;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left:0px;
 }
-
+.data-student-name{
+  margin-right: 10px;
+  color: black;
+  margin-bottom: 10px;
+}
+.data-question{
+  color: rgb(204, 89, 79);
+}
+.display-data-section{
+  margin-top: 2.3em;
+}
 .display-data-section a {
   text-decoration: none;
   color: black;
 }
 
 .chartjs-render-monitor {
-  padding-bottom: 25px;
+  margin-bottom: 25px;
+  width: 80%;
 }
 
 .display-data-section a:hover {
   color: #403931;
 }
 
-.display-data-section h3 {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
-  display: inline-flex;
-}
 
 .display-data-section ul {
   list-style: none;
-  padding-left: 0;
 }
 
-.data-list li {
-  color: #403931;
-  padding-bottom: 5px;
-}
 
-.data-list-section {
-  color: #5e0a0a;
-  border-radius: 7px;
-  height: 50vh;
-  width: 30vh;
+.dataPageContainer{
+  padding-top: 20px;
+  padding-left:13px;
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
   overflow: auto;
-  margin-bottom: 20px;
-  background-color: #c7cfd9;
-  text-align: center;
-  padding: 0 20px;
-  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3),
-    1px 1px 6px 1px rgba(0, 0, 0, 0.2), 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-}
-
-@media only screen and (max-width: 1000px) {
-  .dataPageContainer {
-    flex-direction: column;
-    align-items: center;
-  }
+  border-radius: 7px;
+  background: #c7cfd9;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3), 1px 1px 6px 1px rgba(0, 0, 0, 0.2), 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
+  color: black;
+  margin-bottom: 14px;
 }
