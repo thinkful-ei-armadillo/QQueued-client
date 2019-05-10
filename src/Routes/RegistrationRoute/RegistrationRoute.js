@@ -7,7 +7,9 @@ export default class RegistrationPage extends Component {
       push: () => {}
     }
   };
-
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
   handleRegistrationSuccuess = () => {
     this.props.history.push("/waiting-room");
   };

@@ -15,6 +15,9 @@ export default class WaitingRoom extends Component {
     }
   };
   static contextType = UserContext;
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
   render() {
     const { full_name } = this.context.user;
     const { history } = this.props;

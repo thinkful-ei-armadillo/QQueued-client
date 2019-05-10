@@ -2,11 +2,17 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import TokenService from "../../services/token-service";
 import UserContext from "../../context/UserContext";
+import MobileHeader from './MobileHeader'
 import "./Header.css";
 
 class Header extends Component {
   static contextType = UserContext;
-
+  
+    state = {
+      showMobileNav: null
+    }
+  
+ 
   handleLogoutClick = () => {
     this.context.processLogout();
   }
@@ -32,7 +38,7 @@ class Header extends Component {
           Sign up
         </Link>
       </div>
-    );
+    )
   }
 
   renderMentorLinks = (name) => {
@@ -55,16 +61,26 @@ class Header extends Component {
       </Link>
     )
   }
-  handleNavToggle (){
-    const navs = document.querySelectorAll('.nav-text-right')
-    navs.forEach(nav => nav.classList.toggle('Navbar-ToggleShow'));
+  handleNavToggle =()=>{
+    this.setState({ showMobileNav: true }, () => {
+      document.addEventListener("click", this.closeMobileNav);
+    });
   }
+
+  closeMobileNav = e => {
+    e.stopPropagation();
+    this.setState({ showMobileNav: false }, () => {
+      document.removeEventListener("click", this.closeMobileNav);
+    });
+  };
 
   render() {
     const {title, full_name} = this.context.user;
+    const {showMobileNav} = this.state
     const checkForUser = TokenService.hasAuthToken();
     const redirectRoute = title === 'mentor' ? '/waiting-room' : '/waiting-list';
     const homeLinkRedirect = checkForUser ? redirectRoute : '/';
+    console.log(checkForUser)
     return (
       <header>
         <nav role="navigation" className="row">
@@ -75,6 +91,7 @@ class Header extends Component {
           <div onClick={this.handleNavToggle} className="Navbar-toggle">
             <i className="fas fa-bars"></i>
           </div>
+          {showMobileNav && <MobileHeader title={title} name={full_name} user={checkForUser} processLogout={()=> this.handleLogoutClick()} />}
         </nav>
       </header>
     );

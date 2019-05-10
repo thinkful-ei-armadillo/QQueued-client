@@ -4,6 +4,9 @@ import { StudentDataProvider } from '../../context/StudentDataContext';
 import './StudentHistoryRoute.css';
 
 export class StudentHistoryRoute extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
   render() {
     const { history } = this.props;
     return (

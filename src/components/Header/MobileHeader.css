@@ -1,0 +1,48 @@
+.Navbar-ToggleShow{
+    display: flex;
+  color: #bfb99e;
+  text-decoration: none;
+  margin-left: auto;
+}
+.Navbar-ToggleShow.signUp{
+  margin-bottom: .2em;
+}
+.Navbar-toggle {
+  display: none;
+  color: #bfb99e;
+}
+.Navbar-toggle:active {
+  transform: translateY(.8px);
+}
+.Navbar-ToggleShow.logout{
+  padding-right: 4px;
+}
+.Navbar-ToggleShow.student-history-nav::after,
+.Navbar-ToggleShow.messageViaSlack::after,
+.Navbar-ToggleShow.data-link::after,
+.Navbar-ToggleShow.userName::after {
+  content: "";
+}
+
+@media only screen and (min-width: 540px){
+    .Navbar-right-mobile{
+      display: none;
+    }
+  }
+@media only screen and (max-width: 540px) {
+    .Navbar-toggle {
+      align-self: flex-end;
+      display: initial;
+      position: absolute;
+      cursor: pointer;
+      top: .1em;
+      right: 2.1em;
+    }
+    
+    .Navbar-right-mobile{
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: 2em;
+    }
+}
