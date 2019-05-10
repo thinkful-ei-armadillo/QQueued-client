@@ -42,7 +42,7 @@ export default class Registration extends Component {
         className="registration-form col-6"
         onSubmit={this.handleRegistrationSubmit}
       >
-        <div role="alert">{error && <p className="red">{error}</p>}</div>
+       
         <h2 className="registerTitle">Register</h2>
         <p className="register-text">Find the answer to unanswered questions</p>
         <div className="registrationInput">
@@ -85,6 +85,7 @@ export default class Registration extends Component {
               required
             />
           </div>
+          <div role="alert">{error && <p className="red">{error}</p>}</div>
           <button
             className="registrationSubmit"
             type="submit"

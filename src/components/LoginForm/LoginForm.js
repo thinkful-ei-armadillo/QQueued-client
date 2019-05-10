@@ -43,10 +43,9 @@ class LoginForm extends Component {
   render() {
     const { error } = this.state;
     return (
-      <form className="LoginForm col-6" onSubmit={this.handleSubmit}>
+      <form className="LoginForm col-4" onSubmit={this.handleSubmit}>
         <div className="loginContainer">
           <h2 className="loginTitle">Login</h2>
-          <div role="alert">{error && <p>{error}</p>}</div>
           <div className="loginInput">
             <div className="usernameInput">
               <Label htmlFor="login-username-input" className="username-login">Username : </Label>
@@ -66,12 +65,24 @@ class LoginForm extends Component {
                 required
               />
             </div>
-            <button className="loginButton" type="submit">
-              Login
-            </button>
-            <Link to='/register' >Register</Link>
+            <div role="alert">{error && <p>{error}</p>}</div>
+            <div className="loginLinks">
+              <button className="loginButton" type="submit">
+                Login
+              </button>
+              <Link to='/register' >Register</Link>
+            </div>
           </div>
+          <div className="demoAccountInfo">
+            <h3 className="demoTitle">Demo Users</h3>
+            <p className="demoInfo"><strong>Student Account: </strong>v1015181</p>
+            <p className="demoInfo"><strong>Student Password: </strong>passworD1</p>
+            <p className="demoInfo"><strong>Mentor Account: </strong>admin</p>
+            <p className="demoInfo"><strong>Mentor Password: </strong>pass</p>
+          </div>
+        
         </div>
+        
       </form>
     );
   }

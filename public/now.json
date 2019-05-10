@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "alias": "get-rekt-capstone",
-  "name": "get-rekt-capstone",
+  "alias": "QQueued",
+  "name": "QQueued",
   "routes": [
     {
       "src": "^/static/(.*)",
@@ -10,18 +10,21 @@
     {
       "src": "^/favicon.ico$",
       "dest": "/favicon.ico"
-    },
-    {
+     },
+     {
       "src": "^/manifest.json$",
       "dest": "/manifest.json"
-    },
-    {
+     },
+     {
       "src": "^/site.webmanifest.json$",
       "dest": "/site.webmanifest.json"
-    },
+     }
+     ,
     {
       "src": ".*",
       "dest": "/index.html"
     }
-  ]
+    
+    
+]
 }
