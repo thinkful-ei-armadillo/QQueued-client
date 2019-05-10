@@ -80,7 +80,6 @@ class Header extends Component {
     const checkForUser = TokenService.hasAuthToken();
     const redirectRoute = title === 'mentor' ? '/waiting-room' : '/waiting-list';
     const homeLinkRedirect = checkForUser ? redirectRoute : '/';
-    console.log(checkForUser)
     return (
       <header>
         <nav role="navigation" className="row">

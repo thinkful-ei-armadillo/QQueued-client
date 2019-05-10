@@ -20,7 +20,7 @@ export default function HelpStudentButton(props) {
       context.tellUser(queueList);
       context.helpStudent(mentorName, history, queueList.id, uuid);
       if (queueList.slack_user_id) {
-        const text = `Your mentor is ready go at ${config.APP_URL}room/${uuid}`;
+        const text = `Your mentor is ready go at ${config.APP_URL}/room/${uuid}`;
         slackService.openDmAndMessage(queueList.slack_user_id, text);
       }
     }
