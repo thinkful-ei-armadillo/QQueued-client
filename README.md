@@ -6,12 +6,6 @@
 [Client Repo](https://github.com/thinkful-ei-armadillo/git-rekt-client)  
 [Server Repo](https://github.com/thinkful-ei-armadillo/git-rekt-server) 
 
-# Team Members
-Hunter Kreshock
-Matt Nguyen
-Robin Khiv
-Jonathan Kleinpeter
-
 *You can use the follow credentials to demo our application.* 
 
 Username: v1015181  
