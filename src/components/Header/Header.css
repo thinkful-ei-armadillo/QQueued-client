@@ -35,20 +35,14 @@ nav {
   margin-left: auto;
   margin-right: 2em;
 }
-.Navbar-toggle {
-  display: none;
-  color: #bfb99e;
-}
-.Navbar-toggle:active {
-  transform: translateY(0.5px);
-}
+
 .nav-text,
 .nav-text-right {
   color: #bfb99e;
   text-decoration: none;
 }
 .nav-text-right:hover,
-.Navbar-toggle:hover {
+.Navbar-toggle:hover,.Navbar-ToggleShow:hover {
   color: #d83f31;
 }
 .login {
@@ -59,7 +53,6 @@ nav {
 .data-link::after,
 .userName::after {
   content: " | ";
-
   margin-right: 4px;
 }
 .brand {
@@ -72,21 +65,8 @@ nav {
   .Navbar-right {
     flex-direction: column;
   }
-  .Navbar-toggle {
-    align-self: flex-end;
-    display: initial;
-    position: absolute;
-    cursor: pointer;
-    top: .1em;
-    right: 2.1em;
-  }
   .nav-text-right {
     display: none;
   }
-  .nav-text-right::after {
-    content: "";
-  }
-  .Navbar-ToggleShow {
-    display: flex;
-  }
+  
 }

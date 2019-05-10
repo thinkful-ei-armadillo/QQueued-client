@@ -10,7 +10,9 @@ class LoginRoute extends Component {
       push: () => {}
     }
   };
-
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
   handleLoginSuccess = () => {
     const { location, history } = this.props;
     let destination = null;
