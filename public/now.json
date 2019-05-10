@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "alias": "get-rekt-capstone",
-  "name": "get-rekt-capstone",
+  "alias": "QQueued",
+  "name": "QQueued",
   "routes": [
     {
       "src": "^/static/(.*)",
