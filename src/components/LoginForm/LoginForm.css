@@ -2,13 +2,19 @@
   text-align: center;
 }
 
-.loginInput {
-  display: inline-block;
+.loginInput, .demoAccountInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 15px 10px;
   border-radius: 7px;
   background: #c7cfd9;
   font-family: "Montserrat", sans-serif;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3),
     1px 1px 6px 1px rgba(0, 0, 0, 0.2), 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
+}
+
+.loginInput{
+  margin-bottom: .8em;
 }
 
 .passwordInput,
@@ -30,21 +36,38 @@
   font-family: "Karla", sans-serif;
   font-size: 2.2em;
 }
-
+.demoAccountInfo{
+  flex-direction: column;
+  font-size: 14px;
+}
+.demoInfo{
+  margin-top:0px;
+  margin: 0 auto 5px 0;
+  text-align: left;
+}
+.loginLinks{
+  display: flex;
+  flex-direction: row;
+  margin: 10px auto 10px auto;
+}
+.demoTitle{
+  margin: 5px auto 5px auto;
+}
+.loginButton{
+  margin-right: .4em;
+}
 .loginButton,
 .registrationSubmit {
   font-family: "Montserrat", sans-serif;
-  display: inline-block;
+  /* display: inline-block; */
   color: white;
   padding: 4px;
-  margin-top: 5px;
-  margin-bottom: 10px;
   border: none;
   background: rgba(206, 45, 30, 0.808);
   font-weight: bold;
   border-radius: 1.2em;
-  width: 30%;
-  margin-right: 9px;
+  /* width: 30%; */
+  /* margin-right: 9px; */
 }
 .loginButton:active,
 .registrationSubmit:active {

@@ -14,8 +14,7 @@ class Header extends Component {
   renderLogoutLink(title, name) {
     return (
       <div className="Navbar-right">
-        <Link className="nav-text-right userName" to={`/history/${name}`} >{name}</Link>
-        {title === "mentor" ? this.renderMentorLinks(): this.renderStudentLinks(name)}
+        {title === "mentor" ? this.renderMentorLinks(name): this.renderStudentLinks(name)}
         <Link className="nav-text-right logout" onClick={this.handleLogoutClick} to="/login">
           Logout
         </Link>
@@ -36,11 +35,11 @@ class Header extends Component {
     );
   }
 
-  renderMentorLinks = () => {
+  renderMentorLinks = (name) => {
     return (
       <React.Fragment>
         <Link className="nav-text-right data-link" to="/data">
-          Data
+          {name}
         </Link>
         <Link className="nav-text-right messageViaSlack" to="/message">
           Slack Message
@@ -69,7 +68,7 @@ class Header extends Component {
     return (
       <header>
         <nav role="navigation" className="row">
-          <Link className="nav-text brand" to={homeLinkRedirect}>Git-Rekt</Link>
+          <Link className="nav-text brand" to={homeLinkRedirect}>QQueued</Link>
           {checkForUser
             ? this.renderLogoutLink(title, full_name)
             : this.renderLoginLink()}
