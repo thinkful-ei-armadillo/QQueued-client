@@ -84,7 +84,7 @@ class Header extends Component {
     return (
       <header>
         <nav role="navigation" className="row">
-          <Link className="nav-text brand" to={homeLinkRedirect}>QQueued</Link>
+          <Link className="nav-text brand" to={homeLinkRedirect}><span className="brandQQ">QQ</span>ueued</Link>
           {checkForUser
             ? this.renderLogoutLink(title, full_name)
             : this.renderLoginLink()}
