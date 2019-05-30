@@ -1,42 +1,105 @@
-.landingPageContainer.col-12 {
+.svg-container{
+  background: url('./study.jpg');
+  background-size:cover;
+
+}
+.application-features{
   display: flex;
-  text-align: center;
-  padding-left: 2em;
-  padding-right: 2em;
-  flex-direction: column;
 }
-
-.welcome {
-  font-size: 1.8em;
-  color: #5e0a0a;
+.landing-info{
+  color: #002C4D;
 }
-
-.people-inline {
+img.col-4{
+  display: block;
+  margin: auto;
+}
+.start-btn{
+  text-decoration: none;
+}
+.startedBtn{
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 7px;
-  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3),
-    1px 1px 6px 1px rgba(0, 0, 0, 0.2), 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
+  margin-top:0;
+  background: #27603A;
+  border: none;
+  color: white;
+  padding: 4px;
+  padding-left: 9px;
+  padding-right: 9px;
+  border-radius: 4px;
+  font-family: 'Work Sans', sans-serif;
 }
-.landingDescription{ 
+.lands.row{
+  margin-bottom: 0;
+  background:linear-gradient(#80D0C7 ,#0192E6 );
+  color: #ffffff;
+  text-shadow: 0 3px 6px #0000009c
+ }
+ svg{
+    -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+    filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+ }
+ h3.app-text{
+   text-align: center;
+   color: #002C4D;
+   font-family: 'Roboto', sans-serif;
+   font-weight: bold;
+ }
+ h2.land{
+   font-weight: 400;
+ }
+.svg-wave{
+  fill:#0192E6;
+}
+.land{
+  margin: 0;
+  padding-top: 1em;
+    text-align: center;
+}
+.landing-para.col-6{
   display: flex;
-  margin-right: auto;
   margin-left: auto;
-  font-size: 14px;
+  margin-right: auto;
+}
+div img.col-4{
+  width: 40%;
+  fill: #002C4D;
+}
+
+div.footer-container{
+  display: flex;
+}
+.contribution-container{
+  display: flex;
+  margin-left: auto;
+}
+h3.contribution{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+footer{
+  background-color: #002C4D;
+  color:#f1ebeb;
+}
+ul{
+  list-style: none;
+}
+footer ul {
+  padding-left: 6px;
+  padding-right: 1em;
+}
+
+h3.col-6{
+  display: none;
+}
+a.github{
+  text-decoration: none;
+  color: #1DE5FF;
 }
 @media only screen and (min-width: 630px){
-  .landingPageContainer.col-12{
-    width:100%;
-  }
-}
-@media only screen and (max-width: 630px) {
-  .landingPageContainer {
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-
-  .people-inline {
-    width: 100%;
+  h3.col-6{
+    display: inline;
+    margin: auto;
   }
 }

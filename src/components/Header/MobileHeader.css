@@ -1,15 +1,17 @@
 .Navbar-ToggleShow{
     display: flex;
-  color: #bfb99e;
+  color: #ffffff;
   text-decoration: none;
   margin-left: auto;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
 }
 .Navbar-ToggleShow.signUp{
   margin-bottom: .2em;
 }
 .Navbar-toggle {
   display: none;
-  color: #bfb99e;
+  color: #ffffff;
 }
 .Navbar-toggle:active {
   transform: translateY(.8px);

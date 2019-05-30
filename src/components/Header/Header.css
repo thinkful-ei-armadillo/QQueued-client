@@ -6,7 +6,10 @@ header{
   margin-right: auto;
   margin-left: auto;
   z-index:1000;
-  background: #403931;
+  background: #002C4D;
+}
+span.brandQQ{
+  color: #1DE5FF;
 }
 nav[role="navigation"].row{
   margin-bottom: 0px;
@@ -27,6 +30,11 @@ nav {
   padding-bottom: 0.2em;
   font-size: 15px;
 }
+.nav-text-right,
+.nav-text{
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
 
 .Navbar-right,
 .Navbar-right-no-user,
@@ -38,7 +46,7 @@ nav {
 
 .nav-text,
 .nav-text-right {
-  color: #bfb99e;
+  color: #ffffff;
   text-decoration: none;
 }
 .nav-text-right:hover,
