@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "alias": "QQueued",
-  "name": "QQueued",
+  "alias": "QQueued-Mentoring",
+  "name": "QQueued-Mentoring",
   "routes": [
     {
       "src": "^/static/(.*)",

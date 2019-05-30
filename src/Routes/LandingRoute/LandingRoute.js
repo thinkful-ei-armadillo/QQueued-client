@@ -9,6 +9,8 @@ export class LandingRoute extends Component {
   render() {
     return (
       <React.Fragment>
+        <div className="landing-container">
+
         <section className="lands row">
           <div className='col-12'>
            <h2 className='land'>A communication tool for student and mentors
@@ -19,6 +21,7 @@ export class LandingRoute extends Component {
            </Link>
           </div>
         </section>
+        </div>
         <div class="svg-container" style={{height: '98%', overflow: 'hidden'}} >
           <svg viewBox="0 0 500 150" preserveAspectRatio="none" style={{height: '100%', width: '100%' }}>
             <path d="M-10.83,34.64 C172.00,-43.31 305.19,88.91 580.59,-20.63 L500.00,0.00 L0.00,0.00 Z"   class='svg-wave'style={{stroke: 'none'}}>
@@ -46,12 +49,11 @@ export class LandingRoute extends Component {
           </div>
         </section>
         <footer role='contentinfo'>
-          <div className="footer-container">
+          <div className="footer-container row">
             <h3 className="col-6">
               Get the App TODAY on <a className="github"href='https://github.com/thinkful-ei-armadillo/QQueued-client'>GitHub</a>
             </h3>
             <div className="contribution-container">
-
             <h3 className="contribution">Contributions By:</h3>
              <ul>
                <li>Robin Khiv</li>

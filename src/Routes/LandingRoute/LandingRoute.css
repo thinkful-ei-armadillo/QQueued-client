@@ -1,13 +1,15 @@
 .svg-container{
   background: url('./study.jpg');
   background-size:cover;
-
 }
 .application-features{
   display: flex;
 }
 .landing-info{
   color: #002C4D;
+}
+.landing-container{
+  background: linear-gradient(#80D0C7 ,#0192E6 );
 }
 img.col-4{
   display: block;
@@ -32,7 +34,6 @@ img.col-4{
 }
 .lands.row{
   margin-bottom: 0;
-  background:linear-gradient(#80D0C7 ,#0192E6 );
   color: #ffffff;
   text-shadow: 0 3px 6px #0000009c
  }
@@ -96,6 +97,9 @@ h3.col-6{
 a.github{
   text-decoration: none;
   color: #1DE5FF;
+}
+div.footer-container.row{
+  margin-bottom: 0;
 }
 @media only screen and (min-width: 630px){
   h3.col-6{
