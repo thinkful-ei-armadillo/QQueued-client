@@ -2,26 +2,20 @@
 
 **Application was made by Hunter Kreshock, Jonathan Kleinpeter, Matthew Nguyen and Robin Khiv**
 
-[Demo](https://qqueued.now.sh/)   
-[Client Repo](https://github.com/thinkful-ei-armadillo/git-rekt-client)  
-[Server Repo](https://github.com/thinkful-ei-armadillo/git-rekt-server) 
+[Demo](http://qqueued-mentoring.now.sh)  
+[Client Repo](https://github.com/thinkful-ei-armadillo/QQueued-client)  
+[Server Repo](https://github.com/thinkful-ei-armadillo/QQueued-server)  
 
-*You can use the follow credentials to demo our application.* 
+*You can use the follow credentials to demo our application.*  
 
-Username: v1015181  
-Password: passworD1!  
-
-Sign into the following [Demo Slack Workspace](https://test-k877722.slack.com)  
-Slack email: v1015181@nwytg.net  
-Slack password: passworD1!  
+Username: admin   
+Password: pass   
 
 **Important**: if you wish to you the Slack integration, your username on the application __must__ match your Slack handle.  
 
-![landing](./screenshots/landing.png)
-![queue](./screenshots/queue.png)
-![chat](./screenshots/chat.png)
-![graph](./screenshots/graph.png)
-![helped](./screenshots/helped.png)
+<img src="./screenshots/qqueuedLanding.png" alt="landing" width="250"/><img src="./screenshots/graph.png" alt="graph" width="250"/><img src="./screenshots/helped.png" alt="helped" width="250"/>  
+<img src="./screenshots/queue.png" alt="queue" width="250"/><img src="./screenshots/chat.png" alt="chat" width="250"/>
+
 
 ## Summary      
 
@@ -30,14 +24,14 @@ This is your new tool to help deal with communication between students and mento
 ## Getting Started  
 Client:    
 ```
-git clone https://github.com/thinkful-ei-armadillo/git-rekt-client
-cd git-rekt-client  
-npm install 
+git clone https://github.com/thinkful-ei-armadillo/QQueued-client  
+cd QQueued-client  
+npm install  
 ```  
 Server:  
 ```
-git clone https://github.com/thinkful-ei-armadillo/git-rekt-client 
-cd git-rekt-server 
+git clone https://github.com/thinkful-ei-armadillo/QQueued-server  
+cd QQueued-server  
 npm install  
 npm run migrate  
 ```  
