@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import AuthApiService from "../../services/auth-api-service";
 import UserContext from "../../context/UserContext";
 import "./LoginForm.css";
+import SpinningLoader from './SpinningLoader.svg'
 
 class LoginForm extends Component {
   static defaultProps = {
@@ -12,12 +13,16 @@ class LoginForm extends Component {
 
   static contextType = UserContext;
 
-  state = { error: null };
+  state = { 
+    isLoading: false,
+    error: null 
+  };
 
   firstInput = React.createRef();
 
   handleSubmit = ev => {
     ev.preventDefault();
+    this.setState({isLoading: true});
     const { user_name, password } = ev.target;
     this.setState({ error: null });
 
@@ -28,6 +33,7 @@ class LoginForm extends Component {
       .then(res => {
         user_name.value = "";
         password.value = "";
+        this.setState({isLoading: false});
         this.context.processLogin(res.authToken);
         this.props.onLoginSuccess();
       })
@@ -40,6 +46,21 @@ class LoginForm extends Component {
     this.firstInput.current.focus();
   }
 
+  renderLoading() {
+    return (<img src={SpinningLoader} alt="spinning loader"/>)
+  }
+
+  renderLoginButton(){
+    return (
+      <div className="loginLinks">
+        <button className="loginButton" type="submit">
+           Login
+        </button>
+        <Link to='/register' >Register</Link>
+      </div>
+    )
+  }
+  
   render() {
     const { error } = this.state;
     return (
@@ -66,21 +87,14 @@ class LoginForm extends Component {
               />
             </div>
             <div role="alert">{error && <p>{error}</p>}</div>
-            <div className="loginLinks">
-              <button className="loginButton" type="submit">
-                Login
-              </button>
-              <Link to='/register' >Register</Link>
-            </div>
+            {this.state.isLoading ? this.renderLoading() : this.renderLoginButton()}  
           </div>
           <div className="demoAccountInfo">
             <h3 className="demoTitle">Demo Users</h3>
             <p className="demoInfo"><strong>Mentor Account: </strong>admin</p>
             <p className="demoInfo"><strong>Mentor Password: </strong>pass</p>
           </div>
-        
         </div>
-        
       </form>
     );
   }

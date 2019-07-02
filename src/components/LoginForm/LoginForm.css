@@ -12,7 +12,12 @@
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3),
     1px 1px 6px 1px rgba(0, 0, 0, 0.2), 1px 1px 4px 1px rgba(0, 0, 0, 0.1);
 }
-
+img[alt="spinning loader"]{
+  display: flex;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
 .loginInput{
   margin-bottom: .8em;
 }
