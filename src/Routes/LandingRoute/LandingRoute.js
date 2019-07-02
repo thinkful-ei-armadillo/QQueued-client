@@ -10,17 +10,16 @@ export class LandingRoute extends Component {
     return (
       <React.Fragment>
         <div className="landing-container">
-
-        <section className="lands row">
-          <div className='col-12'>
-           <h2 className='land'>A communication tool for student and mentors
-           </h2>
-           <p className="landing-para col-6"> Students are able to create help tickets through the application or via Slack and are able to track where they are in line.</p>
-           <Link className="start-btn" to='/register'>
-            <button className='startedBtn'>GET STARTED</button>
-           </Link>
-          </div>
-        </section>
+          <section className="lands row">
+            <div className='col-12'>
+            <h2 className='land'>A communication tool for student and mentors
+            </h2>
+            <p className="landing-para col-6"> Students are able to create help tickets through the application or via Slack and are able to track where they are in line.</p>
+            <Link className="start-btn" to='/register'>
+              <button className='startedBtn'>GET STARTED</button>
+            </Link>
+            </div>
+          </section>
         </div>
         <div class="svg-container" style={{height: '98%', overflow: 'hidden'}} >
           <svg viewBox="0 0 500 150" preserveAspectRatio="none" style={{height: '100%', width: '100%' }}>
