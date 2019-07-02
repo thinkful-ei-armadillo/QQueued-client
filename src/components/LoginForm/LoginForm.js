@@ -90,7 +90,7 @@ class LoginForm extends Component {
             {this.state.isLoading ? this.renderLoading() : this.renderLoginButton()}  
           </div>
           <div className="demoAccountInfo">
-            <h3 className="demoTitle">Demo Users</h3>
+            <h3 className="demoTitle">Demo User</h3>
             <p className="demoInfo"><strong>Mentor Account: </strong>admin</p>
             <p className="demoInfo"><strong>Mentor Password: </strong>pass</p>
           </div>
