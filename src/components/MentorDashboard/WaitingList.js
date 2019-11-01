@@ -6,32 +6,27 @@ import "./MentorDashboardAnimations.css";
 export default class StudentDescriptionList extends Component {
   static contextType = QueueContext;
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   componentDidMount() {
     this.context.webSocket();
     this.context.update();
   }
-
   makeStudentList = () => {
-    return (
-      <div>
-          {this.context.queueList.map((i, j) => {
-            return (
-              <li key={j} className="waitingListLiConatiner">
-                <span className="studentName">{i.studentName}</span>{" "}
-                <span className="description"> {i.description}</span>
+         return this.context.queueList.map((i, j) => 
+            (
+              <li key={j} className="studentName">
+                <div> Student:  {i.studentName}</div>
+                <div> Question:  {i.description}</div>
               </li>
-            );
-          })}
-      </div>
-    );
+            ));
   };
-
   render() {
-    return <ul>{this.makeStudentList()}</ul>;
-  }
+    
+    return (
+
+      <React.Fragment>
+       <h3>Current Wait List</h3>
+       <ul>{this.makeStudentList()}</ul>
+      </React.Fragment>
+      )
+    }
 }

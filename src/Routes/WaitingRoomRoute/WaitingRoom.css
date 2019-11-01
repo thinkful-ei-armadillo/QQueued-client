@@ -1,6 +1,56 @@
-.Mentor-List-Section ul {
-  list-style-type: none;
-  padding-left: 0;
+h3{
+  text-align: center;
+}
+.mentorWrapper{
+  display: grid;
+  grid-template-areas: 
+    "title title"
+    "sidebar1 list"
+    "sidebar1 list" 
+    "sidebar3 list";
+  grid-gap: 5px;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+  background: rgb(214, 234, 252);
+  padding: .2em 1em 1em 1em;
+  border-radius: 2px;
+  margin-top: 1em;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 90%;
+}
+.mentorTitle{
+  display: flex;
+  grid-area: title;
+  justify-content: center;
+}
+.mentorList ul{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.listSelection{
+ grid-area: sidebar1;
+ border-radius: 2px;
+ box-shadow:  1px 0px 0px 0px rgba(0, 0, 0, 0.2), 1px 1px 4px 2px rgba(0, 0, 0, 0.1), 1px 1px 4px 2px rgba(0, 0, 0, 0.1), 1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+ background: #ffffff;
+}
+.listSelection div{
+  margin: 1em .5em;
+
+}
+.listSelection div:hover{
+  color: red;
+  cursor: pointer;
+}
+.mentorList{
+  grid-area: list;
+  border-radius: 2px;
+  background: #ffffff;
+  box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.2), 1px 1px 4px 2px rgba(0, 0, 0, 0.1), 1px 1px 4px 2px rgba(0, 0, 0, 0.1), 1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+}
+.titleSection:hover{
+  background: rgb(158, 156, 156);;
 }
 .studentTitle,
 .studentName,
@@ -10,6 +60,7 @@
   display:flex;
   flex-direction: column;
   margin: 10px;
+  width: max-content;
   padding: 8px;
   font-size: 16px;
   border-radius: 3px;
@@ -26,64 +77,4 @@
 .has-been-helped-title {
   background: rgb(33, 94, 33);
   color: rgb(223, 209, 209);
-}
-.keyForMentors {
-  display: flex;
-  flex-direction: row;
-}
-
-.Mentor-List-Section {
-  display: flex;
-  height: 90vh;
-  text-align: center;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.linkToChatRoom {
-  background: none;
-}
-
-.Mentor-List-Section ul {
-  margin: 10px;
-  padding: 10px;
-}
-
-.Waiting-List-Section {
-  text-align: center;
-}
-
-.Waiting-List-Section,
-.Being-Helped-List-Section,
-.Has-Been-Helped-List-Section {
-  height: 70vh;
-  overflow: auto;
-  border-radius: 7px; 
-  background: #c7cfd9;
-  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3), 
-   1px 1px 6px 1px rgba(0, 0, 0, 0.2), 
-   1px 1px 4px 1px rgba(0, 0, 0, 0.1);
-  color: black;
-  margin-bottom: 14px;
-}
-
-.hidden {
-  display: none;
-}
-
-.keyForMentors {
-  display: flex;
-  top: 15%;
-}
-
-.Being-Helped-List-Section .studentName:hover {
-  cursor: pointer;
-}
-
-@media only screen and (max-width: 630px) {
-  .Waiting-List-Section,
-  .Being-Helped-List-Section,
-  .Has-Been-Helped-List-Section {
-    height: 100%;
-  }
 }

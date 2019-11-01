@@ -13,7 +13,7 @@ export default function HelpStudentButton(props) {
     const { mentorName } = props;
     const { history } = props;
     const queueList = context.queueList[0];
-
+    console.log(mentorName, history, queueList)
     if (context.queueList.length) {
       queueList.mentorName = mentorName;
       queueList.url = `/room/${uuid}`;

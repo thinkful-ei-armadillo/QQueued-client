@@ -18,10 +18,10 @@ export default function BeingHelpedList(props) {
     const style = {cursor: "default"}
     return (
       <span
-        className="studentName"
+        className=""
         style={style}
       > 
-        {student.studentName}
+        Student: {student.studentName}
       </span>
     )
   }
@@ -32,10 +32,10 @@ export default function BeingHelpedList(props) {
           const students = value.currentlyBeingHelped;
           return students.map((student, index) => {
             return (
-              <li key={index} className="hasBeenHelped">
+              <li key={index} className="mentorName">
                  {student.mentorName === props.mentorName? renderButtonToComplete(value, student)
                  : renderNameOnly(student) }
-                <span className="mentorName"> {student.mentorName}</span>
+                <span className=""> Mentor: {student.mentorName}</span>
               </li>
             );
           });
@@ -44,5 +44,10 @@ export default function BeingHelpedList(props) {
     );
   };
 
-  return <ul>{students()}</ul>;
+  return (
+    <React.Fragment>
+     <h3>Being Helped by Mentors</h3>
+     <ul>{students()}</ul>
+    </React.Fragment>
+    ) 
 }

@@ -14,39 +14,47 @@ export default class WaitingRoom extends Component {
       push: () => {}
     }
   };
+  state = {
+    currentView: "waitingList"
+  }
   static contextType = UserContext;
   componentDidMount() {
     window.scrollTo(0, 0)
+  }
+  renderList(list){
+    this.setState({ currentView:list})
+  }
+  renderWaitingList(full_name, history){
+    return (
+      <React.Fragment>
+        <WaitingList />
+        <HelpStudentButton
+          mentorName={full_name}
+          history={history}
+        />
+      </React.Fragment>
+    );
   }
   render() {
     const { full_name } = this.context.user;
     const { history } = this.props;
     return (
       <QueueProvider>
-        <div className="Mentor-List-Section row">
-          <section className="keyForMentors col-3">
-            <h2 className="studentTitle">Students Issues</h2>
-            <div className="Waiting-List-Section">
-              <HelpStudentButton
-                mentorName={full_name}
-                history={history}
-              />
-              <WaitingList />
-            </div>
-          </section>
-          <section className="col-3">
-            <h2 className="being-helped-section-title">Being Helped</h2>
-            <div className="Being-Helped-List-Section">
-              <BeingHelpedList mentorName={full_name}/>
-            </div>
-          </section>
-          <section className="col-3">
-            <h2 className="has-been-helped-title">Has Been Helped</h2>
-            <div className="Has-Been-Helped-List-Section">
-              <HasBeenHelpedList />
-            </div>
-          </section>
-        </div>
+        <section className="row">
+          <div className="mentorWrapper">
+          <h2 className="mentorTitle">Dashboard</h2>
+          <div className="listSelection">
+            <div className="listSelection1" onClick={()=> this.renderList('waitingList')}>Student Issues</div>
+            <div className="listSelection2" onClick={()=> this.renderList('beingHelpedList')}>Being Helped</div>
+            <div className="listSelection3" onClick={()=> this.renderList('CompletedList')}>Completed</div>
+          </div>
+          <div className="mentorList">
+            {this.state.currentView === 'waitingList' && this.renderWaitingList(full_name, history)}
+            {this.state.currentView === 'beingHelpedList' && <BeingHelpedList mentorName={full_name}/>}
+            {this.state.currentView === 'CompletedList' && <HasBeenHelpedList />}
+          </div>
+          </div>
+        </section>
       </QueueProvider>
     );
   }

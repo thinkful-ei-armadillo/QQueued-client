@@ -9,21 +9,24 @@ export default function HasBeenHelpedList() {
       <QueueContext.Consumer>
         {value => {
           const queue = value.hasBeenHelpedList;
-          return queue ? (
-            <div>
-                {queue.map((q, i) => {
-                  return (
-                    <li key={i} className="eachStudentInQueue">
-                      <span className="studentName">{q.studentName}</span>{" "}
-                    </li>
-                  );
-                })}
-            </div>
-          ) : null;
+          return queue ? 
+            queue.map((q, i) => {
+              return (
+                <li key={i} className="eachStudentInQueue">
+                  <span className="studentName helped">{q.studentName}</span>{" "}
+                </li>
+              );
+            })
+          : null;
         }}
       </QueueContext.Consumer>
     );
   };
 
-  return <ul>{makeHelpedList()}</ul>;
+  return (
+    <React.Fragment>
+      <h3>Completed Sessions</h3>
+      <ul>{makeHelpedList()}</ul>
+    </React.Fragment>
+  )
 }

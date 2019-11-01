@@ -21,13 +21,13 @@ export class LandingRoute extends Component {
             </div>
           </section>
         </div>
-        <div class="svg-container" style={{height: '98%', overflow: 'hidden'}} >
+        <div className="svg-container" style={{height: '98%', overflow: 'hidden'}} >
           <svg viewBox="0 0 500 150" preserveAspectRatio="none" style={{height: '100%', width: '100%' }}>
             <path d="M-10.83,34.64 C172.00,-43.31 305.19,88.91 580.59,-20.63 L500.00,0.00 L0.00,0.00 Z"   class='svg-wave'style={{stroke: 'none'}}>
             </path>
           </svg>  
         </div>
-        <section class="row">
+        <section className="row">
           <div className='landing-info col-6'>
             <h2>TRANSPARENCY FOR ALL</h2>
             <p >We help close the gap with communication between student and teachers.</p>
